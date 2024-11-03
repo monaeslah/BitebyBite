@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import AllRecipes from './pages/allRecipes'
 import AddRecipe from './pages/addRecipe'
@@ -14,7 +13,7 @@ function App () {
         <Sidebar />
         <Routes>
           <Route path='/' element={<AllRecipes />} />
-          <Route path='/add' element={<AddRecipe />} />
+          <Route path='/add-recipe' element={<AddRecipe />} />
         </Routes>
       </div>
     </div>

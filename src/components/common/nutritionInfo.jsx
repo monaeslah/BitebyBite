@@ -1,5 +1,5 @@
 import React from 'react'
-import InputField from './InputField'
+import InputField from './inputField'
 
 const NutritionalInfo = ({ data, onChange }) => (
   <fieldset className='nutrition inputContainer'>
