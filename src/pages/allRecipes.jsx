@@ -16,7 +16,6 @@ const AllRecipes = () => {
           ...data[id]
         }))
         setCards(recipes)
-        console.log(recipes)
       })
       .catch(e => {
         console.log('The get api has error', e)
@@ -25,7 +24,7 @@ const AllRecipes = () => {
   useEffect(() => {
     getRecipes()
   }, [])
-  // const filteredList = list.filter(recipe => {
+  // const filteredList = cards.filter(recipe => {
   //   if (calorieFilter === 'low') return recipe.calories < 200
   //   if (calorieFilter === 'medium')
   //     return recipe.calories >= 200 && recipe.calories <= 400

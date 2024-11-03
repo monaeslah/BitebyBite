@@ -14,6 +14,7 @@ function App () {
         <Sidebar />
         <Routes>
           <Route path='/' element={<AllRecipes />} />
+          <Route path='/add' element={<AddRecipe />} />
         </Routes>
       </div>
     </div>
