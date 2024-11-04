@@ -2,6 +2,7 @@ import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Card from './card'
 import { Base_URL } from '../config/api'
+import { Link } from 'react-router-dom'
 
 const AllRecipes = () => {
   const [cards, setCards] = useState([])
@@ -16,6 +17,7 @@ const AllRecipes = () => {
           ...data[id]
         }))
         setCards(recipes)
+        console.log(data)
       })
       .catch(e => {
         console.log('The get api has error', e)
@@ -49,13 +51,14 @@ const AllRecipes = () => {
       <div className='card-container'>
         {cards.length > 0 ? (
           cards.map(recipe => (
-            <Card
-              key={recipe.id}
-              imgSrc={recipe.photos}
-              imgAlt={`Image of ${recipe.title}`}
-              title={recipe.name}
-              id={recipe.id}
-            />
+            <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
+              <Card
+                imgSrc={recipe.photos}
+                imgAlt={`Image of ${recipe.title}`}
+                title={recipe.name}
+                id={recipe.id}
+              />
+            </Link>
           ))
         ) : (
           <p>No recipes match this calorie range.</p>

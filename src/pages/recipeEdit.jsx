@@ -1,15 +1,16 @@
-import { useState } from 'react'
 import axios from 'axios'
-import { Base_URL } from '../config/api'
-import InputField from '../components/common/InputField'
+import { useEffect, useState } from 'react'
+import InputField from '../components/common/inputField'
 import TextareaField from '../components/common/textField'
 import TagsSection from '../components/common/tagSection'
 import NutritionalInfo from '../components/common/nutritionInfo'
 import IngredientsSection from '../components/ingredients'
 import InstructionsSection from '../components/common/instructions'
-import { useNavigate } from 'react-router-dom'
 
-const AddRecipe = () => {
+import { Base_URL } from '../config/api'
+import { useNavigate, useParams } from 'react-router-dom'
+
+const RecipeEdit = () => {
   const [recipe, setRecipe] = useState({
     name: '',
     description: '',
@@ -27,8 +28,29 @@ const AddRecipe = () => {
     ingredients: [],
     instructions: []
   })
+
   const [ingredient, setIngredient] = useState('')
+  const { recipeId } = useParams()
   const navigate = useNavigate()
+
+  const getRecipe = () => {
+    axios
+      .get(`${Base_URL}/recipes/${recipeId}.json`)
+      .then(res => {
+        const data = res.data
+        if (data) {
+          setRecipe(data)
+        } else {
+          console.error('Recipe not found')
+          navigate('/404')
+        }
+      })
+      .catch(e => console.error('Error fetching recipe:', e))
+  }
+
+  useEffect(() => {
+    getRecipe()
+  }, [recipeId])
 
   const handleChange = (e, field = null) => {
     const { name, value } = e.target
@@ -82,22 +104,19 @@ const AddRecipe = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    console.log('Recipe JSON:', JSON.stringify(recipe, null, 2))
-    // const newRecipe = JSON.stringify(recipe, null, 2)
-
     axios
-      .post(`${Base_URL}/recipes.json`, recipe)
-      .then(res => {
-        navigate('/')
-      })
-      .catch(e => {
-        console.log('The get api has error', e)
-      })
+      .put(`${Base_URL}/recipes/${recipeId}.json`, recipe)
+      .then(() => navigate(`/recipe/${recipeId}`))
+      .catch(e => console.error('Error updating recipe:', e))
+  }
+
+  if (!recipe) {
+    return <p>Loading recipe data...</p>
   }
 
   return (
-    <div className='recipe-form'>
-      <h2>Create Recipe</h2>
+    <div className='recipe-edit'>
+      <h2>Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
         <InputField
           label='Name'
@@ -121,18 +140,14 @@ const AddRecipe = () => {
           placeholder='Recipe Note'
         />
 
-        <TagsSection
-          // tags={predefinedTags}
-          selectedTags={recipe.tags}
-          onTagClick={handleTagClick}
-        />
+        <TagsSection selectedTags={recipe.tags} onTagClick={handleTagClick} />
 
         <InputField
           label='Photo URL'
           name='photos'
           value={recipe.photos.join(', ')}
           onChange={e => handleArrayChange(e, 'photos')}
-          placeholder='Photo URL'
+          placeholder='Photo URL (comma separated for multiple URLs)'
         />
         <InputField
           label='Rating'
@@ -170,11 +185,11 @@ const AddRecipe = () => {
         />
 
         <button type='submit' className='submit-btn'>
-          Create Recipe
+          Update Recipe
         </button>
       </form>
     </div>
   )
 }
 
-export default AddRecipe
+export default RecipeEdit

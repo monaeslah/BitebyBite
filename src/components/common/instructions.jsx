@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import InputField from './common/inputField'
+import InputField from './inputField'
 
 const InstructionsSection = ({ instructions, onAdd, onDelete }) => {
   const [instruction, setInstruction] = useState('')

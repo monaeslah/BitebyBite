@@ -1,8 +1,10 @@
 import { Routes, Route } from 'react-router-dom'
+import Sidebar from './components/sidebar'
+import Navbar from './components/navbar'
 import AllRecipes from './pages/allRecipes'
 import AddRecipe from './pages/addRecipe'
-import Navbar from './components/navbar'
-import Sidebar from './components/sidebar'
+import RecipeDetail from './pages/recipeDetail'
+import RecipeEdit from './pages/recipeEdit'
 
 function App () {
   return (
@@ -14,6 +16,8 @@ function App () {
         <Routes>
           <Route path='/' element={<AllRecipes />} />
           <Route path='/add-recipe' element={<AddRecipe />} />
+          <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
+          <Route path='/recipe/edit/:recipeId' element={<RecipeEdit />} />
         </Routes>
       </div>
     </div>
