@@ -3,9 +3,10 @@ import { useEffect, useState } from 'react'
 import Card from './card'
 import { Base_URL } from '../config/api'
 import { Link } from 'react-router-dom'
-
+import SearchBar from '../components/searchBar'
 const AllRecipes = () => {
   const [cards, setCards] = useState([])
+  const [query, setQuery] = useState('')
   const getRecipes = () => {
     axios
       .get(`${Base_URL}/recipes.json`)
@@ -26,6 +27,9 @@ const AllRecipes = () => {
   useEffect(() => {
     getRecipes()
   }, [])
+  const filteredRecipes = cards.filter(recipe =>
+    recipe.name.toLowerCase().includes(query.toLowerCase())
+  )
   // const filteredList = cards.filter(recipe => {
   //   if (calorieFilter === 'low') return recipe.calories < 200
   //   if (calorieFilter === 'medium')
@@ -47,10 +51,10 @@ const AllRecipes = () => {
           <option value='high'>High Calories (&gt; 400)</option>
         </select>
       </div> */}
-
+      <SearchBar query={query} setQuery={setQuery} />
       <div className='card-container'>
-        {cards.length > 0 ? (
-          cards.map(recipe => (
+        {filteredRecipes.length > 0 ? (
+          filteredRecipes.map(recipe => (
             <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
               <Card
                 imgSrc={recipe.photos}

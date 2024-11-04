@@ -1,0 +1,12 @@
+.page-layout {
+  display: flex;
+  flex-direction: column; /* Stack navbar and main content vertically */
+  min-height: 100vh;
+}
+.main-content {
+  margin-top: 60px; /* Offset by navbar height */
+  margin-left: 250px; /* Offset by sidebar width */
+  padding: 20px;
+  flex: 1;
+  overflow-y: auto;
+}

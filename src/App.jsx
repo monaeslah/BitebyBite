@@ -11,8 +11,9 @@ function App () {
     <div className='page-layout'>
       <Navbar />
 
+      <Sidebar />
+
       <div className='main-content'>
-        <Sidebar />
         <Routes>
           <Route path='/' element={<AllRecipes />} />
           <Route path='/add-recipe' element={<AddRecipe />} />
