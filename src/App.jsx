@@ -1,18 +1,44 @@
+import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
+import getRecipes from './config/utilCurd'
 import Sidebar from './components/sidebar'
 import Navbar from './components/navbar'
 import AllRecipes from './pages/allRecipes'
 import AddRecipe from './pages/addRecipe'
 import RecipeDetail from './pages/recipeDetail'
 import RecipeEdit from './pages/recipeEdit'
+import Modal from './components/modal'
+import SurpriseCard from './components/randomRecipe'
 
 function App () {
+  const [isFormOpen, setIsFormOpen] = useState(false)
+  const openModal = () => {
+    selectRandom()
+    setIsFormOpen(true)
+  }
+  const closeForm = () => setIsFormOpen(false)
+  const [cards, setCards] = useState([])
+  const [rcards, setRcards] = useState([])
+  useEffect(() => {
+    getRecipes().then(fetchedRecipes => {
+      setCards(fetchedRecipes)
+    })
+  }, [])
+  const selectRandom = () => {
+    let neRan = cards[Math.floor(Math.random() * cards.length)]
+
+    setRcards(neRan)
+    setIsFormOpen(true)
+  }
   return (
     <div className='page-layout'>
       <Navbar />
 
-      <Sidebar />
+      <Sidebar openForm={openModal} />
 
+      <Modal isOpen={isFormOpen} onClose={closeForm}>
+        <SurpriseCard surprise={rcards} reselect={selectRandom} /> hello
+      </Modal>
       <div className='main-content'>
         <Routes>
           <Route path='/' element={<AllRecipes />} />

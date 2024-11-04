@@ -83,7 +83,6 @@ const AddRecipe = () => {
   const handleSubmit = e => {
     e.preventDefault()
     console.log('Recipe JSON:', JSON.stringify(recipe, null, 2))
-    // const newRecipe = JSON.stringify(recipe, null, 2)
 
     axios
       .post(`${Base_URL}/recipes.json`, recipe)

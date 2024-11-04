@@ -1,31 +1,16 @@
-import axios from 'axios'
 import { useEffect, useState } from 'react'
 import Card from './card'
-import { Base_URL } from '../config/api'
+import getRecipes from '../config/utilCurd'
 import { Link } from 'react-router-dom'
 import SearchBar from '../components/searchBar'
 const AllRecipes = () => {
   const [cards, setCards] = useState([])
   const [query, setQuery] = useState('')
-  const getRecipes = () => {
-    axios
-      .get(`${Base_URL}/recipes.json`)
-      .then(res => {
-        const data = res.data
 
-        const recipes = Object.keys(data).map(id => ({
-          id,
-          ...data[id]
-        }))
-        setCards(recipes)
-        console.log(data)
-      })
-      .catch(e => {
-        console.log('The get api has error', e)
-      })
-  }
   useEffect(() => {
-    getRecipes()
+    getRecipes().then(fetchedRecipes => {
+      setCards(fetchedRecipes)
+    })
   }, [])
   const filteredRecipes = cards.filter(recipe =>
     recipe.name.toLowerCase().includes(query.toLowerCase())
