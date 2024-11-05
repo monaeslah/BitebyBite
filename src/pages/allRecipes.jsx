@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
 import Card from './card'
-import { getRecipes, getFavRecipes } from '../config/utilCurd'
-import { Link } from 'react-router-dom'
+import { getRecipes } from '../config/utilCurd'
+
 import SearchBar from '../components/searchBar'
+
 const AllRecipes = () => {
   const [cards, setCards] = useState([])
-  const [favs, setFaves] = useState([])
+
   const [query, setQuery] = useState('')
 
   useEffect(() => {
@@ -25,7 +26,7 @@ const AllRecipes = () => {
   // })
 
   return (
-    <div>
+    <div id='recipes-container'>
       {/* <div className='filter-controls'>
         <select
           value={calorieFilter}
@@ -38,18 +39,18 @@ const AllRecipes = () => {
         </select>
       </div> */}
       <SearchBar query={query} setQuery={setQuery} />
-      <div className='card-container'>
+
+      <div className='recipe-area'>
         {filteredRecipes.length > 0 ? (
           filteredRecipes.map(recipe => (
-            <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
-              <Card
-                imgSrc={recipe.photos}
-                imgAlt={`Image of ${recipe.title}`}
-                title={recipe.name}
-                id={recipe.id}
-                fav={recipe.fav}
-              />
-            </Link>
+            <Card
+              key={recipe.id}
+              imgSrc={recipe.photos}
+              imgAlt={`Image of ${recipe.title}`}
+              title={recipe.name}
+              id={recipe.id}
+              fav={recipe.fav}
+            />
           ))
         ) : (
           <p>No recipes match this calorie range.</p>
