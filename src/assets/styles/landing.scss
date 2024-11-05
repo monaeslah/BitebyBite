@@ -1,0 +1,94 @@
+#home-container {
+  padding: 3rem 2rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f8f6; // Light background to match the screenshot
+
+  .hero-section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 2rem 0;
+
+    .hero-text {
+      max-width: 50%;
+      color: #333;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1.2;
+        margin: 0;
+
+        .highlight {
+          background-color: #fbb03b;
+          padding: 0.1rem 0.3rem;
+          color: #000;
+        }
+      }
+
+      .subtitle {
+        font-size: 1rem;
+        color: #666;
+        margin: 1rem 0;
+      }
+
+      .hero-buttons {
+        display: flex;
+        align-items: center;
+        margin-top: 1rem;
+
+        .get-started {
+          padding: 0.5rem 1.5rem;
+          background-color: #fbb03b;
+          color: #fff;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        .learn-more {
+          margin-left: 1rem;
+          color: #fbb03b;
+          text-decoration: none;
+          font-weight: bold;
+          font-size: 1rem;
+        }
+      }
+
+      .metrics {
+        display: flex;
+        gap: 2rem;
+        margin-top: 2rem;
+        font-size: 1rem;
+        color: #444;
+
+        div {
+          font-size: 1.2rem;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          strong {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #333;
+          }
+
+          span {
+            color: #888;
+          }
+        }
+      }
+    }
+
+    .hero-image {
+      max-width: 40%;
+      img {
+        width: 100%;
+        border-radius: 10px;
+      }
+    }
+  }
+}
