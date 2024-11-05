@@ -4,10 +4,14 @@ import unFav from '../assets/icons/emptyheart.png'
 
 export const Card = ({ imgSrc, imgAlt, title, id, fav }) => {
   return (
-    <div className='card-container'>
+    <div className='card-container card card-orange'>
       <Link to={`/recipe/${id}`}>
+        <div className='ranking-badge ranking-badge-orange'></div>
+        <div className='serving'></div>
         <div className='card-image-wrapper'>
           <img src={imgSrc} alt={imgAlt} className='card-image' />
+        </div>
+        <div className='card-content '>
           <div className='fav-icon'>
             {fav ? (
               <img src={Fav} alt='Favorite icon' />
@@ -15,9 +19,7 @@ export const Card = ({ imgSrc, imgAlt, title, id, fav }) => {
               <img src={unFav} alt='Unfavorite icon' />
             )}
           </div>
-        </div>
-        <div className='card-content'>
-          <div className='card-title'>
+          <div className='card-title '>
             <p>{title}</p>
           </div>
           <div className='card-actions'></div>
