@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import getRecipes from './config/utilCurd'
+import { getRecipes } from './config/utilCurd'
 import Sidebar from './components/sidebar'
 import Navbar from './components/navbar'
 import AllRecipes from './pages/allRecipes'
 import AddRecipe from './pages/addRecipe'
 import RecipeDetail from './pages/recipeDetail'
 import RecipeEdit from './pages/recipeEdit'
+import CategoryPage from './pages/filter/recipeTags'
+import FilteredRecipes from './pages/filter/filteredRecipes'
 import Modal from './components/modal'
 import SurpriseCard from './components/randomRecipe'
 
@@ -45,6 +47,9 @@ function App () {
           <Route path='/add-recipe' element={<AddRecipe />} />
           <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
           <Route path='/recipe/edit/:recipeId' element={<RecipeEdit />} />
+          <Route path='/tags' element={<CategoryPage />} />
+
+          <Route path='/tag/:tag' element={<FilteredRecipes />} />
         </Routes>
       </div>
     </div>

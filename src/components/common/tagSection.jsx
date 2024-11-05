@@ -2,18 +2,15 @@ import React from 'react'
 
 const TagsSection = ({ selectedTags = [], onTagClick }) => {
   const predefinedTags = [
-    'breakfast',
-    'pasta',
-    'Italian',
-    'quick',
-    'lunch',
-    'dinner',
-    'sweet',
-    'savory',
-    'snack',
-    'healthy',
-    'vegetarian',
-    'pancakes'
+    'Appetizers',
+    'Breakfast',
+    'Dinner',
+    'Drinks',
+    'Healthy',
+    'Lunch',
+    'Smoothies',
+    'Soup',
+    'Vegetarian'
   ]
 
   return (
@@ -33,10 +30,6 @@ const TagsSection = ({ selectedTags = [], onTagClick }) => {
           </button>
         ))}
       </div>
-      <p className='selected-tags'>
-        Selected tags:{' '}
-        {selectedTags.length > 0 ? selectedTags.join(', ') : 'None'}
-      </p>
     </div>
   )
 }

@@ -3,7 +3,8 @@ import { useEffect, useState } from 'react'
 import { Base_URL } from '../config/api'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 // import Loader from "../components/Loader";
-
+import Fav from '../assets/icons/heart.png'
+import unFav from '../assets/icons/emptyheart.png'
 const RecipeDetail = () => {
   const [recipe, setRecipe] = useState(null)
   const { recipeId } = useParams()
@@ -34,7 +35,19 @@ const RecipeDetail = () => {
       })
       .catch(error => console.log('Error deleting recipe...', error))
   }
-
+  const toggleFavorite = () => {
+    axios
+      .patch(`${Base_URL}/recipes/${recipeId}.json`, {
+        fav: !recipe.fav
+      })
+      .then(response => {
+        setRecipe(prevRecipe => ({
+          ...prevRecipe,
+          fav: !prevRecipe.fav
+        }))
+      })
+      .catch(error => console.log('Error updating favorite status...', error))
+  }
   useEffect(() => {
     getRecipe()
   }, [])
@@ -53,11 +66,17 @@ const RecipeDetail = () => {
       <div className='recipe-container'>
         <h1>{recipe.name}</h1>
 
-        <img
-          src={recipe.photos && recipe.photos[0]}
-          alt={`Image of ${recipe.name}`}
-          className='recipe-image'
-        />
+        <div className='image-border'>
+          <img
+            src={recipe.photos && recipe.photos[0]}
+            alt={`Image of ${recipe.name}`}
+            className='recipe-image'
+          />
+          <div className='fav-icon' onClick={toggleFavorite}>
+            {' '}
+            {recipe.fav ? <img src={Fav} /> : <img src={unFav} />}
+          </div>
+        </div>
 
         <p>
           <strong>Description:</strong> {recipe.description}

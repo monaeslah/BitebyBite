@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
 import Card from './card'
-import getRecipes from '../config/utilCurd'
+import { getRecipes, getFavRecipes } from '../config/utilCurd'
 import { Link } from 'react-router-dom'
 import SearchBar from '../components/searchBar'
 const AllRecipes = () => {
   const [cards, setCards] = useState([])
+  const [favs, setFaves] = useState([])
   const [query, setQuery] = useState('')
 
   useEffect(() => {
@@ -46,6 +47,7 @@ const AllRecipes = () => {
                 imgAlt={`Image of ${recipe.title}`}
                 title={recipe.name}
                 id={recipe.id}
+                fav={recipe.fav}
               />
             </Link>
           ))

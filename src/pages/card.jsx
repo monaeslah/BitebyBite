@@ -1,20 +1,21 @@
-import { Link } from 'react-router-dom'
-export const Card = ({ imgSrc, imgAlt, title, id }) => {
+import Fav from '../assets/icons/heart.png'
+import unFav from '../assets/icons/emptyheart.png'
+export const Card = ({ imgSrc, imgAlt, title, id, fav }) => {
   return (
-    <div className='card-area'>
+    <div id='home-container'>
+      <div className='image-border'>
+        <img src={imgSrc} alt={imgAlt} />
+        <div className='fav-icon'>
+          {' '}
+          {fav ? <img src={Fav} /> : <img src={unFav} />}
+        </div>
+      </div>
       <div className='card-box'>
-        <div className='image-border'>
-          <img src={imgSrc} alt={imgAlt} />
+        <div className='title'>
+          <p>{title}</p>
         </div>
-        <Link className='card-title' to={`/recipe/${id}`}>
-          <h3>{title}</h3>
-        </Link>
 
-        <div className='btn-controler'>
-          {/* <Link to={`/recipe/edit/${id}`}>
-            <EditNoteIcon />
-          </Link> */}
-        </div>
+        <div className='btn-controler'></div>
       </div>
     </div>
   )
