@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import classNames from 'classnames'
 
 export const CookButton = ({
-  icon,
   size,
   className,
   enable,
@@ -29,7 +28,6 @@ export const CookButton = ({
       className={`${buttonClasses} ${enable ? 'pointer' : 'not_allowed'}`}
       onClick={enable ? onClick : undefined}
     >
-      {icon && <img src={icon} alt='button icon' />}
       {options ? (
         <>
           <span
