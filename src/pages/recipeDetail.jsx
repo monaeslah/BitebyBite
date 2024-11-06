@@ -57,68 +57,79 @@ const RecipeDetail = () => {
   }
 
   return (
-    <div className='recipe-detail'>
+    <div id='recipe-detail'>
       <Link to={`/recipe/edit/${recipeId}`}>
         <button>Edit</button>
       </Link>
       <button onClick={deleteRecipe}>Delete</button>
 
+      <p className='rate'>
+        <strong>Rating:</strong> {recipe.rate} ⭐
+      </p>
       <div className='recipe-container'>
-        <h1>{recipe.name}</h1>
-
-        <div className='image-border'>
-          <img
-            src={recipe.photos && recipe.photos[0]}
-            alt={`Image of ${recipe.name}`}
-            className='recipe-image'
-          />
-          <div className='fav-icon' onClick={toggleFavorite}>
+        <div className='summery'>
+          <div className='image-border'>
+            <img
+              src={recipe.photos && recipe.photos[0]}
+              alt={`Image of ${recipe.name}`}
+              className='recipe-image'
+            />
+            <div className='fav-icon' onClick={toggleFavorite}>
+              {' '}
+              {recipe.fav ? <img src={Fav} /> : <img src={unFav} />}
+            </div>
+          </div>
+          <div className='words'>
             {' '}
-            {recipe.fav ? <img src={Fav} /> : <img src={unFav} />}
+            <h1>{recipe.name}</h1>
+            <div className='nut-info'>
+              <h3>Nutritional Information:</h3>
+              <p>Calories: {recipe.nutritionalInformation.calories}</p>
+              <p>
+                Carbohydrates: {recipe.nutritionalInformation.carbohydrates}
+              </p>
+              <p>Fat: {recipe.nutritionalInformation.fat}</p>
+              <p>Protein: {recipe.nutritionalInformation.protein}</p>
+            </div>
+            <p>
+              {' '}
+              <strong>Time:</strong> {recipe.time}
+            </p>
+            <h3>Tags:</h3>
+            <ul className='tags-list'>
+              {recipe.tags &&
+                recipe.tags.map((tag, index) => <li key={index}>{tag}</li>)}
+            </ul>
+            <p>
+              <strong>Description:</strong> {recipe.description}
+            </p>
           </div>
         </div>
 
-        <p>
-          <strong>Description:</strong> {recipe.description}
-        </p>
-        <p>
-          <strong>Time:</strong> {recipe.time}
-        </p>
-        <p>
-          <strong>Rating:</strong> {recipe.rate} ⭐
-        </p>
-
-        <h3>Ingredients:</h3>
-        <ul>
-          {recipe.ingredients &&
-            recipe.ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
-            ))}
-        </ul>
-
-        <h3>Instructions:</h3>
-        <ol>
-          {recipe.instructions &&
-            recipe.instructions.map((step, index) => (
-              <li key={index}>{step}</li>
-            ))}
-        </ol>
-
-        <h3>Nutritional Information:</h3>
-        <p>Calories: {recipe.nutritionalInformation.calories}</p>
-        <p>Carbohydrates: {recipe.nutritionalInformation.carbohydrates}</p>
-        <p>Fat: {recipe.nutritionalInformation.fat}</p>
-        <p>Protein: {recipe.nutritionalInformation.protein}</p>
-
-        <h3>Tags:</h3>
-        <ul className='tags-list'>
-          {recipe.tags &&
-            recipe.tags.map((tag, index) => <li key={index}>{tag}</li>)}
-        </ul>
-
-        <p>
-          <strong>Note:</strong> {recipe.recipeNote}
-        </p>
+        <div className='detail'>
+          <div className='ingredient'>
+            <h3>Ingredients:</h3>
+            <ul>
+              {recipe.ingredients &&
+                recipe.ingredients.map((ingredient, index) => (
+                  <li key={index}>{ingredient}</li>
+                ))}
+            </ul>
+          </div>
+          <div className='instruction'>
+            {' '}
+            <h3>Instructions:</h3>
+            <ol>
+              {recipe.instructions &&
+                recipe.instructions.map((step, index) => (
+                  <li key={index}>{step}</li>
+                ))}
+            </ol>
+            <p>
+              <strong>Note:</strong> {recipe.recipeNote}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

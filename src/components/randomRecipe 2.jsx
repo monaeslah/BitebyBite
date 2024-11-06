@@ -7,7 +7,7 @@ const SurpriseCard = ({ surprise, reselect }) => {
     setRandomRecipe(surprise)
   }, [surprise])
   return (
-    <div className='surprise-modal'>
+    <div>
       {randomRecipe &&
         randomRecipe.photos.map((item, index) => (
           <img src={item} alt={randomRecipe.name} key={index} />

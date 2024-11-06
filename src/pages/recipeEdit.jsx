@@ -1,7 +1,6 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import InputField from '../components/common/inputField'
-import TextareaField from '../components/common/textField'
+import InputField from '../components/common/InputField'
 import TagsSection from '../components/common/tagSection'
 import NutritionalInfo from '../components/common/nutritionInfo'
 import IngredientsSection from '../components/ingredients'
@@ -118,45 +117,55 @@ const RecipeEdit = () => {
     <div className='recipe-edit'>
       <h2>Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
-        <InputField
-          label='Name'
-          name='name'
-          value={recipe.name}
-          onChange={handleChange}
-          placeholder='Recipe Name'
-        />
-        <TextareaField
-          label='Description'
-          name='description'
-          value={recipe.description}
-          onChange={handleChange}
-          placeholder='Recipe Description'
-        />
-        <TextareaField
-          label='Recipe Note'
-          name='recipeNote'
-          value={recipe.recipeNote}
-          onChange={handleChange}
-          placeholder='Recipe Note'
-        />
+        <InputField className='inputField largeInput'>
+          <input
+            label='Name'
+            name='name'
+            value={recipe.name}
+            onChange={handleChange}
+            placeholder='Recipe Name'
+          />
+        </InputField>
+        <InputField className='inputField largeInput'>
+          <input
+            label='Description'
+            name='description'
+            value={recipe.description}
+            onChange={handleChange}
+            placeholder='Recipe Description'
+          />
+        </InputField>
+        <InputField className='inputField largeInput'>
+          <input
+            label='Recipe Note'
+            name='recipeNote'
+            value={recipe.recipeNote}
+            onChange={handleChange}
+            placeholder='Recipe Note'
+          />
+        </InputField>
 
         <TagsSection selectedTags={recipe.tags} onTagClick={handleTagClick} />
 
-        <InputField
-          label='Photo URL'
-          name='photos'
-          value={recipe.photos.join(', ')}
-          onChange={e => handleArrayChange(e, 'photos')}
-          placeholder='Photo URL (comma separated for multiple URLs)'
-        />
-        <InputField
-          label='Rating'
-          name='rate'
-          value={recipe.rate}
-          onChange={handleChange}
-          placeholder='Recipe Rating'
-          type='number'
-        />
+        <InputField className='inputField largeInput'>
+          <input
+            label='Photo URL'
+            name='photos'
+            value={recipe.photos.join(', ')}
+            onChange={e => handleArrayChange(e, 'photos')}
+            placeholder='Photo URL (comma separated for multiple URLs)'
+          />
+        </InputField>
+        <InputField className='inputField largeInput'>
+          <input
+            label='Rating'
+            name='rate'
+            value={recipe.rate}
+            onChange={handleChange}
+            placeholder='Recipe Rating'
+            type='number'
+          />
+        </InputField>
         <InputField
           label='Time'
           name='time'

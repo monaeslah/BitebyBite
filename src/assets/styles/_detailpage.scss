@@ -1,0 +1,132 @@
+#recipe-detail {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+
+  a {
+    text-decoration: none;
+    color: #007bff;
+    &:hover {
+      color: #0056b3;
+    }
+  }
+
+  .rate {
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+  }
+
+  .recipe-container {
+    display: flex;
+
+    flex-direction: column;
+    gap: 20px;
+
+    .summery {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      .image-border {
+        width: 30%;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+        position: relative;
+
+        .recipe-image {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+        }
+
+        .fav-icon {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+      .words {
+        .nut-info {
+          display: flex;
+        }
+      }
+
+      h1 {
+        font-size: 2em;
+        margin: 10px 0;
+      }
+
+      h3 {
+        margin-top: 15px;
+        font-weight: bold;
+        color: #555;
+      }
+
+      .tags-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        li {
+          background-color: #e3e3e3;
+          padding: 5px 10px;
+          border-radius: 20px;
+          font-size: 0.9em;
+        }
+      }
+    }
+
+    .detail {
+      display: flex;
+      .ingredient {
+        width: 40%;
+      }
+      h3 {
+        font-size: 1.5em;
+        margin-top: 20px;
+      }
+
+      ul {
+        list-style-type: square;
+        padding-left: 20px;
+
+        li {
+          margin-bottom: 5px;
+        }
+      }
+
+      ol {
+        list-style-type: decimal;
+        padding-left: 20px;
+
+        li {
+          margin-bottom: 10px;
+        }
+      }
+
+      strong {
+        font-weight: bold;
+      }
+    }
+  }
+
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    margin-right: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

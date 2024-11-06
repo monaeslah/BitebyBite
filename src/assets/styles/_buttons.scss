@@ -1,0 +1,122 @@
+.largeButton,
+.mediumButton,
+.smallButton {
+  max-height: 20px;
+
+  &.largeButton {
+    width: 80px;
+  }
+
+  &.mediumButton {
+    width: 50px;
+  }
+
+  &.smallButton {
+    width: 35px;
+  }
+}
+.innerButton {
+  line-height: 30px;
+}
+.mainBtn {
+  position: relative;
+  margin: 10px;
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: $main-cta-box-shadow;
+  min-height: 30px;
+  max-height: 32px;
+  display: flex;
+  justify-content: center;
+  color: $primary-blue;
+
+  img {
+    margin-left: auto;
+    width: 18px;
+  }
+
+  &.not_allowed {
+    color: $color-text-black;
+    cursor: not-allowed;
+    background-color: $gray-diable;
+  }
+  &.remove {
+    background: none;
+    color: #e74c3c;
+    border: none;
+    cursor: pointer;
+  }
+  &.primary-btn {
+    background-color: $primary-blue;
+    color: $primary-white;
+    cursor: pointer;
+  }
+}
+
+//common buttons
+.cancel {
+  margin-right: 12px;
+  margin-left: 12px;
+}
+
+.closeButton {
+  width: 20px;
+}
+
+.reset-btn {
+  margin: 30px auto;
+}
+
+.home-button {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.icon-position {
+  img {
+    margin-left: 12px;
+    width: 13px;
+  }
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.ok-green-btn {
+  display: flex;
+  height: 40px;
+  padding: 5px 8px;
+  align-items: center;
+  gap: 10px;
+  background: $primary-green;
+  box-shadow: $ok-button-shadow;
+  border: $primary-border;
+}
+
+div.options {
+  background-color: #ffffff;
+  position: absolute;
+  max-width: 100px;
+  width: 100%;
+  top: 44px;
+  right: 0;
+  z-index: 2;
+  border: 1px solid #fafaff;
+  border-radius: 10px;
+  box-shadow: 0px 5px 15px 0px rgba(0, 0, 0, 0.12),
+    0px 15px 35px 0px rgba(103, 110, 118, 0.08);
+}
+.optionitem {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 2px 20px;
+  margin: 10px 0;
+  text-align: center;
+  height: 28px;
+  color: #c90e0e;
+  &:hover {
+    background-color: #e9e9e9;
+  }
+}

@@ -2,7 +2,6 @@ import { useState } from 'react'
 import axios from 'axios'
 import { Base_URL } from '../config/api'
 import InputField from '../components/common/InputField'
-import TextareaField from '../components/common/textField'
 import TagsSection from '../components/common/tagSection'
 import NutritionalInfo from '../components/common/nutritionInfo'
 import IngredientsSection from '../components/ingredients'
@@ -65,7 +64,12 @@ const AddRecipe = () => {
         : [...prev.tags, tag]
     }))
   }
-
+  const setIngredients = newIngredients => {
+    setRecipe(prev => ({
+      ...prev,
+      ingredients: newIngredients
+    }))
+  }
   const handleAddInstruction = instruction => {
     setRecipe(prev => ({
       ...prev,
@@ -95,79 +99,91 @@ const AddRecipe = () => {
   }
 
   return (
-    <div className='recipe-form'>
+    <div id='recipe-form'>
       <h2>Create Recipe</h2>
       <form onSubmit={handleSubmit}>
-        <InputField
-          label='Name'
-          name='name'
-          value={recipe.name}
-          onChange={handleChange}
-          placeholder='Recipe Name'
-        />
-        <TextareaField
-          label='Description'
-          name='description'
-          value={recipe.description}
-          onChange={handleChange}
-          placeholder='Recipe Description'
-        />
-        <TextareaField
-          label='Recipe Note'
-          name='recipeNote'
-          value={recipe.recipeNote}
-          onChange={handleChange}
-          placeholder='Recipe Note'
-        />
-
-        <TagsSection
-          // tags={predefinedTags}
-          selectedTags={recipe.tags}
-          onTagClick={handleTagClick}
-        />
-
-        <InputField
-          label='Photo URL'
-          name='photos'
-          value={recipe.photos.join(', ')}
-          onChange={e => handleArrayChange(e, 'photos')}
-          placeholder='Photo URL'
-        />
-        <InputField
-          label='Rating'
-          name='rate'
-          value={recipe.rate}
-          onChange={handleChange}
-          placeholder='Recipe Rating'
-          type='number'
-        />
-        <InputField
-          label='Time'
-          name='time'
-          value={recipe.time}
-          onChange={handleChange}
-          placeholder='Cooking Time'
-        />
-
-        <NutritionalInfo
-          data={recipe.nutritionalInformation}
-          onChange={e => handleChange(e, 'nutritionalInformation')}
-        />
-
-        <IngredientsSection
-          ingredients={recipe.ingredients}
-          ingredient={ingredient}
-          onAdd={handleAddIngredient}
-          onDelete={index => handleDeleteItem('ingredients', index)}
-          setIngredient={setIngredient}
-        />
-
-        <InstructionsSection
-          instructions={recipe.instructions}
-          onAdd={handleAddInstruction}
-          onDelete={index => handleDeleteItem('instructions', index)}
-        />
-
+        <div className='form-container'>
+          <div className='left-side'>
+            <InputField className='inputField largeInput'>
+              <input
+                type={'text'}
+                value={recipe.name}
+                onChange={handleChange}
+                placeholder='Recipe Name'
+              />
+            </InputField>
+            <InputField className='inputField textareaContainer largeInput'>
+              <textarea
+                label='Description'
+                name='description'
+                value={recipe.description}
+                onChange={handleChange}
+                placeholder='Recipe Description'
+              />
+            </InputField>
+            <InputField className='inputField textareaContainer largeInput'>
+              <textarea
+                label='Recipe Note'
+                name='recipeNote'
+                value={recipe.recipeNote}
+                onChange={handleChange}
+                placeholder='Recipe Note'
+              />
+            </InputField>
+            <TagsSection
+              selectedTags={recipe.tags}
+              onTagClick={handleTagClick}
+            />{' '}
+            <InputField className='inputField largeInput'>
+              <input
+                label='Photo URL'
+                name='photos'
+                value={recipe.photos.join(', ')}
+                onChange={e => handleArrayChange(e, 'photos')}
+                placeholder='Photo URL'
+              />{' '}
+            </InputField>
+            <InputField className='inputField largeInput'>
+              <input
+                label='Rating'
+                name='rate'
+                value={recipe.rate}
+                onChange={handleChange}
+                placeholder='Recipe Rating'
+                type='number'
+              />
+            </InputField>
+            <InputField className='inputField largeInput'>
+              <input
+                label='Time'
+                name='time'
+                value={recipe.time}
+                onChange={handleChange}
+                placeholder='Cooking Time'
+              />
+            </InputField>
+            <NutritionalInfo
+              data={recipe.nutritionalInformation}
+              onChange={e => handleChange(e, 'nutritionalInformation')}
+            />
+          </div>
+          <div className='right-side'>
+            {' '}
+            <IngredientsSection
+              ingredients={recipe.ingredients}
+              ingredient={ingredient}
+              onAdd={handleAddIngredient}
+              onDelete={index => handleDeleteItem('ingredients', index)}
+              setIngredient={setIngredient}
+              setIngredients={setIngredients}
+            />
+            <InstructionsSection
+              instructions={recipe.instructions}
+              onAdd={handleAddInstruction}
+              onDelete={index => handleDeleteItem('instructions', index)}
+            />
+          </div>
+        </div>
         <button type='submit' className='submit-btn'>
           Create Recipe
         </button>

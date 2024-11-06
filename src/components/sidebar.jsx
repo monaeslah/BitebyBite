@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-const Sidebar = ({ openForm }) => {
+const Sidebar = ({ openForm, openAddRecipe }) => {
   return (
     <div className='sidebar'>
       <ul className='sidebar-list'>
@@ -7,10 +7,8 @@ const Sidebar = ({ openForm }) => {
         <li>
           <Link to='/'>My Recipes</Link>
         </li>
-        <li>
-          <Link to='/add-recipe'>Add New Recipe</Link>
-        </li>
-        <li onClick={openForm}>Rendom</li>
+        <li onClick={openAddRecipe}>Add Recipe</li>
+        <li onClick={openForm}>Lucky Choice</li>
       </ul>
     </div>
   )

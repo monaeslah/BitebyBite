@@ -1,16 +1,14 @@
 // Modal.js
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import ReactDOM from 'react-dom'
 
-function Modal ({ isOpen, onClose, children }) {
-  // Ensure modal closes when clicking outside of modal content
+function Modal ({ className = '', classNo = '', isOpen, onClose, children }) {
   const handleClickOutside = e => {
     if (e.target.id === 'modal-overlay') {
       onClose()
     }
   }
 
-  // Prevent scrolling on the main page when modal is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden'
@@ -20,16 +18,15 @@ function Modal ({ isOpen, onClose, children }) {
     return () => (document.body.style.overflow = 'auto')
   }, [isOpen])
 
-  // Render only if the modal is open
   if (!isOpen) return null
 
   return ReactDOM.createPortal(
     <div
       id='modal-overlay'
-      className='modal-overlay'
+      className={`modal-overlay ${className}`}
       onClick={handleClickOutside}
     >
-      <div className='modal-content'>
+      <div className={` ${classNo}`}>
         <button className='close-button' onClick={onClose}>
           X
         </button>

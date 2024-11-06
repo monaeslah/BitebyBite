@@ -1,4 +1,4 @@
-import React from 'react'
+import { CookButton } from './buttons'
 
 const TagsSection = ({ selectedTags = [], onTagClick }) => {
   const predefinedTags = [
@@ -18,16 +18,15 @@ const TagsSection = ({ selectedTags = [], onTagClick }) => {
       <label>Tags:</label>
       <div className='tag-buttons'>
         {predefinedTags.map(tag => (
-          <button
-            type='button'
+          <CookButton
             key={tag}
-            className={`tag-button ${
-              selectedTags.includes(tag) ? 'selected' : 'deselected'
-            }`}
+            label={tag}
+            enable={true}
+            size='small'
+            className={'tag-button'}
+            selected={selectedTags.includes(tag)}
             onClick={() => onTagClick(tag)}
-          >
-            {tag}
-          </button>
+          />
         ))}
       </div>
     </div>

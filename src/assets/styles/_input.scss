@@ -1,0 +1,72 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 8px;
+  }
+  .inputField {
+    display: flex;
+    height: 45px;
+    padding: 1px 0;
+    padding-left: 14px;
+    margin: 8px 0;
+    align-items: center;
+    box-shadow: $input-field-box-shadow;
+    border-radius: 7px;
+    transition: box-shadow 0.3s, border-color 0.3s;
+    &.xlargeInput {
+      width: 880px;
+    }
+    &.largeInput {
+      width: 420px;
+    }
+
+    &.mediumInput {
+      width: 380px;
+    }
+    &.smallInput {
+      width: 120px;
+    }
+    textarea,
+    input {
+      border: none;
+      min-height: 38px;
+      margin-left: 11px;
+      width: 100%;
+      padding: 3px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      &:focus {
+        outline: none;
+      }
+      &::placeholder {
+        color: $primary-blue;
+      }
+    }
+    &:focus-within {
+      border: 1px solid $primary-blue;
+    }
+
+    &.has-content:not(.error) {
+      border: 1px solid $primary-blue;
+    }
+
+    &.error {
+      border: 1px solid $errorColor;
+    }
+
+    .passwordToggleIcon {
+      cursor: pointer;
+
+      &.hidden {
+        display: none;
+      }
+      &.visible {
+        display: inline-block;
+      }
+    }
+  }
+}

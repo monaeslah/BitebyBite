@@ -11,16 +11,23 @@ import CategoryPage from './pages/filter/recipeTags'
 import FilteredRecipes from './pages/filter/filteredRecipes'
 import Modal from './components/modal'
 import SurpriseCard from './components/randomRecipe'
+import Login from './pages/login'
 
 function App () {
   const [isFormOpen, setIsFormOpen] = useState(false)
+  const closeAddRecipeModal = () => setIsAddRecipeOpen(false)
+  const [isAddRecipeOpen, setIsAddRecipeOpen] = useState(false)
+  const [cards, setCards] = useState([])
+  const [rcards, setRcards] = useState([])
   const openModal = () => {
     selectRandom()
     setIsFormOpen(true)
   }
   const closeForm = () => setIsFormOpen(false)
-  const [cards, setCards] = useState([])
-  const [rcards, setRcards] = useState([])
+  const openAddRecipeModal = () => {
+    setIsAddRecipeOpen(true)
+  }
+
   useEffect(() => {
     getRecipes().then(fetchedRecipes => {
       setCards(fetchedRecipes)
@@ -36,15 +43,30 @@ function App () {
     <div className='page-layout'>
       <Navbar />
 
-      <Sidebar openForm={openModal} />
+      <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
 
-      <Modal isOpen={isFormOpen} onClose={closeForm}>
-        <SurpriseCard surprise={rcards} reselect={selectRandom} /> hello
+      <Modal
+        isOpen={isFormOpen}
+        onClose={closeForm}
+        className='modal-overlay  '
+        classNo='modal-content'
+      >
+        <SurpriseCard surprise={rcards} reselect={selectRandom} />
+      </Modal>
+      <Modal
+        isOpen={isAddRecipeOpen}
+        onClose={closeAddRecipeModal}
+        large
+        className='modal-overlay  modal-bottomtotop'
+        classNo='modal-content-recipe'
+      >
+        <AddRecipe />
       </Modal>
       <div className='main-content'>
         <Routes>
           <Route path='/' element={<AllRecipes />} />
-          <Route path='/add-recipe' element={<AddRecipe />} />
+          <Route path='/login' element={<Login />} />
+
           <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
           <Route path='/recipe/edit/:recipeId' element={<RecipeEdit />} />
           <Route path='/tags' element={<CategoryPage />} />

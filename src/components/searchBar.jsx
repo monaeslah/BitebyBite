@@ -1,3 +1,4 @@
+import InputField from './common/inputField'
 const SearchBar = ({ query, setQuery }) => {
   return (
     <div>
@@ -5,12 +6,17 @@ const SearchBar = ({ query, setQuery }) => {
         <div>
           <span>Search</span>
         </div>
-        <input
-          type='text'
-          className='search-bar'
-          value={query}
-          onChange={e => setQuery(e.target.value)}
-        />
+        <InputField
+          className='inputField xlargeInput'
+          // label={field.charAt(0).toUpperCase() + field.slice(1)}
+        >
+          <input
+            type='text'
+            className='search-bar'
+            value={query}
+            onChange={e => setQuery(e.target.value)}
+          />
+        </InputField>
       </div>
     </div>
   )

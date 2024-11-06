@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import InputField from './inputField'
-
+import { CookButton } from './buttons'
 const InstructionsSection = ({ instructions, onAdd, onDelete }) => {
   const [instruction, setInstruction] = useState('')
 
@@ -19,27 +19,39 @@ const InstructionsSection = ({ instructions, onAdd, onDelete }) => {
   }
 
   return (
-    <div className='instructions-section'>
-      <div className='instruction-input'>
-        <InputField
-          label={'Instructions:'}
-          name={instruction}
-          value={instruction}
-          onChange={e => setInstruction(e.target.value)}
-          onKeyPress={handleKeyPress}
-          placeholder='Add an instruction'
+    <div className='main-section'>
+      <div className='input'>
+        <InputField className='inputField largeInput'>
+          <input
+            label={'Instructions:'}
+            name={instruction}
+            value={instruction}
+            onChange={e => setInstruction(e.target.value)}
+            onKeyPress={handleKeyPress}
+            placeholder='Add an instruction'
+          />
+        </InputField>
+
+        <CookButton
+          onClick={handleAddInstruction}
+          label='Add'
+          enable={true}
+          size='small'
+          className={'primary-btn'}
         />
-        <button type='button' onClick={handleAddInstruction}>
-          Add
-        </button>
       </div>
-      <ul className='instruction-list'>
+      <ul className='list'>
         {instructions?.map((item, index) => (
           <li key={index}>
             {item}
-            <button type='button' onClick={() => onDelete(index)}>
-              Remove
-            </button>
+
+            <CookButton
+              onClick={() => onDelete(index)}
+              label='Remove'
+              enable={true}
+              size='small'
+              className={'remove'}
+            />
           </li>
         ))}
       </ul>

@@ -1,5 +1,5 @@
-.recipe-form {
-  width: 60%;
+#recipe-form {
+  width: 100%;
   margin: 0 auto;
   padding: 2rem;
   background-color: #f9f9f9;
@@ -16,10 +16,21 @@
     flex-direction: column;
     gap: 1.5rem;
   }
-
+  .form-container {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    .left-side {
+      width: 45%;
+    }
+    .right-side {
+      width: 45%;
+    }
+  }
   .nutrition {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     gap: 1rem;
     padding: 1rem;
     border: 1px solid #ddd;
@@ -37,36 +48,30 @@
       flex-direction: column;
       font-size: 0.9rem;
     }
+    .button-section {
+      display: flex;
+      gap: 5px;
+      p {
+        padding-top: 5px;
+      }
+    }
   }
 
-  .ingredients-section {
+  .main-section {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .ingredient-input {
+    .input {
       display: flex;
       gap: 0.5rem;
 
       input {
         flex: 1;
       }
-
-      button {
-        padding: 0.5rem 1rem;
-        background-color: #4caf50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #45a049;
-        }
-      }
     }
 
-    .ingredient-list {
+    .list {
       list-style-type: none;
       padding: 0;
 
@@ -106,4 +111,11 @@
       background-color: #45a049;
     }
   }
+}
+.dragging {
+  opacity: 0.5; /* Makes the item semi-transparent while dragging */
+}
+
+.drag-over {
+  border-top: 2px dashed #000; /* Adds a dashed border to show drop target */
 }
