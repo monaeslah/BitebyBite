@@ -4,8 +4,11 @@ import { getRecipes } from './config/utilCurd'
 import Sidebar from './components/sidebar'
 import Navbar from './components/navbar'
 import AllRecipes from './pages/allRecipes'
+import Signup from './pages/signup'
+
 import AddRecipe from './pages/addRecipe'
 import RecipeDetail from './pages/recipeDetail'
+import MealPlanner from './pages/mealPlanner'
 import RecipeEdit from './pages/recipeEdit'
 import CategoryPage from './pages/filter/recipeTags'
 import FilteredRecipes from './pages/filter/filteredRecipes'
@@ -64,11 +67,14 @@ function App () {
       </Modal>
       <div className='main-content'>
         <Routes>
-          <Route path='/' element={<AllRecipes />} />
+          <Route path='/signup' element={<Signup />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/my-recipes' element={<AllRecipes />} />
           <Route path='/favourites' element={<AllRecipes />} />
           <Route path='/login' element={<Login />} />
 
           <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
+          <Route path='/meal-planner' element={<MealPlanner />} />
           <Route path='/recipe/edit/:recipeId' element={<RecipeEdit />} />
           <Route path='/tags' element={<CategoryPage />} />
 

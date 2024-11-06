@@ -15,8 +15,7 @@ const AllRecipes = () => {
     })
   }, [])
   const isFavouritesRoute = location.pathname === '/favourites'
-  console.log(isFavouritesRoute, 'route?')
-  // Filter recipes based on query and route
+
   const filteredRecipes = cards.filter(recipe => {
     const matchesQuery = recipe.name.toLowerCase().includes(query.toLowerCase())
     const matchesFavourite = isFavouritesRoute ? recipe.fav === true : true
