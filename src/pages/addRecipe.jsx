@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { Base_URL } from '../config/api'
-import InputField from '../components/common/InputField'
+import InputField from '../components/common/inputField'
 import TagsSection from '../components/common/tagSection'
 import NutritionalInfo from '../components/common/nutritionInfo'
 import IngredientsSection from '../components/ingredients'
