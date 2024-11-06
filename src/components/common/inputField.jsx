@@ -1,5 +1,3 @@
-import React from 'react'
-
 const InputField = ({ className = '', label, icon, children }) => {
   return (
     <div className='inputContainer'>
