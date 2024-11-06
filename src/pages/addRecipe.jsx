@@ -64,12 +64,14 @@ const AddRecipe = () => {
         : [...prev.tags, tag]
     }))
   }
+
   const setIngredients = newIngredients => {
     setRecipe(prev => ({
       ...prev,
       ingredients: newIngredients
     }))
   }
+
   const handleAddInstruction = instruction => {
     setRecipe(prev => ({
       ...prev,
@@ -90,11 +92,11 @@ const AddRecipe = () => {
 
     axios
       .post(`${Base_URL}/recipes.json`, recipe)
-      .then(res => {
+      .then(() => {
         navigate('/')
       })
       .catch(e => {
-        console.log('The get api has error', e)
+        console.log('The API has an error', e)
       })
   }
 
@@ -104,48 +106,56 @@ const AddRecipe = () => {
       <form onSubmit={handleSubmit}>
         <div className='form-container'>
           <div className='left-side'>
-            <InputField className='inputField largeInput'>
+            <InputField className='inputField largeInput' label='Name'>
               <input
-                type={'text'}
+                type='text'
+                name='name'
                 value={recipe.name}
                 onChange={handleChange}
                 placeholder='Recipe Name'
               />
             </InputField>
-            <InputField className='inputField textareaContainer largeInput'>
+
+            <InputField
+              className='inputField textareaContainer largeInput'
+              label='Description'
+            >
               <textarea
-                label='Description'
                 name='description'
                 value={recipe.description}
                 onChange={handleChange}
                 placeholder='Recipe Description'
               />
             </InputField>
-            <InputField className='inputField textareaContainer largeInput'>
+
+            <InputField
+              className='inputField textareaContainer largeInput'
+              label='Recipe Note'
+            >
               <textarea
-                label='Recipe Note'
                 name='recipeNote'
                 value={recipe.recipeNote}
                 onChange={handleChange}
                 placeholder='Recipe Note'
               />
             </InputField>
+
             <TagsSection
               selectedTags={recipe.tags}
               onTagClick={handleTagClick}
-            />{' '}
-            <InputField className='inputField largeInput'>
+            />
+
+            <InputField className='inputField largeInput' label='Photo URL'>
               <input
-                label='Photo URL'
                 name='photos'
                 value={recipe.photos.join(', ')}
                 onChange={e => handleArrayChange(e, 'photos')}
-                placeholder='Photo URL'
-              />{' '}
+                placeholder='Photo URL (comma separated for multiple URLs)'
+              />
             </InputField>
-            <InputField className='inputField largeInput'>
+
+            <InputField className='inputField largeInput' label='Rating'>
               <input
-                label='Rating'
                 name='rate'
                 value={recipe.rate}
                 onChange={handleChange}
@@ -153,22 +163,23 @@ const AddRecipe = () => {
                 type='number'
               />
             </InputField>
-            <InputField className='inputField largeInput'>
+
+            <InputField className='inputField largeInput' label='Time'>
               <input
-                label='Time'
                 name='time'
                 value={recipe.time}
                 onChange={handleChange}
                 placeholder='Cooking Time'
               />
             </InputField>
+
             <NutritionalInfo
               data={recipe.nutritionalInformation}
               onChange={e => handleChange(e, 'nutritionalInformation')}
             />
           </div>
+
           <div className='right-side'>
-            {' '}
             <IngredientsSection
               ingredients={recipe.ingredients}
               ingredient={ingredient}
@@ -177,6 +188,7 @@ const AddRecipe = () => {
               setIngredient={setIngredient}
               setIngredients={setIngredients}
             />
+
             <InstructionsSection
               instructions={recipe.instructions}
               onAdd={handleAddInstruction}
@@ -184,6 +196,7 @@ const AddRecipe = () => {
             />
           </div>
         </div>
+
         <button type='submit' className='submit-btn'>
           Create Recipe
         </button>

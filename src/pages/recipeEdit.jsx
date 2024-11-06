@@ -117,27 +117,26 @@ const RecipeEdit = () => {
     <div className='recipe-edit'>
       <h2>Edit Recipe</h2>
       <form onSubmit={handleSubmit}>
-        <InputField className='inputField largeInput'>
+        <InputField className='inputField largeInput' label='Name'>
           <input
-            label='Name'
             name='name'
             value={recipe.name}
             onChange={handleChange}
             placeholder='Recipe Name'
           />
         </InputField>
-        <InputField className='inputField largeInput'>
+
+        <InputField className='inputField largeInput' label='Description'>
           <input
-            label='Description'
             name='description'
             value={recipe.description}
             onChange={handleChange}
             placeholder='Recipe Description'
           />
         </InputField>
-        <InputField className='inputField largeInput'>
+
+        <InputField className='inputField largeInput' label='Recipe Note'>
           <input
-            label='Recipe Note'
             name='recipeNote'
             value={recipe.recipeNote}
             onChange={handleChange}
@@ -147,18 +146,17 @@ const RecipeEdit = () => {
 
         <TagsSection selectedTags={recipe.tags} onTagClick={handleTagClick} />
 
-        <InputField className='inputField largeInput'>
+        <InputField className='inputField largeInput' label='Photo URL'>
           <input
-            label='Photo URL'
             name='photos'
             value={recipe.photos.join(', ')}
             onChange={e => handleArrayChange(e, 'photos')}
             placeholder='Photo URL (comma separated for multiple URLs)'
           />
         </InputField>
-        <InputField className='inputField largeInput'>
+
+        <InputField className='inputField largeInput' label='Rating'>
           <input
-            label='Rating'
             name='rate'
             value={recipe.rate}
             onChange={handleChange}
@@ -166,13 +164,15 @@ const RecipeEdit = () => {
             type='number'
           />
         </InputField>
-        <InputField
-          label='Time'
-          name='time'
-          value={recipe.time}
-          onChange={handleChange}
-          placeholder='Cooking Time'
-        />
+
+        <InputField className='inputField largeInput' label='Time'>
+          <input
+            name='time'
+            value={recipe.time}
+            onChange={handleChange}
+            placeholder='Cooking Time'
+          />
+        </InputField>
 
         <NutritionalInfo
           data={recipe.nutritionalInformation}
