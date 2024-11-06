@@ -1,14 +1,11 @@
-import React, { useRef, useState } from 'react'
-import { Form, Card, Alert } from 'react-bootstrap'
+import { useRef, useState } from 'react'
+
 import { Link, useNavigate } from 'react-router-dom'
-import InputField from '../components/common/inputField'
+import InputField from '../components/common/InputField'
 
 import { CookButton } from '../components/common/buttons'
 
 export default function Login () {
-  const emailRef = useRef()
-  const passwordRef = useRef()
-
   const [error, setError] = useState('')
   const [loading, setLoading] = useState(false)
   const navigate = useNavigate()
@@ -27,18 +24,19 @@ export default function Login () {
             className='inputField mediumInput loginForm'
             label={'Email'}
           >
-            <input className='field' type='email' ref={emailRef} required />
+            <input className='field' type='email' required />
           </InputField>
         </div>
-        <Form.Group id='password'>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            className='field'
-            type='password'
-            ref={passwordRef}
-            required
-          />
-        </Form.Group>
+        <div id='password'>
+          <div id='password'>
+            <InputField
+              className='inputField mediumInput loginForm'
+              label={'Password'}
+            >
+              <input className='field' type='email' required />
+            </InputField>
+          </div>
+        </div>
 
         <CookButton
           label='Log In'
@@ -48,13 +46,13 @@ export default function Login () {
           onClick={() => console.log('CookButton clicked')}
         />
 
-        <div className='w-100 text-center mt-3'>
+        <div className=''>
           <Link to='/forgot-password' className='form-link'>
             Forgot Password?
           </Link>
         </div>
       </div>
-      <div className='w-100 text-center mt-2'>
+      <div className=''>
         Need an account?{' '}
         <Link to='/signup' className='form-link'>
           Sign Up
