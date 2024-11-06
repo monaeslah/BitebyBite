@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import InputField from './common/InputField'
+import InputField from './common/inputField'
 import { CookButton } from './common/buttons'
 
 const IngredientsSection = ({
@@ -47,9 +47,8 @@ const IngredientsSection = ({
   return (
     <div className='main-section'>
       <div className='input'>
-        <InputField className='inputField largeInput'>
+        <InputField className='inputField largeInput' label='Ingredients:'>
           <input
-            label='Ingredients:'
             value={ingredient}
             onChange={e => setIngredient(e.target.value)}
             placeholder='Add an ingredient'

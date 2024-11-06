@@ -21,9 +21,8 @@ const InstructionsSection = ({ instructions, onAdd, onDelete }) => {
   return (
     <div className='main-section'>
       <div className='input'>
-        <InputField className='inputField largeInput'>
+        <InputField className='inputField largeInput' label={'Instructions:'}>
           <input
-            label={'Instructions:'}
             name={instruction}
             value={instruction}
             onChange={e => setInstruction(e.target.value)}
