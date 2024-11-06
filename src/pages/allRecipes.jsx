@@ -14,8 +14,13 @@ const AllRecipes = () => {
       setCards(fetchedRecipes)
     })
   }, [])
+  const isFavouritesRoute = location.pathname === '/favourites'
+  console.log(isFavouritesRoute, 'route?')
+  // Filter recipes based on query and route
   const filteredRecipes = cards.filter(recipe => {
-    return recipe.name.toLowerCase().includes(query.toLowerCase())
+    const matchesQuery = recipe.name.toLowerCase().includes(query.toLowerCase())
+    const matchesFavourite = isFavouritesRoute ? recipe.fav === true : true
+    return matchesQuery && matchesFavourite
   })
   // const filteredList = cards.filter(recipe => {
   //   if (calorieFilter === 'low') return recipe.calories < 200

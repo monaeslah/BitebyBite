@@ -13,7 +13,7 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
           <Link to='/tags'>Tags</Link>
         </li>
         <li>
-          <Link to='/favourits'>favourits</Link>
+          <Link to='favourites'>favourits</Link>
         </li>
       </ul>
     </div>

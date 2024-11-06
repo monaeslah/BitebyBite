@@ -65,6 +65,7 @@ function App () {
       <div className='main-content'>
         <Routes>
           <Route path='/' element={<AllRecipes />} />
+          <Route path='/favourites' element={<AllRecipes />} />
           <Route path='/login' element={<Login />} />
 
           <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
