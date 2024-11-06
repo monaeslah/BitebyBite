@@ -11,6 +11,7 @@ import CategoryPage from './pages/filter/recipeTags'
 import FilteredRecipes from './pages/filter/filteredRecipes'
 import Modal from './components/modal'
 import SurpriseCard from './components/randomRecipe'
+import Login from './pages/login'
 
 function App () {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -64,6 +65,7 @@ function App () {
       <div className='main-content'>
         <Routes>
           <Route path='/' element={<AllRecipes />} />
+          <Route path='/login' element={<Login />} />
 
           <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
           <Route path='/recipe/edit/:recipeId' element={<RecipeEdit />} />

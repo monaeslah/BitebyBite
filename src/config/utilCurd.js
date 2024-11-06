@@ -1,9 +1,8 @@
-import { Base_URL } from './api'
 import axios from 'axios'
 
 const getRecipes = () => {
   return axios
-    .get(`${Base_URL}/recipes.json`)
+    .get(`${import.meta.env.VITE_COOK_LAND_API}/recipes.json`)
     .then(res => {
       const data = res.data
       const recipes = Object.keys(data).map(id => ({
@@ -20,7 +19,7 @@ const getRecipes = () => {
 
 const getFavRecipes = () => {
   return axios
-    .get(`${Base_URL}/fav.json`)
+    .get(`${import.meta.env.VITE_COOK_LAND_API}/fav.json`)
     .then(res => {
       const data = res.data
       const recipes = Object.keys(data).map(id => ({

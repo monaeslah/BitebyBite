@@ -9,6 +9,12 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
         </li>
         <li onClick={openAddRecipe}>Add Recipe</li>
         <li onClick={openForm}>Lucky Choice</li>
+        <li>
+          <Link to='/tags'>Tags</Link>
+        </li>
+        <li>
+          <Link to='/favourits'>favourits</Link>
+        </li>
       </ul>
     </div>
   )

@@ -12,7 +12,7 @@ const RecipeDetail = () => {
 
   const getRecipe = () => {
     axios
-      .get(`${Base_URL}/recipes/${recipeId}.json`)
+      .get(`${import.meta.env.VITE_COOK_LAND_API}/recipes/${recipeId}.json`)
       .then(res => {
         const data = res.data
         if (data) {
@@ -29,7 +29,7 @@ const RecipeDetail = () => {
 
   const deleteRecipe = () => {
     axios
-      .delete(`${Base_URL}/recipes/${recipeId}.json`)
+      .delete(`${import.meta.env.VITE_COOK_LAND_API}/recipes/${recipeId}.json`)
       .then(response => {
         navigate('/recipes')
       })
@@ -37,7 +37,7 @@ const RecipeDetail = () => {
   }
   const toggleFavorite = () => {
     axios
-      .patch(`${Base_URL}/recipes/${recipeId}.json`, {
+      .patch(`${import.meta.env.VITE_COOK_LAND_API}/recipes/${recipeId}.json`, {
         fav: !recipe.fav
       })
       .then(response => {

@@ -14,9 +14,9 @@ const AllRecipes = () => {
       setCards(fetchedRecipes)
     })
   }, [])
-  const filteredRecipes = cards.filter(recipe =>
-    recipe.name.toLowerCase().includes(query.toLowerCase())
-  )
+  const filteredRecipes = cards.filter(recipe => {
+    return recipe.name.toLowerCase().includes(query.toLowerCase())
+  })
   // const filteredList = cards.filter(recipe => {
   //   if (calorieFilter === 'low') return recipe.calories < 200
   //   if (calorieFilter === 'medium')
