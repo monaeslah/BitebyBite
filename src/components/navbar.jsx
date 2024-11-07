@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-
+import wlogo from '../assets/icons/mlogo1.jpeg'
+import fixlogo from '../assets/icons/welcomelogo.jpeg'
 import { Link, NavLink } from 'react-router-dom'
 
 const Navbar = () => {
@@ -7,26 +8,19 @@ const Navbar = () => {
 
   return (
     <nav>
-      <Link to='/' className='logo'>
-        {/* <img src={rblogo} alt="Logo" className='logo-image' /> */} logo
-        place
-      </Link>
+      <div className='logo'>
+        <NavLink to='/'>
+          <img src={wlogo} className='logo-image' alt='Logo' />
+          {/* <img src={flogo} className='logo-image' alt='Logo' /> */}
+        </NavLink>
+      </div>
+
       <div className='menu' onClick={() => setMenuOpen(!menuOpen)}>
         <span></span>
         <span></span>
         <span></span>
       </div>
-      <ul className={menuOpen ? 'open' : ''}>
-        <li>
-          <NavLink to='/'>My Recipes</NavLink>
-        </li>
-        <li>
-          <NavLink to='/add-recipe'>Add New Recipe</NavLink>
-        </li>
-        <li>
-          <NavLink to='/about'>About Us</NavLink>
-        </li>
-      </ul>
+      <ul className={menuOpen ? 'open' : ''}></ul>
     </nav>
   )
 }

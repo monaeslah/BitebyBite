@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 250px;
   height: calc(100vh - 60px);
-  background-color: #f4f4f4;
+  background-color: #f8f861e0;
   overflow-y: auto;
   z-index: 10;
   padding: 8px 5px;
@@ -29,8 +29,8 @@
   display: flex;
   align-items: center;
   padding: 12px 10px;
-  background-color: rgb(233, 233, 175); /* Light gray for each item */
-  color: #333; /* Dark text color for readability */
+  background-color: rgb(233, 233, 175);
+  color: #333;
   text-decoration: none;
   border-radius: 3px;
   margin-bottom: 5px; /* Space between items */

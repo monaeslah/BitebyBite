@@ -72,7 +72,7 @@ function App () {
       >
         <AddRecipe onClose={closeAddRecipeModal} />
       </Modal>
-      <div className='main-content'>
+      <div className={`${auth ? 'main-content' : 'auth-layout'}`}>
         <Routes>
           <Route path='/' element={<Landing />} />
           <Route path='/signup' element={<Signup />} />

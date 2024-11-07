@@ -1,5 +1,5 @@
 // $color-primary-blue: #547be6;
-// $color-primary-orange: #f4c383;
+$color-primary-orange: #f4c383;
 // $color-primary-green: #53b483;
 // $background-main: #f4f7fb;
 // $background-card: #fff7eb;
@@ -13,6 +13,14 @@
 // $status-success: #d9f9e6;
 // $status-warning: #ffeb99;
 // $status-error: #fde9e9;
+@font-face {
+  font-family: 'Cinzel';
+  src: url('../../assets/fonts/Cinzel/static/Cinzel-Medium.ttf')
+    format('truetype');
+}
+
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Cinzel', sans-serif;
 
 $color-orange-circle-start: #edc593;
 $color-blue-circle-start: #adcdef;
@@ -57,7 +65,7 @@ $primary-green: #396c35;
 $success-bg: #d8f5d6;
 $progress-color: rgb(255, 97, 81);
 $progress-color-shagi: rgb(251 175 139);
-
+$orange-button: #ff7500c4;
 $progress-bg: #ffe0d9;
 $reject-bg: #ffe1e1;
 $red: #e24c4c;

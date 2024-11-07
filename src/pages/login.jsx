@@ -3,6 +3,7 @@ import axios from 'axios'
 import InputField from '../components/common/inputField'
 import { CookButton } from '../components/common/buttons'
 import { useNavigate } from 'react-router-dom'
+import spoon from '../assets/icons/lglogo.jpeg'
 const LoginPage = ({ setAuth }) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
   const navigate = useNavigate()
@@ -29,6 +30,11 @@ const LoginPage = ({ setAuth }) => {
     <div className='page'>
       <div className='login-form'>
         <h2>Login</h2>
+        <div className='logo'>
+          {' '}
+          <img src={spoon} alt='' />
+        </div>
+
         <form onSubmit={handleSubmit}>
           <InputField label='Email' className='inputField largeInput'>
             <input
@@ -53,7 +59,7 @@ const LoginPage = ({ setAuth }) => {
             onClick={handleSubmit}
             label='Login'
             enable={true}
-            size='small'
+            size='medium'
             className={'primary-btn submit-btn'}
           />
         </form>

@@ -1,0 +1,129 @@
+$font-weight-light: 100;
+$font-weight-medium-light: 300;
+$font-weight-sm: 400;
+$font-weight-normal: 500;
+$font-weight-medium: 600;
+$font-weight-bold: bold;
+
+// Font Sizes
+
+$font-size-huge: 120px;
+$font-size-very-large: 96px;
+$font-size-larger: 72px;
+$font-size-large: 60px;
+$font-size-big: 48px;
+$font-size-medium-large: 36px;
+$font-size-medium: 30px;
+$font-size-small-medium: 24px;
+$font-size-small: 20px;
+$font-size-smaller: 18px;
+$font-size-base: 16px;
+$font-size-smaller-medium: 14px;
+$font-size-extra-small: 12px;
+$font-size-tiny: 10px;
+body {
+  font-family: $font-primary;
+  line-height: 1.6;
+  font-size: $font-size-base;
+  color: $primary-blue;
+}
+
+// Titles
+.title-large {
+  font-size: $font-size-huge;
+  line-height: 150px;
+  letter-spacing: -0.32px;
+}
+
+.title-small {
+  font-size: $font-size-very-large;
+  line-height: 120px;
+  letter-spacing: -0.32px;
+}
+
+// Headings
+.heading-huge {
+  font-size: $font-size-larger;
+  line-height: 90px;
+  letter-spacing: -0.32px;
+}
+
+.heading-extra-large {
+  font-size: $font-size-large;
+  line-height: 72px;
+  letter-spacing: -0.32px;
+}
+
+.heading-large {
+  font-size: $font-size-big;
+  line-height: 60px;
+  letter-spacing: -0.32px;
+}
+
+.heading-medium {
+  font-size: $font-size-medium-large;
+  line-height: 44px;
+  letter-spacing: -0.72px;
+}
+
+.heading-small {
+  font-size: $font-size-medium;
+  line-height: 38px;
+  letter-spacing: 0;
+}
+
+.heading-extra-small {
+  font-size: $font-size-small-medium;
+  line-height: 32px;
+  letter-spacing: 0;
+}
+
+// Body Text Styles
+.body-extra-large {
+  font-size: $font-size-small;
+  line-height: 30px;
+  letter-spacing: 0;
+}
+
+.body-large {
+  font-size: $font-size-smaller;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.body-medium {
+  font-size: $font-size-base;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.body-small {
+  font-size: $font-size-smaller-medium;
+  line-height: 20px;
+  letter-spacing: 0;
+}
+
+.body-extra-small {
+  font-size: $font-size-extra-small;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.body-tiny {
+  font-size: $font-size-tiny;
+  line-height: 16px;
+  letter-spacing: 0;
+}
+//font-weight
+.bold {
+  font-weight: $font-weight-bold;
+}
+.medium-font-weight {
+  font-weight: $font-weight-medium;
+}
+.font-weight-normal {
+  font-weight: $font-weight-normal;
+}
+.font-weight-semi-normal {
+  font-weight: $font-weight-sm;
+}

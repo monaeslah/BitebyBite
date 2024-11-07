@@ -41,7 +41,7 @@
 
         .get-started {
           padding: 0.5rem 1.5rem;
-          background-color: $progress-color; // Primary green color for CTA
+          background-color: $orange-button;
 
           border: none;
           border-radius: 5px;
@@ -55,7 +55,7 @@
 
         .learn-more {
           margin-left: 1rem;
-          color: $progress-color-shagi; // Matching the highlight color for link consistency
+          color: $orange-button; // Matching the highlight color for link consistency
           text-decoration: none;
           font-weight: bold;
           font-size: 1rem;
