@@ -1,6 +1,9 @@
 #recipes-container {
   .content-countainer {
     display: flex;
+    a {
+      text-decoration: none;
+    }
     img {
       width: 33%;
     }
@@ -10,7 +13,6 @@
       justify-content: center;
       margin: auto;
 
-      // max-width: 1200px;
       .card-container {
         display: flex;
         max-height: 90px;
@@ -34,14 +36,14 @@
           flex-direction: row;
 
           .card-image-wrapper {
-            width: 40%;
+            width: 45%;
             display: flex;
             justify-content: center;
             position: relative;
-
+            align-items: center;
             img {
-              width: 90%;
-              height: 90%;
+              width: 95%;
+              height: 95%;
               border-radius: 100%;
             }
           }
@@ -59,12 +61,12 @@
               }
             }
             .card-title {
-              color: #b8d8ba;
+              color: #6a1b9a;
               text-align: center;
               text-decoration: none;
 
               p {
-                color: #333;
+                color: #6a1b9a;
                 font-weight: bold;
                 text-decoration: none;
               }
@@ -117,19 +119,6 @@
     align-items: center;
     padding: 20px;
     width: 100%;
-
-    .stats {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      .value {
-        font-size: 22px;
-        font-weight: bold;
-      }
-      .label {
-        font-size: 16px;
-      }
-    }
   }
   .ranking-badge {
     width: 315px;
@@ -149,6 +138,9 @@
   }
   .ranking-badge-blue {
     @include card-gradient($color-blue-circle-start, $color-blue-circle-end);
+  }
+  .ranking-badge-purple {
+    @include card-gradient($color-green-circle-start, $color-green-circle-end);
   }
   .ranking-badge-orange {
     @include card-gradient(

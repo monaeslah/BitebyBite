@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHome,
@@ -14,15 +15,20 @@ import {
   faClock
 } from '@fortawesome/free-solid-svg-icons'
 
-const Sidebar = ({ openForm, openAddRecipe }) => {
+const Sidebar = ({ openForm, openAddRecipe, setAuth }) => {
+  useEffect(() => {
+    const publicRoutes = ['/', '/login', '/signup']
+    setAuth(!publicRoutes.includes(location.pathname))
+  }, [location.pathname, setAuth])
   return (
     <div className='sidebar'>
       <ul className='sidebar-list'>
-        <li className='menu-item'>
+        <li className='menu-item' onClick={() => setAuth(false)}>
           <Link to='/'>
             <span>Home</span>
+
+            <FontAwesomeIcon icon={faHome} className='icon' />
           </Link>
-          <FontAwesomeIcon icon={faHome} className='icon' />
         </li>
 
         <h3>Recipes</h3>
@@ -36,18 +42,18 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
             <FontAwesomeIcon icon={faBook} className='icon' />
           </Link>
         </li>
-        <li className='menu-item'>
+        {/* <li className='menu-item'>
           <Link to='/search'>
             <span>Search</span>
             <FontAwesomeIcon icon={faSearch} className='icon' />
           </Link>
-        </li>
-        <li className='menu-item'>
+        </li> */}
+        {/* <li className='menu-item'>
           <Link to='/search-leftovers'>
             <span>Search Leftovers</span>
             <FontAwesomeIcon icon={faTrashAlt} className='icon' />
           </Link>
-        </li>
+        </li> */}
         <li className='menu-item' onClick={openForm}>
           <span>Lucky Choice!</span>
           <FontAwesomeIcon icon={faLightbulb} className='icon' />

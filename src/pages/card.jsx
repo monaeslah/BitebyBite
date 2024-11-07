@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
-import Fav from '../assets/icons/heart.png'
-import unFav from '../assets/icons/emptyheart.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHeart as faSolidHeart } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as faRegularHeart } from '@fortawesome/free-regular-svg-icons'
 
 export const Card = ({ imgSrc, imgAlt, title, id, fav }) => {
   return (
-    <div className='card-container card card-orange'>
+    <div className='card-container card card-purple'>
       <Link to={`/recipe/${id}`}>
-        <div className='ranking-badge ranking-badge-orange'></div>
+        <div className='ranking-badge ranking-badge-purple'></div>
         <div className='serving'></div>
         <div className='card-image-wrapper'>
           <img src={imgSrc && imgSrc[0]} alt={imgAlt} className='card-image' />
@@ -14,9 +15,9 @@ export const Card = ({ imgSrc, imgAlt, title, id, fav }) => {
         <div className='card-content '>
           <div className='fav-icon'>
             {fav ? (
-              <img src={Fav} alt='Favorite icon' />
+              <FontAwesomeIcon icon={faSolidHeart} />
             ) : (
-              <img src={unFav} alt='Unfavorite icon' />
+              <FontAwesomeIcon icon={faRegularHeart} />
             )}
           </div>
           <div className='card-title '>

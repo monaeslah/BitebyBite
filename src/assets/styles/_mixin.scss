@@ -13,7 +13,12 @@
 .card-blue-circle {
   @include card-gradient($color-blue-circle-start, $color-blue-circle-end);
 }
-
+.card-purple {
+  @include card-gradient($color-green-circle-start, $color-green-circle-end);
+}
+.card-purple-circle {
+  @include card-gradient($color-green-circle-start, $color-green-circle-end);
+}
 .card-orange {
   @include card-gradient($color-orange-start, $color-orange-end);
 }

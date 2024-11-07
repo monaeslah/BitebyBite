@@ -2,7 +2,7 @@
 $color-primary-orange: #f4c383;
 // $color-primary-green: #53b483;
 // $background-main: #f4f7fb;
-// $background-card: #fff7eb;
+
 // $background-highlight: #fbf2cb;
 // $color-text-primary: #24292e;
 // $color-text-secondary: #454c52;
@@ -23,8 +23,12 @@ $font-primary: 'Inter', sans-serif;
 $font-secondary: 'Cinzel', sans-serif;
 
 $color-orange-circle-start: #edc593;
+$soft-beige: #fff7eb;
+$warm-yellow: #e5fa2d;
 $color-blue-circle-start: #adcdef;
-$color-blue-circle-end: #688dec;
+$color-blue-circle-end: #6189f0;
+$color-green-circle-end: #338fa87d;
+$color-green-circle-start: #c8d3f0;
 $background-main: #f4f7fb;
 $color-white: #fff;
 $color-orange-circle-end: #df9a62;
@@ -37,16 +41,20 @@ $color-text: #000000;
 
 // Primary Palette Colors
 $primary-soft-blue: #6c8fd8;
+$primary-light-blue-shagi: rgba(199, 223, 255, 0.651);
 $primary-dark-blue: #263c8d;
 $primary-deep-gray: #3d3336;
 $primary-warm-purple: #873851;
+$primary-vibrant-red-trans: #f7e7e6d4;
 $primary-vibrant-red: #ff6151;
 $primary-bright-yellow: #e5fa2d;
 
 // Secondary Palette Colors
 $secondary-light-blue: #c8d3f0;
 $secondary-pastel-purple: #c299c3;
-$secondary-deep-purple: #7a415a;
+$secondary-deep-purple1: rgb(51 100 168 / 70%);
+$secondary-deep-purple: #c299c39e;
+$secondary-deep-purple2: #3933a8b3;
 $secondary-forest-green: #396c35;
 $secondary-light-green: #a6c773;
 

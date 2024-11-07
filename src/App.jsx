@@ -52,7 +52,11 @@ function App () {
       <Navbar />
 
       {auth && (
-        <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
+        <Sidebar
+          openForm={openModal}
+          openAddRecipe={openAddRecipeModal}
+          setAuth={setAuth}
+        />
       )}
 
       <Modal

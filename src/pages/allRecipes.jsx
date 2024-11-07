@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Card from './card'
 import { getRecipes } from '../config/utilCurd'
-import girlChef from '../assets/icons/Ratatouille.jpeg'
+import girlChef from '../assets/icons/Ratatouille.png'
 import SearchBar from '../components/searchBar'
 
 const AllRecipes = () => {
