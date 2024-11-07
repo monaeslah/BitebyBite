@@ -54,15 +54,14 @@ const IngredientsSection = ({
             placeholder='Add an ingredient'
             onKeyPress={handleKeyPress}
           />
+          <CookButton
+            onClick={onAdd}
+            label='Add'
+            enable={true}
+            size='small'
+            className={'primary-btn'}
+          />
         </InputField>
-
-        <CookButton
-          onClick={onAdd}
-          label='Add'
-          enable={true}
-          size='small'
-          className={'primary-btn'}
-        />
       </div>
       <ul className='list'>
         {ingredients.map((item, index) => (

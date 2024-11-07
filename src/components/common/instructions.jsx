@@ -29,15 +29,15 @@ const InstructionsSection = ({ instructions, onAdd, onDelete }) => {
             onKeyPress={handleKeyPress}
             placeholder='Add an instruction'
           />
-        </InputField>
 
-        <CookButton
-          onClick={handleAddInstruction}
-          label='Add'
-          enable={true}
-          size='small'
-          className={'primary-btn'}
-        />
+          <CookButton
+            onClick={handleAddInstruction}
+            label='Add'
+            enable={true}
+            size='small'
+            className={'primary-btn'}
+          />
+        </InputField>
       </div>
       <ul className='list'>
         {instructions?.map((item, index) => (
