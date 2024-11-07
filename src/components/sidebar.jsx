@@ -19,7 +19,7 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
     <div className='sidebar'>
       <ul className='sidebar-list'>
         <li className='menu-item'>
-          <Link to='/'>
+          <Link to='/home'>
             <span>Home</span>
           </Link>
           <FontAwesomeIcon icon={faHome} className='icon' />

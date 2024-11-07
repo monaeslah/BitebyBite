@@ -1,5 +1,5 @@
 import chefImage from '../assets/icons/chef.jpeg'
-
+import { Link } from 'react-router-dom'
 export const Home = () => {
   return (
     <div id='home-container'>
@@ -12,10 +12,12 @@ export const Home = () => {
             From the simple to elaborate recipes, you can find them all here
           </p>
           <div className='hero-buttons'>
-            <button className='get-started'>Get Started</button>
-            <a href='#' className='learn-more'>
+            <button className='get-started'>
+              <Link to='/login'>Get Started</Link>
+            </button>
+            <Link to='/' className='learn-more'>
               Learn More
-            </a>
+            </Link>
           </div>
           <div className='metrics'>
             <div>

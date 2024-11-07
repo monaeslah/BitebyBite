@@ -15,6 +15,7 @@ import FilteredRecipes from './pages/filter/filteredRecipes'
 import Modal from './components/modal'
 import SurpriseCard from './components/randomRecipe'
 import Login from './pages/login'
+import Landing from './pages/landing-page'
 
 function App () {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -22,6 +23,7 @@ function App () {
   const [isAddRecipeOpen, setIsAddRecipeOpen] = useState(false)
   const [cards, setCards] = useState([])
   const [rcards, setRcards] = useState([])
+  const [auth, setAuth] = useState(false)
   const openModal = () => {
     selectRandom()
     setIsFormOpen(true)
@@ -46,7 +48,11 @@ function App () {
     <div className='page-layout'>
       <Navbar />
 
-      <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
+      {auth ? (
+        <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
+      ) : (
+        ''
+      )}
 
       <Modal
         isOpen={isFormOpen}
@@ -67,11 +73,11 @@ function App () {
       </Modal>
       <div className='main-content'>
         <Routes>
+          <Route path='/' element={<Landing />} />
           <Route path='/signup' element={<Signup />} />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login setAuth={setAuth} />} />
           <Route path='/my-recipes' element={<AllRecipes />} />
           <Route path='/favourites' element={<AllRecipes />} />
-          <Route path='/login' element={<Login />} />
 
           <Route path='/recipe/:recipeId' element={<RecipeDetail />} />
           <Route path='/meal-planner' element={<MealPlanner />} />

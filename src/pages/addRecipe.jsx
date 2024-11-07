@@ -91,7 +91,7 @@ const AddRecipe = () => {
     console.log('Recipe JSON:', JSON.stringify(recipe, null, 2))
 
     axios
-      .post(`${Base_URL}/recipes.json`, recipe)
+      .post(`${import.meta.env.VITE_COOK_LAND_API}/recipes.json`, recipe)
       .then(() => {
         navigate('/')
       })

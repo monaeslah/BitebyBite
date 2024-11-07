@@ -2,9 +2,10 @@ import { useState } from 'react'
 import axios from 'axios'
 import InputField from '../components/common/inputField'
 import { CookButton } from '../components/common/buttons'
-const LoginPage = () => {
+import { useNavigate } from 'react-router-dom'
+const LoginPage = ({ setAuth }) => {
   const [credentials, setCredentials] = useState({ email: '', password: '' })
-
+  const navigate = useNavigate()
   const handleChange = e => {
     const { name, value } = e.target
     setCredentials(prev => ({ ...prev, [name]: value }))
@@ -12,14 +13,16 @@ const LoginPage = () => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    axios
-      .post('/login', credentials)
-      .then(res => {
-        console.log('Login successful:', res.data)
-      })
-      .catch(err => {
-        console.error('Login error:', err)
-      })
+    setAuth(true)
+    navigate('/my-recipes')
+    // axios
+    //   .post('/login', credentials)
+    //   .then(res => {
+    //     console.log('Login successful:', res.data)
+    //   })
+    //   .catch(err => {
+    //     console.error('Login error:', err)
+    //   })
   }
 
   return (
