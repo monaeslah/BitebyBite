@@ -29,6 +29,7 @@ const RecipeEdit = () => {
   const [waitingForImageUrl, setWaitingForImageUrl] = useState(false)
   const [removedPhotos, setRemovedPhotos] = useState([])
   const [ingredient, setIngredient] = useState('')
+  const [instruction, setInstruction] = useState('')
 
   const { recipeId } = useParams()
   const navigate = useNavigate()
@@ -152,6 +153,12 @@ const RecipeEdit = () => {
     setRecipe(prev => ({
       ...prev,
       ingredients: newIngredients
+    }))
+  }
+  const setInstructions = newInstructions => {
+    setRecipe(prev => ({
+      ...prev,
+      instructions: newInstructions
     }))
   }
   if (!recipe) {
@@ -292,8 +299,11 @@ const RecipeEdit = () => {
 
             <InstructionsSection
               instructions={recipe.instructions}
+              instruction={instruction}
               onAdd={handleAddInstruction}
               onDelete={index => handleDeleteItem('instructions', index)}
+              setInstruction={setInstruction}
+              setInstructions={setInstructions}
             />
           </div>
         </div>

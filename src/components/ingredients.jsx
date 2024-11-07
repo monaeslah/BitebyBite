@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import InputField from './common/inputField'
 import { CookButton } from './common/buttons'
 
@@ -31,7 +31,7 @@ const IngredientsSection = ({
   const onDrop = (event, dropIndex) => {
     event.preventDefault()
     if (draggedIndex === null || draggedIndex === dropIndex) return
-
+    console.log('InstructionsSection Props:', { setIngredients })
     const updatedIngredients = [...ingredients]
     const [movedItem] = updatedIngredients.splice(draggedIndex, 1)
     updatedIngredients.splice(dropIndex, 0, movedItem)

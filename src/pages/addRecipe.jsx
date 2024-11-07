@@ -30,7 +30,7 @@ const AddRecipe = ({ onClose }) => {
   const [waitingForImageUrl, setWaitingForImageUrl] = useState(false)
 
   const [ingredient, setIngredient] = useState('')
-  const [instructions, setInstructions] = useState('')
+  const [instruction, setInstruction] = useState('')
   const navigate = useNavigate()
 
   const handleChange = (e, field = null) => {
@@ -67,12 +67,20 @@ const AddRecipe = ({ onClose }) => {
       ingredients: newIngredients
     }))
   }
-
-  const handleAddInstruction = instruction => {
+  const setInstructions = newInstructions => {
     setRecipe(prev => ({
       ...prev,
-      instructions: [...prev.instructions, instruction]
+      instructions: newInstructions
     }))
+  }
+  const handleAddInstruction = () => {
+    if (instruction.trim()) {
+      setRecipe(prev => ({
+        ...prev,
+        instructions: [...prev.instructions, instruction]
+      }))
+      setInstruction('')
+    }
   }
 
   const handleDeleteItem = (field, index) => {
@@ -116,7 +124,6 @@ const AddRecipe = ({ onClose }) => {
   }
   const handleSubmit = e => {
     e.preventDefault()
-    console.log('Recipe JSON:', JSON.stringify(recipe, null, 2))
 
     axios
       .post(`${import.meta.env.VITE_COOK_LAND_API}/recipes.json`, recipe)
@@ -243,19 +250,15 @@ const AddRecipe = ({ onClose }) => {
 
             <InstructionsSection
               instructions={recipe.instructions}
+              instruction={instruction}
               onAdd={handleAddInstruction}
               onDelete={index => handleDeleteItem('instructions', index)}
+              setInstruction={setInstruction}
+              setInstructions={setInstructions}
             />
           </div>
         </div>
 
-        {/* <button
-          type='submit'
-          className='submit-btn'
-          disabled={waitingForImageUrl}
-        >
-          Create Recipe
-        </button> */}
         <CookButton
           size='xlarge'
           className='submit-btn'
