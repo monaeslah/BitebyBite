@@ -1,8 +1,11 @@
 .largeButton,
 .mediumButton,
-.smallButton {
+.smallButton,
+.xlargeButton {
   max-height: 20px;
-
+  &.xlargeButton {
+    width: 110px;
+  }
   &.largeButton {
     width: 80px;
   }
@@ -40,7 +43,7 @@
   &.not_allowed {
     color: $color-text-black;
     cursor: not-allowed;
-    background-color: $gray-diable;
+    background-color: $gray-disable;
   }
   &.remove {
     background: none;
@@ -50,7 +53,7 @@
   }
   &.primary-btn {
     background-color: $primary-blue;
-    color: $primary-white;
+    color: $gray-light;
     cursor: pointer;
   }
 }
@@ -92,7 +95,7 @@
   align-items: center;
   gap: 10px;
   background: $primary-green;
-  box-shadow: $ok-button-shadow;
+  box-shadow: $input-field-box-shadow;
   border: $primary-border;
 }
 

@@ -31,7 +31,7 @@ const RecipeDetail = () => {
     axios
       .delete(`${import.meta.env.VITE_COOK_LAND_API}/recipes/${recipeId}.json`)
       .then(response => {
-        navigate('/recipes')
+        navigate('/my-recipes')
       })
       .catch(error => console.log('Error deleting recipe...', error))
   }

@@ -1,7 +1,7 @@
 #home-container {
   padding: 3rem 2rem;
   font-family: Arial, sans-serif;
-  background-color: #f9f8f6;
+  background-color: $background-main; // Soft background color for readability
 
   .hero-section {
     display: flex;
@@ -12,7 +12,7 @@
 
     .hero-text {
       max-width: 50%;
-      color: #333;
+      color: $color-text-primary; // Dark primary text color
 
       h1 {
         font-size: 3rem;
@@ -21,15 +21,16 @@
         margin: 0;
 
         .highlight {
-          background-color: #fbb03b;
+          background-color: $progress-color-shagi;
           padding: 0.1rem 0.3rem;
-          color: #000;
+          color: $color-white;
+          border-radius: 5px;
         }
       }
 
       .subtitle {
         font-size: 1rem;
-        color: #666;
+        color: $color-text-secondary; // Subtle secondary text color for subtitles
         margin: 1rem 0;
       }
 
@@ -40,17 +41,21 @@
 
         .get-started {
           padding: 0.5rem 1.5rem;
-          background-color: #fbb03b;
-          color: #fff;
+          background-color: $progress-color; // Primary green color for CTA
+
           border: none;
           border-radius: 5px;
           cursor: pointer;
           font-weight: bold;
+          a {
+            color: $color-white;
+            text-decoration: none;
+          }
         }
 
         .learn-more {
           margin-left: 1rem;
-          color: #fbb03b;
+          color: $progress-color-shagi; // Matching the highlight color for link consistency
           text-decoration: none;
           font-weight: bold;
           font-size: 1rem;
@@ -62,7 +67,7 @@
         gap: 2rem;
         margin-top: 2rem;
         font-size: 1rem;
-        color: #444;
+        color: $color-text-secondary; // Primary text color
 
         div {
           font-size: 1.2rem;
@@ -73,11 +78,11 @@
           strong {
             font-size: 1.4rem;
             font-weight: bold;
-            color: #333;
+            color: $color-text-primary; // Dark primary color
           }
 
           span {
-            color: #888;
+            color: $gray-text-color; // Gray text color for subtlety
           }
         }
       }

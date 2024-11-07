@@ -7,7 +7,7 @@ export const CookButton = ({
   enable,
   onClick,
   label,
-  selected, // New prop for conditional styling
+  selected,
   options
 }) => {
   const [showOption, setShowOption] = useState(false)
@@ -17,6 +17,7 @@ export const CookButton = ({
       smallButton: size === 'small',
       mediumButton: size === 'medium',
       largeButton: size === 'large',
+      xlargeButton: size === 'xlarge',
       selected: selected,
       deselected: !selected
     },

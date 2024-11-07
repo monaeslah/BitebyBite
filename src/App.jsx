@@ -32,7 +32,10 @@ function App () {
   const openAddRecipeModal = () => {
     setIsAddRecipeOpen(true)
   }
-
+  useEffect(() => {
+    const publicRoutes = ['/', '/login', '/signup']
+    setAuth(!publicRoutes.includes(location.pathname))
+  }, [location.pathname])
   useEffect(() => {
     getRecipes().then(fetchedRecipes => {
       setCards(fetchedRecipes)
@@ -48,10 +51,8 @@ function App () {
     <div className='page-layout'>
       <Navbar />
 
-      {auth ? (
+      {auth && (
         <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
-      ) : (
-        ''
       )}
 
       <Modal
@@ -69,7 +70,7 @@ function App () {
         className='modal-overlay  modal-bottomtotop'
         classNo='modal-content-recipe'
       >
-        <AddRecipe />
+        <AddRecipe onClose={closeAddRecipeModal} />
       </Modal>
       <div className='main-content'>
         <Routes>

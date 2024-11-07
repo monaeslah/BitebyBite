@@ -1,7 +1,23 @@
+// $color-primary-blue: #547be6;
+// $color-primary-orange: #f4c383;
+// $color-primary-green: #53b483;
+// $background-main: #f4f7fb;
+// $background-card: #fff7eb;
+// $background-highlight: #fbf2cb;
+// $color-text-primary: #24292e;
+// $color-text-secondary: #454c52;
+// $color-text-highlight: #688dec;
+// $border-color: #ced2d6;
+// $shadow-light: rgba(0, 0, 0, 0.08);
+// $shadow-medium: rgba(0, 0, 0, 0.16);
+// $status-success: #d9f9e6;
+// $status-warning: #ffeb99;
+// $status-error: #fde9e9;
+
 $color-orange-circle-start: #edc593;
 $color-blue-circle-start: #adcdef;
 $color-blue-circle-end: #688dec;
-
+$background-main: #f4f7fb;
 $color-white: #fff;
 $color-orange-circle-end: #df9a62;
 
@@ -11,61 +27,74 @@ $color-orange-start: #f4c383;
 $color-orange-end: #eb9546;
 $color-text: #000000;
 
-$gray-dark: #454c52;
-$gray-light: #ced2d6;
-$gray-medium-light: #e6e6e6;
-$gray-ultralight: #f0f0f0;
-$gray-cool: #efefef;
-$white-soft: #f5f5f5;
-$white-smoke: #ebffff;
-$white-gray: #f1f2f4;
+// Primary Palette Colors
+$primary-soft-blue: #6c8fd8;
+$primary-dark-blue: #263c8d;
+$primary-deep-gray: #3d3336;
+$primary-warm-purple: #873851;
+$primary-vibrant-red: #ff6151;
+$primary-bright-yellow: #e5fa2d;
 
-$primary-green: #53b483;
-$success-bg: #d9f9e6;
-$progress-color: #c8811a;
-$progress-bg: #fbf2cb;
-$reject-bg: #fde9e9;
-$red: #cd3636;
-$errorColor: #f54135;
-$reject: #e74358;
+// Secondary Palette Colors
+$secondary-light-blue: #c8d3f0;
+$secondary-pastel-purple: #c299c3;
+$secondary-deep-purple: #7a415a;
+$secondary-forest-green: #396c35;
+$secondary-light-green: #a6c773;
+
+// Grays and Whites
+$gray-dark: #3d3336;
+$gray-light: #e0e3e6;
+$gray-medium-light: #ececec;
+$gray-ultralight: #f4f4f4;
+$gray-cool: #ededed;
+$white-soft: #fcfcfc;
+$white-smoke: #f2ffff;
+$white-gray: #f8f9fa;
+
+// Primary and Accent Colors
+$primary-green: #396c35;
+$success-bg: #d8f5d6;
+$progress-color: rgb(255, 97, 81);
+$progress-color-shagi: rgb(251 175 139);
+
+$progress-bg: #ffe0d9;
+$reject-bg: #ffe1e1;
+$red: #e24c4c;
+$errorColor: #ff4b47;
+$reject: #dc4258;
 $secondary-reject: #cd3636;
-$red-blur-light: rgba(243, 65, 65, 0.08);
-$red-blur-medium: rgba(243, 65, 65, 0.4);
-$primary-light-blue: #f4f7fb;
-$blue: #4194f3;
-$primary-blue: #040c2d;
-$blue-gray-color: #444c4d;
-$blue-primary-disabe: #1c2442;
-$gray-diable: #e9e9e9;
-$primary-white: #ffffff;
-$secondary-white: #fafafa;
-$error-message-background: #fffbfa;
-// Gray shadows
+$red-blur-light: rgba(242, 65, 65, 0.08);
+$red-blur-medium: rgba(242, 65, 65, 0.4);
 
+// Blues
+$primary-light-blue: #c8d3f0;
+$blue: #6c8fd8;
+$primary-blue: #263c8d;
+$blue-gray-color: #444c4d;
+$blue-primary-disable: #1f2745;
+$gray-disable: #e9e9e9;
+
+// Shadows and Border Colors
 $gray-blur-light: rgba(103, 110, 118, 0.08);
 $gray-blur-medium: rgba(103, 110, 118, 0.16);
-//text colors
-$color-text-black: #4a4848;
-$color-text-primary: #454c52;
-$color-text-secondary: #676e76;
-$color-text-light: #808080;
-$color-text-help: #a0a0a0;
-$gray-text-color: #9ea5ad;
-$color-text-black: #24292e;
-//blacks
 $black-blur-light: rgba(0, 0, 0, 0.12);
 $black-blur-dark: rgba(0, 0, 0, 0.64);
-// _shadows.scss
+
+// Text Colors
+$color-text-black: #333333;
+$color-text-primary: #3d3336;
+$color-text-secondary: #6a6f76;
+$color-text-light: #888888;
+$color-text-help: #a8a8a8;
+$gray-text-color: #9fa5ad;
+
+// Box Shadows
 $input-field-box-shadow: 0px 1px 1px $black-blur-light,
   0px 0px 0px 1px $gray-blur-medium, 0px 2px 5px $gray-blur-light;
 $error-message-box-shadow: 0px 1px 1px $black-blur-light,
   0px 0px 0px 2px $red-blur-medium, 0px 2px 5px $red-blur-light;
 $main-cta-box-shadow: 0px 2px 0px 1px $gray-blur-medium;
 
-$long-list-box-shadow: 0px 1px 1px 0px $black-blur-light,
-  0px 0px 0px 1px $gray-blur-medium, 0px 2px 5px 0px $gray-blur-light;
-$ok-button-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) inset;
-$tender-btn-open-shadow: 0px 2px 5px 0px rgba(103, 110, 118, 0.08),
-  0px 0px 0px 1px rgba(103, 110, 118, 0.16), 0px 1px 1px 0px rgba(0, 0, 0, 0.12);
-//border
-$primary-border: #2f9461;
+// Border
+$primary-border: #396c35;

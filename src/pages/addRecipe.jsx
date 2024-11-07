@@ -1,14 +1,15 @@
 import { useState } from 'react'
 import axios from 'axios'
-import { Base_URL } from '../config/api'
+
 import InputField from '../components/common/inputField'
 import TagsSection from '../components/common/tagSection'
 import NutritionalInfo from '../components/common/nutritionInfo'
 import IngredientsSection from '../components/ingredients'
 import InstructionsSection from '../components/common/instructions'
 import { useNavigate } from 'react-router-dom'
+import { CookButton } from '../components/common/buttons'
 
-const AddRecipe = () => {
+const AddRecipe = ({ onClose }) => {
   const [recipe, setRecipe] = useState({
     name: '',
     description: '',
@@ -26,6 +27,8 @@ const AddRecipe = () => {
     ingredients: [],
     instructions: []
   })
+  const [waitingForImageUrl, setWaitingForImageUrl] = useState(false)
+
   const [ingredient, setIngredient] = useState('')
   const navigate = useNavigate()
 
@@ -38,13 +41,13 @@ const AddRecipe = () => {
     )
   }
 
-  const handleArrayChange = (e, field) => {
-    const arrayData = e.target.value
-      .split(',')
-      .map(item => item.trim())
-      .filter(Boolean)
-    setRecipe(prev => ({ ...prev, [field]: arrayData }))
-  }
+  // const handleArrayChange = (e, field) => {
+  //   const arrayData = e.target.value
+  //     .split(',')
+  //     .map(item => item.trim())
+  //     .filter(Boolean)
+  //   setRecipe(prev => ({ ...prev, [field]: arrayData }))
+  // }
 
   const handleAddIngredient = () => {
     if (ingredient.trim()) {
@@ -85,7 +88,39 @@ const AddRecipe = () => {
       [field]: prev[field].filter((_, i) => i !== index)
     }))
   }
+  const handleImageUpload = e => {
+    e.preventDefault()
+    const file = e.target.files[0]
+    if (!file) return
 
+    setWaitingForImageUrl(true)
+
+    const formData = new FormData()
+    formData.append('file', file)
+    formData.append(
+      'upload_preset',
+      import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET
+    )
+
+    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${
+      import.meta.env.VITE_CLOUDINARY_NAME
+    }/upload`
+
+    axios
+      .post(cloudinaryUrl, formData)
+      .then(response => {
+        const imageUrl = response.data.secure_url
+        setRecipe(prev => ({
+          ...prev,
+          photos: [...prev.photos, imageUrl]
+        }))
+        setWaitingForImageUrl(false)
+      })
+      .catch(error => {
+        console.error('Image upload failed:', error)
+        setWaitingForImageUrl(false)
+      })
+  }
   const handleSubmit = e => {
     e.preventDefault()
     console.log('Recipe JSON:', JSON.stringify(recipe, null, 2))
@@ -93,13 +128,17 @@ const AddRecipe = () => {
     axios
       .post(`${import.meta.env.VITE_COOK_LAND_API}/recipes.json`, recipe)
       .then(() => {
-        navigate('/')
+        onClose()
+        navigate('/my-recipes')
       })
       .catch(e => {
         console.log('The API has an error', e)
       })
   }
-
+  const triggerFileInput = e => {
+    e.preventDefault()
+    document.getElementById('hiddenFileInput').click()
+  }
   return (
     <div id='recipe-form'>
       <h2>Create Recipe</h2>
@@ -144,15 +183,35 @@ const AddRecipe = () => {
               selectedTags={recipe.tags}
               onTagClick={handleTagClick}
             />
-
-            <InputField className='inputField largeInput' label='Photo URL'>
+            <InputField className='inputField largeInput' label='Upload Photo'>
               <input
-                name='photos'
-                value={recipe.photos.join(', ')}
-                onChange={e => handleArrayChange(e, 'photos')}
-                placeholder='Photo URL (comma separated for multiple URLs)'
+                type='file'
+                accept='image/*'
+                onChange={handleImageUpload}
+                id='hiddenFileInput'
+                style={{ display: 'none' }}
               />
+              <button
+                onClick={triggerFileInput}
+                className='customButtonStyle'
+                disabled={waitingForImageUrl}
+              >
+                {waitingForImageUrl ? 'Uploading...' : 'Upload Image'}
+              </button>
             </InputField>
+            {recipe.photos.length > 0 && (
+              <div>
+                <h4>Uploaded Images</h4>
+                {recipe.photos.map((photo, index) => (
+                  <img
+                    key={index}
+                    src={photo}
+                    alt={`Uploaded ${index}`}
+                    style={{ width: '100px', margin: '5px' }}
+                  />
+                ))}
+              </div>
+            )}
 
             <InputField className='inputField largeInput' label='Rating'>
               <input
@@ -197,9 +256,20 @@ const AddRecipe = () => {
           </div>
         </div>
 
-        <button type='submit' className='submit-btn'>
+        {/* <button
+          type='submit'
+          className='submit-btn'
+          disabled={waitingForImageUrl}
+        >
           Create Recipe
-        </button>
+        </button> */}
+        <CookButton
+          size='xlarge'
+          className='submit-btn'
+          enable={!waitingForImageUrl}
+          onClick={handleSubmit}
+          label={waitingForImageUrl ? 'Uploading...' : 'Create Recipe'}
+        />
       </form>
     </div>
   )

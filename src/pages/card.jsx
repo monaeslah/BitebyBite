@@ -9,7 +9,7 @@ export const Card = ({ imgSrc, imgAlt, title, id, fav }) => {
         <div className='ranking-badge ranking-badge-orange'></div>
         <div className='serving'></div>
         <div className='card-image-wrapper'>
-          <img src={imgSrc} alt={imgAlt} className='card-image' />
+          <img src={imgSrc && imgSrc[0]} alt={imgAlt} className='card-image' />
         </div>
         <div className='card-content '>
           <div className='fav-icon'>
