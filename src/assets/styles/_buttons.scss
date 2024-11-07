@@ -4,7 +4,7 @@
 .xlargeButton {
   max-height: 20px;
   &.xlargeButton {
-    width: 110px;
+    width: 120px;
   }
   &.largeButton {
     width: 80px;
@@ -33,7 +33,7 @@
   max-height: 32px;
   display: flex;
   justify-content: center;
-  color: $primary-blue;
+  color: $primary-green;
 
   img {
     margin-left: auto;
@@ -52,8 +52,8 @@
     cursor: pointer;
   }
   &.primary-btn {
-    background-color: $primary-blue;
-    color: $gray-light;
+    background-color: $orange-button;
+    color: $white-smoke;
     cursor: pointer;
   }
 }
@@ -94,7 +94,7 @@
   padding: 5px 8px;
   align-items: center;
   gap: 10px;
-  background: $primary-green;
+  background: $orange-button;
   box-shadow: $input-field-box-shadow;
   border: $primary-border;
 }

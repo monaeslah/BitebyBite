@@ -43,15 +43,15 @@
         outline: none;
       }
       &::placeholder {
-        color: $primary-blue;
+        color: #5e4a6d;
       }
     }
     &:focus-within {
-      border: 1px solid $primary-blue;
+      border: 1px solid #5e4a6d;
     }
 
     &.has-content:not(.error) {
-      border: 1px solid $primary-blue;
+      border: 1px solid #5e4a6d;
     }
 
     &.error {

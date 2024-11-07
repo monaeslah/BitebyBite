@@ -66,30 +66,28 @@
 
     .tag-button {
       padding: 4px 20px;
-
       border: none;
       border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
-
       &.active {
         background-color: #4caf50;
         color: white;
       }
 
       &:hover {
-        background-color: #ccc;
+        background-color: $red-blur-medium;
         color: white;
       }
     }
   }
   .selected {
-    background-color: navy;
-    color: white;
+    background-color: $orange-button;
+    color: #ffffff;
   }
   .deselected {
     font-size: 0.9rem;
-    color: #555;
-    background-color: #e0e0e0;
+    color: #5e4a6d;
+    background-color: $progress-bg;
   }
 }
