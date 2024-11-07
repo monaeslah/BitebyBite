@@ -16,6 +16,7 @@ import Modal from './components/modal'
 import SurpriseCard from './components/randomRecipe'
 import Login from './pages/login'
 import Landing from './pages/landing-page'
+import NotFound from './pages/notFound'
 
 function App () {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -65,7 +66,11 @@ function App () {
         className='modal-overlay  '
         classNo='modal-content'
       >
-        <SurpriseCard surprise={rcards} reselect={selectRandom} />
+        <SurpriseCard
+          surprise={rcards}
+          reselect={selectRandom}
+          onClose={closeForm}
+        />
       </Modal>
       <Modal
         isOpen={isAddRecipeOpen}
@@ -90,6 +95,7 @@ function App () {
           <Route path='/tags' element={<CategoryPage />} />
 
           <Route path='/tag/:tag' element={<FilteredRecipes />} />
+          <Route path='/*' element={<NotFound />} />
         </Routes>
       </div>
     </div>

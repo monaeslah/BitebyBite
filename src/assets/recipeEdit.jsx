@@ -26,10 +26,8 @@ const RecipeEdit = () => {
     ingredients: [],
     instructions: []
   })
-  const [waitingForImageUrl, setWaitingForImageUrl] = useState(false)
-  const [removedPhotos, setRemovedPhotos] = useState([])
-  const [ingredient, setIngredient] = useState('')
 
+  const [ingredient, setIngredient] = useState('')
   const { recipeId } = useParams()
   const navigate = useNavigate()
 
@@ -39,46 +37,13 @@ const RecipeEdit = () => {
       .then(res => {
         const data = res.data
         if (data) {
-          setRecipe({ ...data, photos: data.photos ? data.photos : [] })
+          setRecipe(data)
         } else {
           console.error('Recipe not found')
           navigate('/404')
         }
       })
       .catch(e => console.error('Error fetching recipe:', e))
-  }
-  const handleImageUpload = e => {
-    e.preventDefault()
-    const file = e.target.files[0]
-    if (!file) return
-
-    setWaitingForImageUrl(true)
-
-    const formData = new FormData()
-    formData.append('file', file)
-    formData.append(
-      'upload_preset',
-      import.meta.env.VITE_UNSIGNED_UPLOAD_PRESET
-    )
-
-    const cloudinaryUrl = `https://api.cloudinary.com/v1_1/${
-      import.meta.env.VITE_CLOUDINARY_NAME
-    }/upload`
-
-    axios
-      .post(cloudinaryUrl, formData)
-      .then(response => {
-        const imageUrl = response.data.secure_url
-        setRecipe(prev => ({
-          ...prev,
-          photos: [...prev.photos, imageUrl]
-        }))
-        setWaitingForImageUrl(false)
-      })
-      .catch(error => {
-        console.error('Image upload failed:', error)
-        setWaitingForImageUrl(false)
-      })
   }
 
   useEffect(() => {
@@ -92,6 +57,14 @@ const RecipeEdit = () => {
         ? { ...prev, [field]: { ...prev[field], [name]: value } }
         : { ...prev, [name]: value }
     )
+  }
+
+  const handleArrayChange = (e, field) => {
+    const arrayData = e.target.value
+      .split(',')
+      .map(item => item.trim())
+      .filter(Boolean)
+    setRecipe(prev => ({ ...prev, [field]: arrayData }))
   }
 
   const handleAddIngredient = () => {
@@ -127,44 +100,19 @@ const RecipeEdit = () => {
     }))
   }
 
-  const handleSubmit = async e => {
+  const handleSubmit = e => {
     e.preventDefault()
-
-    try {
-      await Promise.all(
-        removedPhotos.map(photo =>
-          axios.delete(`${import.meta.env.VITE_COOK_LAND_API}/deleteImage`, {
-            data: { url: photo }
-          })
-        )
-      )
-
-      await axios.put(
+    axios
+      .put(
         `${import.meta.env.VITE_COOK_LAND_API}/recipes/${recipeId}.json`,
         recipe
       )
-      navigate(`/recipe/${recipeId}`)
-    } catch (error) {
-      console.error('Error updating recipe or deleting images:', error)
-    }
-  }
-  const setIngredients = newIngredients => {
-    setRecipe(prev => ({
-      ...prev,
-      ingredients: newIngredients
-    }))
-  }
-  if (!recipe) {
-    return <p>Loading recipe data...</p>
+      .then(() => navigate(`/recipe/${recipeId}`))
+      .catch(e => console.error('Error updating recipe:', e))
   }
 
-  const handleRemoveImage = index => {
-    setRecipe(prev => {
-      const updatedPhotos = [...prev.photos]
-      const [removedImage] = updatedPhotos.splice(index, 1) // Remove the image from photos array
-      setRemovedPhotos(prevRemoved => [...prevRemoved, removedImage]) // Track for potential backend deletion
-      return { ...prev, photos: updatedPhotos }
-    })
+  if (!recipe) {
+    return <p>Loading recipe data...</p>
   }
 
   return (
@@ -205,56 +153,14 @@ const RecipeEdit = () => {
               onTagClick={handleTagClick}
             />
 
-            <InputField className='inputField largeInput' label='Upload Photo'>
+            <InputField className='inputField largeInput' label='Photo URL'>
               <input
-                type='file'
-                accept='image/*'
-                onChange={handleImageUpload}
-                id='hiddenFileInput'
-                style={{ display: 'none' }}
+                name='photos'
+                value={recipe.photos.join(', ')}
+                onChange={e => handleArrayChange(e, 'photos')}
+                placeholder='Photo URL (comma separated for multiple URLs)'
               />
-              <button
-                type='button'
-                onClick={e =>
-                  document.getElementById('hiddenFileInput').click()
-                }
-                className='customButtonStyle'
-                disabled={waitingForImageUrl}
-              >
-                {waitingForImageUrl ? 'Uploading...' : 'Upload Image'}
-              </button>
             </InputField>
-            {recipe.photos && recipe.photos.length > 0 && (
-              <div>
-                <h4>Uploaded Images</h4>
-                {recipe.photos.map((photo, index) => (
-                  <div
-                    key={index}
-                    style={{
-                      display: 'inline-block',
-                      position: 'relative',
-                      margin: '5px'
-                    }}
-                  >
-                    <img
-                      src={photo}
-                      alt={`Uploaded ${index}`}
-                      style={{ width: '100px' }}
-                    />
-                    <button
-                      onClick={() => handleRemoveImage(index)}
-                      style={{
-                        position: 'absolute',
-                        top: '5px',
-                        right: '5px'
-                      }}
-                    >
-                      Remove
-                    </button>
-                  </div>
-                ))}
-              </div>
-            )}
 
             <InputField className='inputField largeInput' label='Rating'>
               <input
@@ -287,7 +193,6 @@ const RecipeEdit = () => {
               onAdd={handleAddIngredient}
               onDelete={index => handleDeleteItem('ingredients', index)}
               setIngredient={setIngredient}
-              setIngredients={setIngredients}
             />
 
             <InstructionsSection

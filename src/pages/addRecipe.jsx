@@ -30,6 +30,7 @@ const AddRecipe = ({ onClose }) => {
   const [waitingForImageUrl, setWaitingForImageUrl] = useState(false)
 
   const [ingredient, setIngredient] = useState('')
+  const [instructions, setInstructions] = useState('')
   const navigate = useNavigate()
 
   const handleChange = (e, field = null) => {
@@ -40,14 +41,6 @@ const AddRecipe = ({ onClose }) => {
         : { ...prev, [name]: value }
     )
   }
-
-  // const handleArrayChange = (e, field) => {
-  //   const arrayData = e.target.value
-  //     .split(',')
-  //     .map(item => item.trim())
-  //     .filter(Boolean)
-  //   setRecipe(prev => ({ ...prev, [field]: arrayData }))
-  // }
 
   const handleAddIngredient = () => {
     if (ingredient.trim()) {
