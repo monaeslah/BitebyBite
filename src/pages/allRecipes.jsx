@@ -60,7 +60,9 @@ const AllRecipes = () => {
             <p>No recipes match this calorie range.</p>
           )}
         </div>
-        <img src={girlChef} alt='chef' />
+        <div className='girlChef'>
+          <img src={girlChef} alt='chef' />
+        </div>
       </div>
     </div>
   )

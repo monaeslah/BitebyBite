@@ -149,3 +149,11 @@
     );
   }
 }
+/* Existing styles remain untouched */
+
+/* Mobile-specific styles for screens less than 490px */
+@media (max-width: 490px) {
+  .girlChef {
+    display: none;
+  }
+}

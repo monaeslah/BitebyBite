@@ -72,12 +72,13 @@
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
-
+        list-style: none;
         li {
-          background-color: #e3e3e3;
+          background-color: $color-green-mint-highlight;
           padding: 5px 10px;
-          border-radius: 20px;
+          border-radius: 3px;
           font-size: 0.9em;
+          color: $color-cream-beige-background;
         }
       }
     }
@@ -127,6 +128,101 @@
 
     &:hover {
       background-color: #0056b3;
+    }
+  }
+}
+/* Existing styles remain untouched */
+
+/* Mobile-specific styles for screens less than 490px */
+@media (max-width: 490px) {
+  #recipe-detail {
+    padding: 10px;
+
+    .rate {
+      font-size: 1em;
+      margin-bottom: 5px;
+    }
+
+    .recipe-container {
+      gap: 15px;
+
+      .summery {
+        flex-direction: column;
+        gap: 10px;
+
+        .image-border {
+          width: 100%;
+          padding: 5px;
+
+          .recipe-image {
+            width: 100%;
+            border-radius: 8px;
+          }
+
+          .fav-icon {
+            top: 5px;
+            right: 5px;
+
+            img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+
+        .words {
+          .nut-info {
+            flex-direction: column;
+          }
+        }
+
+        h1 {
+          font-size: 1.5em;
+          margin: 8px 0;
+        }
+
+        h3 {
+          font-size: 1.2em;
+          margin-top: 10px;
+        }
+
+        .tags-list {
+          gap: 5px;
+
+          li {
+            padding: 3px 8px;
+            font-size: 0.8em;
+          }
+        }
+      }
+
+      .detail {
+        flex-direction: column;
+
+        .ingredient {
+          width: 100%;
+        }
+
+        h3 {
+          font-size: 1.2em;
+          margin-top: 15px;
+        }
+
+        ul,
+        ol {
+          padding-left: 15px;
+
+          li {
+            font-size: 0.9em;
+          }
+        }
+      }
+    }
+
+    button {
+      padding: 8px 12px;
+      font-size: 0.9em;
+      margin-right: 5px;
     }
   }
 }
