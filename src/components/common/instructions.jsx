@@ -43,7 +43,7 @@ const InstructionsSection = ({
       <div className='input'>
         <InputField className='inputField largeInput' label={'Instructions:'}>
           <input
-            name={instruction}
+            name='instruction'
             value={instruction}
             onChange={e => setInstruction(e.target.value)}
             onKeyPress={handleKeyPress}
@@ -60,27 +60,28 @@ const InstructionsSection = ({
         </InputField>
       </div>
       <ul className='list'>
-        {instructions.map((item, index) => (
-          <li
-            key={index}
-            draggable
-            onDragStart={e => onDragStart(e, index)}
-            onDragOver={onDragOver}
-            onDrop={e => onDrop(e, index)}
-            onDragEnd={onDragEnd}
-            className='item'
-          >
-            {item}
+        {instructions &&
+          instructions.map((item, index) => (
+            <li
+              key={index}
+              draggable
+              onDragStart={e => onDragStart(e, index)}
+              onDragOver={onDragOver}
+              onDrop={e => onDrop(e, index)}
+              onDragEnd={onDragEnd}
+              className='item'
+            >
+              {item}
 
-            <CookButton
-              onClick={() => onDelete(index)}
-              label='Remove'
-              enable={true}
-              size='small remove'
-              className={'removeBtn remove'}
-            />
-          </li>
-        ))}
+              <CookButton
+                onClick={() => onDelete(index)}
+                label='Remove'
+                enable={true}
+                size='small remove'
+                className={'removeBtn remove'}
+              />
+            </li>
+          ))}
       </ul>
     </div>
   )

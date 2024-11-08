@@ -99,7 +99,8 @@ const RecipeEdit = () => {
     if (ingredient.trim()) {
       setRecipe(prev => ({
         ...prev,
-        ingredients: [...prev.ingredients, ingredient]
+
+        ingredients: [...(prev.ingredients || []), ingredient]
       }))
       setIngredient('')
     }
@@ -114,11 +115,14 @@ const RecipeEdit = () => {
     }))
   }
 
-  const handleAddInstruction = instruction => {
-    setRecipe(prev => ({
-      ...prev,
-      instructions: [...prev.instructions, instruction]
-    }))
+  const handleAddInstruction = () => {
+    if (instruction.trim()) {
+      setRecipe(prev => ({
+        ...prev,
+        instructions: [...(prev.instructions || []), instruction]
+      }))
+      setInstruction('')
+    }
   }
 
   const handleDeleteItem = (field, index) => {
