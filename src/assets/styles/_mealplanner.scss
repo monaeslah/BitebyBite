@@ -207,3 +207,106 @@
   background-color: #e5e1f6;
   color: #816d1a;
 }
+/* Existing styles remain untouched */
+
+/* Mobile-specific styles for screens less than 490px */
+@media (max-width: 490px) {
+  .meal-planner {
+    padding: 10px;
+
+    .planner-header {
+      flex-direction: column;
+      align-items: center;
+
+      h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    }
+
+    .meal-item {
+      .meal-name {
+        font-size: 12px;
+      }
+    }
+
+    .notes-section {
+      padding: 10px;
+
+      h3 {
+        font-size: 18px;
+      }
+
+      textarea {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+
+    .header-fields {
+      flex-direction: column;
+      align-items: flex-start;
+
+      label {
+        font-size: 12px;
+      }
+
+      input {
+        font-size: 12px;
+        text-align: left;
+      }
+    }
+
+    .calendar {
+      grid-template-columns: 1fr;
+      gap: 10px;
+
+      .day {
+        padding: 15px;
+        height: auto;
+
+        span {
+          font-size: 16px;
+        }
+
+        .meal-item {
+          .meal-name {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+
+    .modal-overlay .modal-content {
+      max-width: 90%;
+    }
+  }
+
+  .recipe-list {
+    .recipe-item {
+      padding: 8px;
+
+      h5 {
+        font-size: 14px;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  .planner-image {
+    width: 50px;
+  }
+
+  .image-notes {
+    width: 100%;
+    height: auto;
+  }
+
+  .left-align {
+    margin-top: 5px;
+  }
+  .prev {
+    width: 250px;
+    margin: 5px;
+  }
+}
