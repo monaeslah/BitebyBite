@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CookButton } from '../components/common/buttons'
 
 const SurpriseCard = ({ surprise, reselect, onClose }) => {
   const [randomRecipe, setRandomRecipe] = useState(null)
-  const navigate = useNavigate()
 
   useEffect(() => {
     setRandomRecipe(surprise)
@@ -26,7 +26,14 @@ const SurpriseCard = ({ surprise, reselect, onClose }) => {
       <div onClick={handleLinkClick} style={{ cursor: 'pointer' }}>
         <p>{randomRecipe && randomRecipe.name}</p>
       </div>
-      <button onClick={reselect}>try me</button>
+
+      <CookButton
+        size='medium'
+        className='lucky-btn'
+        enable={true}
+        onClick={reselect}
+        label={'Another One!'}
+      />
     </div>
   )
 }
