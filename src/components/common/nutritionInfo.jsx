@@ -18,7 +18,7 @@ const NutritionalInfo = ({ data, onChange }) => (
             placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
           />
         </InputField>
-        <p>Kcl</p>
+
         {/* <CookButton
           onClick={() => console.log(`${field} added`)}
           label={'Select Unit'}

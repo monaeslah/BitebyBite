@@ -34,7 +34,25 @@ const getFavRecipes = () => {
     })
 }
 
-export { getRecipes, getFavRecipes }
+const getWeekPlan = () => {
+  return axios
+    .get(`${import.meta.env.VITE_COOK_LAND_API}/mealplanner.json`)
+    .then(res => {
+      const data = res.data
+      console.log(data)
+      const planner = Object.keys(data).map(id => ({
+        id,
+        ...data[id]
+      }))
+      return planner
+    })
+    .catch(e => {
+      console.log('The get api has error', e)
+      return []
+    })
+}
+
+export { getRecipes, getFavRecipes, getWeekPlan }
 
 // Default export
-export default { getRecipes, getFavRecipes }
+export default { getRecipes, getFavRecipes, getWeekPlan }

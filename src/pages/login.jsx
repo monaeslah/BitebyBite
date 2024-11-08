@@ -16,14 +16,6 @@ const LoginPage = ({ setAuth }) => {
     e.preventDefault()
     setAuth(true)
     navigate('/my-recipes')
-    // axios
-    //   .post('/login', credentials)
-    //   .then(res => {
-    //     console.log('Login successful:', res.data)
-    //   })
-    //   .catch(err => {
-    //     console.error('Login error:', err)
-    //   })
   }
 
   return (

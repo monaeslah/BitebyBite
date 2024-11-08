@@ -70,3 +70,34 @@
     }
   }
 }
+@media (max-width: 490px) {
+  .inputContainer {
+    gap: 2px;
+
+    label {
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+
+    .inputField {
+      height: 40px; /* Slightly reduce height for better mobile fit */
+      padding-left: 10px; /* Reduce padding for compact display */
+      margin: 6px 0;
+
+      &.xlargeInput,
+      &.largeInput,
+      &.mediumInput,
+      &.smallInput {
+        width: 100%; /* Full width for all input sizes on mobile */
+      }
+
+      input,
+      textarea {
+        min-height: 36px;
+        padding: 2px;
+        font-size: 0.9rem; /* Adjust font size for readability */
+        border-radius: 4px;
+      }
+    }
+  }
+}

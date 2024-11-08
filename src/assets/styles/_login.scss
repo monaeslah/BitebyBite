@@ -67,3 +67,42 @@
     margin: 3px auto;
   }
 }
+@media (max-width: 490px) {
+  .page {
+    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+
+    justify-content: flex-start;
+
+    .logo {
+      height: 8em;
+      width: 5em;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      margin: 0 auto;
+      img {
+        width: 80%;
+        height: auto;
+      }
+    }
+
+    .login-form {
+      width: 90%;
+      padding: 1.2em;
+      max-width: 100%;
+      box-shadow: 0 0.3em 0.8em rgba(0, 0, 0, 0.1);
+
+      h2 {
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+      }
+
+      .field {
+        margin-bottom: 0.8em;
+      }
+    }
+  }
+}

@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import Modal from '../components/modal'
-import './mealplanner.css'
 
 const RecipeModal = ({ isOpen, onClose, recipes, onSelectRecipe }) => {
   const [selectedRecipe, setSelectedRecipe] = useState(null)
 
   const handleSelect = recipe => {
-    setSelectedRecipe(recipe) // Highlight selection in modal
-    onSelectRecipe(recipe) // Pass the recipe to MealPlanner
-    onClose() // Close the modal after selection
+    setSelectedRecipe(recipe)
+    onSelectRecipe(recipe)
+    onClose()
     console.log(recipe)
   }
 
@@ -25,7 +24,10 @@ const RecipeModal = ({ isOpen, onClose, recipes, onSelectRecipe }) => {
               }`}
               onClick={() => handleSelect(recipe)}
             >
-              {recipe.name}
+              <div className='planner-image'>
+                <img src={recipe.photos} alt='' />
+              </div>
+              <h5>{recipe.name}</h5>
             </li>
           ))}
         </ul>

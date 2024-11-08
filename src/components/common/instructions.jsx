@@ -76,8 +76,8 @@ const InstructionsSection = ({
               onClick={() => onDelete(index)}
               label='Remove'
               enable={true}
-              size='small'
-              className={'remove'}
+              size='small remove'
+              className={'removeBtn remove'}
             />
           </li>
         ))}

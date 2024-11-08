@@ -13,8 +13,9 @@ import DayCard from './dayCard'
 import NotesSection from './notSection'
 import MealPlanModal from './mealPlanModal'
 import RecipeModal from './recipeModal'
-import './mealplanner.css'
-
+import axios from 'axios'
+import chefM from '../assets/icons/chef.png'
+import { CookButton } from '../components/common/buttons'
 function MealPlanner () {
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedDay, setSelectedDay] = useState(null)
@@ -37,8 +38,10 @@ function MealPlanner () {
     setSelectedDay(day)
     setIsModalOpen(true)
   }
+  console.log(isRecipeModalOpen)
 
   const saveMealPlan = mealData => {
+    if (!selectedDay) return
     const dateKey = getDate(selectedDay)
     setMealPlans(prev => ({
       ...prev,
@@ -52,6 +55,7 @@ function MealPlanner () {
   }
 
   const removeMealPlan = mealIndex => {
+    if (!selectedDay) return
     const dateKey = getDate(selectedDay)
     setMealPlans(prev => ({
       ...prev,
@@ -63,6 +67,27 @@ function MealPlanner () {
   const selectRecipe = recipe => {
     setSelectedRecipe(recipe)
     setIsRecipeModalOpen(false)
+  }
+
+  const sendMealPlansToServer = () => {
+    return axios
+      .post(
+        `${import.meta.env.VITE_COOK_LAND_API}/mealplanner.json`,
+        mealPlans,
+        {
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        }
+      )
+      .then(response => {
+        console.log('Meal plans successfully sent to the server')
+        return response.data
+      })
+      .catch(error => {
+        console.error('Failed to send meal plans to the server', error)
+        throw new Error('Failed to send meal plans to the server')
+      })
   }
 
   return (
@@ -98,8 +123,11 @@ function MealPlanner () {
             onClick={() => handleDayClick(day)}
           />
         ))}
+        <div className='day-cards'></div>
+        <div className='image-notes'>
+          <img src={chefM} alt='' />
+        </div>
       </div>
-
       <NotesSection />
 
       <MealPlanModal
@@ -108,6 +136,7 @@ function MealPlanner () {
         onSave={saveMealPlan}
         onRemove={removeMealPlan}
         selectedRecipe={selectedRecipe}
+        mealPlans={mealPlans[getDate(selectedDay)] || []}
         setIsRecipeModalOpen={setIsRecipeModalOpen}
       />
 
@@ -116,6 +145,14 @@ function MealPlanner () {
         onClose={() => setIsRecipeModalOpen(false)}
         recipes={recipes}
         onSelectRecipe={selectRecipe}
+      />
+
+      <CookButton
+        label={'Save'}
+        enable={true}
+        size='large'
+        className={'tag-button left-align'}
+        onClick={sendMealPlansToServer}
       />
     </div>
   )

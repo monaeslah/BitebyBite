@@ -18,6 +18,7 @@ export const CookButton = ({
       mediumButton: size === 'medium',
       largeButton: size === 'large',
       xlargeButton: size === 'xlarge',
+      removeButton: size === 'remove',
       selected: selected,
       deselected: !selected
     },

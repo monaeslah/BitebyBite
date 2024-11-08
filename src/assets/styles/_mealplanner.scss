@@ -1,0 +1,209 @@
+.meal-planner {
+  font-family: Arial, sans-serif;
+  color: #3a3a5a;
+  padding: 20px;
+
+  .planner-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h2 {
+      font-size: 36px;
+      font-weight: bold;
+      color: #3a3a5a;
+      text-transform: uppercase;
+    }
+  }
+
+  .meal-item {
+    display: flex;
+    align-items: center;
+
+    .meal-color {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .meal-name {
+      font-size: 14px;
+      color: #333;
+    }
+  }
+
+  .notes-section {
+    background-color: #dff4f7;
+    border-radius: 15px;
+    padding: 15px;
+    grid-column: span 3;
+    margin-top: 20px;
+    color: #2a3a4a;
+    h3 {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    textarea {
+      width: 98%;
+      height: 80px;
+      border: none;
+      resize: none;
+      font-size: 16px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      outline: none;
+    }
+  }
+
+  .header-fields {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    label {
+      font-size: 14px;
+      color: #555;
+    }
+
+    input {
+      border: none;
+      border-bottom: 1px solid #555;
+      background-color: transparent;
+      outline: none;
+      font-size: 14px;
+      color: #555;
+      text-align: right;
+    }
+  }
+
+  .calendar {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    .day-card {
+    }
+    .day {
+      background-color: #e5e1f5;
+      border-radius: 15px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      height: 150px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      span {
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .meals {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding-right: 5px;
+
+        .meal-item {
+          display: flex;
+          align-items: center;
+          margin-bottom: 5px;
+
+          .meal-color {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+          }
+
+          .meal-name {
+            font-size: 14px;
+            color: #333;
+          }
+        }
+
+        &::-webkit-scrollbar {
+          width: 5px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: #aaa;
+          border-radius: 10px;
+        }
+      }
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal-content {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      min-width: 300px;
+      max-width: 500px;
+      width: 100%;
+    }
+  }
+}
+.recipe-list {
+  list-style-type: none;
+  padding: 0;
+
+  .recipe-item {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    h5 {
+      margin-left: 30px;
+      text-align: center;
+    }
+    &:hover {
+      background-color: #f0f0f0;
+    }
+
+    &.selected {
+      background-color: #d4edda;
+    }
+  }
+}
+.planner-image {
+  width: 60px;
+
+  img {
+    width: 100%;
+  }
+}
+.image-notes {
+  width: 280px;
+  height: 200px;
+  img {
+    width: 100%;
+    height: 100%;
+  }
+}
+.left-align {
+  margin-left: auto;
+  margin-top: 10px;
+  background-color: $blue-button;
+  color: $white-smoke;
+}
+.prev {
+  background-color: #e5e1f6;
+  color: #816d1a;
+}

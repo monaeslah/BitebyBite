@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import './mealPlanForm.css'
 
-function MealPlanForm ({ onSave, onRemove, existingData, onSearch }) {
+function MealPlanForm ({ onSave, onRemove, existingData = {}, onSearch }) {
   const [recipe, setRecipe] = useState(existingData?.recipe || '')
   const [mealType, setMealType] = useState(
     existingData?.mealType || 'Breakfast'
@@ -13,10 +12,10 @@ function MealPlanForm ({ onSave, onRemove, existingData, onSearch }) {
   const [notes, setNotes] = useState(existingData?.notes || '')
 
   useEffect(() => {
-    if (existingData?.recipe) {
+    if (existingData?.recipe !== recipe) {
       setRecipe(existingData.recipe)
     }
-  }, [existingData?.recipe])
+  }, [existingData?.recipe, recipe])
 
   const handleSave = () => {
     const mealData = { recipe, mealType, date, servings, notes }

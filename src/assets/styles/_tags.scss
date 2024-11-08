@@ -83,12 +83,12 @@
     }
   }
   .selected {
-    background-color: $orange-button;
+    background-color: $blue-button;
     color: #ffffff;
   }
   .deselected {
     font-size: 0.9rem;
     color: #5e4a6d;
-    background-color: $progress-bg;
+    background-color: $color-blue-light;
   }
 }

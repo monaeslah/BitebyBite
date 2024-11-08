@@ -8,7 +8,7 @@ import IngredientsSection from '../components/ingredients'
 import InstructionsSection from '../components/common/instructions'
 import { useNavigate } from 'react-router-dom'
 import { CookButton } from '../components/common/buttons'
-
+import mouse from '../assets/icons/recipead.jpeg'
 const AddRecipe = ({ onClose }) => {
   const [recipe, setRecipe] = useState({
     name: '',
@@ -213,7 +213,7 @@ const AddRecipe = ({ onClose }) => {
               </div>
             )}
 
-            <InputField className='inputField largeInput' label='Rating'>
+            <InputField className='inputField smallInput' label='Rating'>
               <input
                 name='rate'
                 value={recipe.rate}
@@ -223,7 +223,7 @@ const AddRecipe = ({ onClose }) => {
               />
             </InputField>
 
-            <InputField className='inputField largeInput' label='Time'>
+            <InputField className='inputField smallInput' label='Time'>
               <input
                 name='time'
                 value={recipe.time}
@@ -256,6 +256,9 @@ const AddRecipe = ({ onClose }) => {
               setInstruction={setInstruction}
               setInstructions={setInstructions}
             />
+            <div className='mouse-image'>
+              <img src={mouse} alt='' />
+            </div>
           </div>
         </div>
 
