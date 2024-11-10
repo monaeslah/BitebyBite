@@ -1,8 +1,9 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import { Base_URL } from '../config/api'
+import IngredientsList from './ingredientsList'
+import InstructionsList from './instructions'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-// import Loader from "../components/Loader";
+import NutritionalInfo from './nut'
 import Fav from '../assets/icons/heart.png'
 import unFav from '../assets/icons/emptyheart.png'
 const RecipeDetail = () => {
@@ -58,10 +59,14 @@ const RecipeDetail = () => {
 
   return (
     <div id='recipe-detail'>
-      <Link to={`/recipe/edit/${recipeId}`}>
-        <button>Edit</button>
-      </Link>
-      <button onClick={deleteRecipe}>Delete</button>
+      <div className='action-buttons'>
+        <Link to={`/recipe/edit/${recipeId}`} className='edit'>
+          <button>Edit</button>
+        </Link>
+        <button className='delete' onClick={deleteRecipe}>
+          Delete
+        </button>
+      </div>
 
       <p className='rate'>
         <strong>Rating:</strong> {recipe.rate} ⭐
@@ -83,13 +88,9 @@ const RecipeDetail = () => {
             {' '}
             <h1>{recipe.name}</h1>
             <div className='nut-info'>
-              <h3>Nutritional Information:</h3>
-              <p>Calories: {recipe.nutritionalInformation.calories}</p>
-              <p>
-                Carbohydrates: {recipe.nutritionalInformation.carbohydrates}
-              </p>
-              <p>Fat: {recipe.nutritionalInformation.fat}</p>
-              <p>Protein: {recipe.nutritionalInformation.protein}</p>
+              <NutritionalInfo
+                nutritionalInfo={recipe.nutritionalInformation}
+              />
             </div>
             <p>
               {' '}
@@ -107,29 +108,14 @@ const RecipeDetail = () => {
         </div>
 
         <div className='detail'>
-          <div className='ingredient'>
-            <h3>Ingredients:</h3>
-            <ul>
-              {recipe.ingredients &&
-                recipe.ingredients.map((ingredient, index) => (
-                  <li key={index}>{ingredient}</li>
-                ))}
-            </ul>
-          </div>
-          <div className='instruction'>
-            {' '}
-            <h3>Instructions:</h3>
-            <ol>
-              {recipe.instructions &&
-                recipe.instructions.map((step, index) => (
-                  <li key={index}>{step}</li>
-                ))}
-            </ol>
-            <p>
-              <strong>Note:</strong> {recipe.recipeNote}
-            </p>
-          </div>
+          <IngredientsList ingredients={recipe.ingredients} />
+
+          {/* پاس دادن لیست دستور پخت به InstructionsList */}
+          <InstructionsList instructions={recipe.instructions} />
         </div>
+        <p>
+          <strong>Note:</strong> {recipe.recipeNote}
+        </p>
       </div>
     </div>
   )

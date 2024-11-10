@@ -1,12 +1,51 @@
 #recipe-detail {
   padding: 20px;
   font-family: Arial, sans-serif;
+  max-width: 1240px;
+  margin: 0 40px; // قرار دادن محتوا در مرکز صفحه
 
-  a {
-    text-decoration: none;
-    color: #007bff;
-    &:hover {
-      color: #0056b3;
+  button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+  }
+  .action-buttons {
+    display: flex;
+    gap: 10px; // فاصله بین دکمه‌ها
+    align-items: center;
+    .edit {
+      border: none;
+      background-color: #1a3a52; // رنگ آبی نفتی تیره
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #163549; // رنگ کمی تیره‌تر برای هاور
+      }
+    }
+
+    .delete {
+      background-color: #4b3a47; // رنگ بنفش دودی
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #3c2f3c; // رنگ کمی تیره‌تر برای هاور
+      }
     }
   }
 
@@ -14,21 +53,21 @@
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 10px;
+    color: $golden-yellow; // رنگ زرد برای جلب توجه به امتیاز
   }
 
   .recipe-container {
     display: flex;
-
     flex-direction: column;
     gap: 20px;
 
     .summery {
       display: flex;
-      flex-direction: row;
-      gap: 10px;
+      gap: 20px;
+
       .image-border {
-        width: 30%;
-        border: 2px solid #ddd;
+        width: 35%;
+        border: 2px solid $light-gray;
         border-radius: 10px;
         padding: 10px;
         position: relative;
@@ -51,144 +90,140 @@
           }
         }
       }
+
       .words {
-        .nut-info {
-          display: flex;
+        flex: 1; // پر کردن فضای موجود برای کادر توضیحات
+
+        h1 {
+          font-size: 2em;
+          margin: 10px 0;
+          color: #4b3a47;
         }
-      }
 
-      h1 {
-        font-size: 2em;
-        margin: 10px 0;
-      }
+        .nut-info {
+          background-color: #eaf7f8;
+          padding: 12px 15px;
+          border-radius: 8px;
+          margin-bottom: 10px;
+          font-weight: bold;
+          display: inline-block;
+          color: $deep-teal; // رنگ مشابه برای هماهنگی
+        }
 
-      h3 {
-        margin-top: 15px;
-        font-weight: bold;
-        color: #555;
-      }
+        .tags-list {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 10px;
+          list-style: none;
+          li {
+            background-color: $deep-teal;
+            padding: 6px 10px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            color: $color-white;
+          }
+        }
 
-      .tags-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-        list-style: none;
-        li {
-          background-color: $color-green-mint-highlight;
-          padding: 5px 10px;
-          border-radius: 3px;
-          font-size: 0.9em;
-          color: $color-cream-beige-background;
+        .description {
+          font-size: 1em;
+          margin-top: 15px;
+          color: #666; // رنگ کمی ملایم‌تر برای توضیحات
         }
       }
     }
 
     .detail {
       display: flex;
-      .ingredient {
-        width: 40%;
-      }
-      h3 {
-        font-size: 1.5em;
-        margin-top: 20px;
-      }
+      gap: 30px;
+      .ingredient-list {
+        display: flex;
+        flex-direction: column; // نمایش تک‌ستونه برای صرفه‌جویی در فضا
+        gap: 5px;
+        width: 30%;
+        .ingredient-item {
+          display: flex;
+          align-items: center;
+          background-color: $basic-light-white;
+          padding: 4px 8px; // کاهش پدینگ برای کوچک‌تر شدن خانه‌ها
+          border-radius: 3px; // گوشه‌ها کمی گردتر
+          line-height: 1.2;
 
-      ul {
-        list-style-type: square;
-        padding-left: 20px;
+          input[type='checkbox'] {
+            margin-right: 8px;
+            transform: scale(0.8); // کوچک‌تر کردن چک‌باکس
+            accent-color: #007b83;
+          }
 
-        li {
-          margin-bottom: 5px;
+          label {
+            color: $color-text-black;
+          }
         }
       }
 
-      ol {
-        list-style-type: decimal;
-        padding-left: 20px;
+      .instructions-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
 
-        li {
-          margin-bottom: 10px;
+        .instruction-step {
+          display: flex;
+          align-items: flex-start;
+          background-color: $basic-white;
+          padding: 15px;
+          border-radius: 8px;
+          box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+          position: relative;
+
+          &:before {
+            content: attr(data-step);
+            background-color: $deep-teal;
+            color: $color-white;
+            font-weight: bold;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-size: 0.9em;
+          }
+
+          p {
+            margin: 0;
+            font-size: 1em;
+            color: $color-text-black;
+          }
         }
       }
-
-      strong {
-        font-weight: bold;
-      }
-    }
-  }
-
-  button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 15px;
-    margin-right: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-
-    &:hover {
-      background-color: #0056b3;
     }
   }
 }
-/* Existing styles remain untouched */
-
-/* Mobile-specific styles for screens less than 490px */
 @media (max-width: 490px) {
   #recipe-detail {
     padding: 10px;
-
-    .rate {
-      font-size: 1em;
-      margin-bottom: 5px;
-    }
 
     .recipe-container {
       gap: 15px;
 
       .summery {
         flex-direction: column;
-        gap: 10px;
-
         .image-border {
           width: 100%;
           padding: 5px;
 
-          .recipe-image {
-            width: 100%;
-            border-radius: 8px;
-          }
-
           .fav-icon {
             top: 5px;
             right: 5px;
-
-            img {
-              width: 20px;
-              height: 20px;
-            }
-          }
-        }
-
-        .words {
-          .nut-info {
-            flex-direction: column;
           }
         }
 
         h1 {
           font-size: 1.5em;
-          margin: 8px 0;
-        }
-
-        h3 {
-          font-size: 1.2em;
-          margin-top: 10px;
         }
 
         .tags-list {
           gap: 5px;
-
           li {
             padding: 3px 8px;
             font-size: 0.8em;
@@ -198,31 +233,12 @@
 
       .detail {
         flex-direction: column;
-
-        .ingredient {
-          width: 100%;
-        }
-
-        h3 {
-          font-size: 1.2em;
-          margin-top: 15px;
-        }
-
-        ul,
-        ol {
-          padding-left: 15px;
-
-          li {
-            font-size: 0.9em;
-          }
-        }
       }
-    }
 
-    button {
-      padding: 8px 12px;
-      font-size: 0.9em;
-      margin-right: 5px;
+      button {
+        padding: 8px 12px;
+        font-size: 0.9em;
+      }
     }
   }
 }

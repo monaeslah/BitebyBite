@@ -1,12 +1,12 @@
 .page {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  // flex-direction: column;
+  justify-content: left;
   align-items: center;
   height: 100vh;
-  background-image: url('../icons/bg4.jpg');
-  background-size: cover;
-  background-position: center;
+  background-image: url('../images/login3.jpeg');
+  margin-left: 110px;
+  background-position: right;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
@@ -24,14 +24,18 @@
   }
 
   .login-form {
-    background-color: white;
+    background-color: #f0f0f075;
+    color: #333333;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
     border: 0.1em solid transparent;
-    border-radius: 1em;
-    box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.1);
-    padding: 1em;
-    width: 100%;
+
     max-width: 440px;
 
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-top: 50px;
+    width: 80%;
+    // max-width: 400px;
     h2 {
       color: $primary-deep-gray;
       font-weight: 600;
@@ -62,11 +66,29 @@
         border: 0.1em solid $color-blue-end;
       }
     }
+    .login-btn {
+      background: $yellow-deep;
+      color: white;
+    }
   }
   .submit-btn {
     margin: 3px auto;
+
+    color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1) !important;
   }
 }
+
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4); /* لایه تیره نیمه شفاف */
+}
+
 @media (max-width: 490px) {
   .page {
     padding: 1rem;

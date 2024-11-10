@@ -8,14 +8,17 @@
 .main-content {
   margin-top: 60px;
   margin-left: 250px;
-  padding: 20px;
+  // padding: 20px;
   flex: 1;
   overflow-y: auto;
 }
 .auth-layout {
-  margin-top: 60px;
+  margin-top: 0px;
+  background: $primary-deep-blue;
+  // background: rgb(253 255 153 / 42%);
+
   margin-left: 0px;
-  padding: 20px;
+  // padding: 20px;
   flex: 1;
   overflow-y: auto;
 }

@@ -21,14 +21,8 @@ const LoginPage = ({ setAuth }) => {
   return (
     <div className='page'>
       <div className='login-form'>
-        <h2>Login</h2>
-        <div className='logo'>
-          {' '}
-          <img src={spoon} alt='' />
-        </div>
-
         <form onSubmit={handleSubmit}>
-          <InputField label='Email' className='inputField largeInput'>
+          <InputField className='inputField largeInput'>
             <input
               type='email'
               name='email'
@@ -37,7 +31,7 @@ const LoginPage = ({ setAuth }) => {
               placeholder='Enter email'
             />
           </InputField>
-          <InputField label='Password' className='inputField largeInput'>
+          <InputField className='inputField largeInput'>
             <input
               type='password'
               name='password'
@@ -52,7 +46,7 @@ const LoginPage = ({ setAuth }) => {
             label='Login'
             enable={true}
             size='medium'
-            className={'primary-btn submit-btn'}
+            className={'login-btn submit-btn'}
           />
         </form>
       </div>

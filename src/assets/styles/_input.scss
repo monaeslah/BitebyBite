@@ -2,102 +2,110 @@
   display: flex;
   flex-direction: column;
   gap: 4px;
-  label {
-    font-weight: bold;
-    color: #555;
-    margin-bottom: 8px;
-  }
-  .inputField {
-    display: flex;
-    height: 45px;
-    padding: 1px 0;
-    padding-left: 14px;
-    margin: 8px 0;
-    align-items: center;
-    box-shadow: $input-field-box-shadow;
-    border-radius: 7px;
-    transition: box-shadow 0.3s, border-color 0.3s;
-    &.xlargeInput {
-      width: 880px;
-    }
-    &.largeInput {
-      width: 420px;
-    }
-
-    &.mediumInput {
-      width: 380px;
-    }
-    &.smallInput {
-      width: 120px;
-    }
-    textarea,
-    input {
-      border: none;
-      min-height: 38px;
-      margin-left: 11px;
-      width: 100%;
-      padding: 3px;
-      border: 1px solid #ddd;
-      border-radius: 5px;
-      &:focus {
-        outline: none;
-      }
-      &::placeholder {
-        color: #5e4a6d;
-      }
-    }
-    &:focus-within {
-      border: 1px solid #5e4a6d;
-    }
-
-    &.has-content:not(.error) {
-      border: 1px solid #5e4a6d;
-    }
-
-    &.error {
-      border: 1px solid $errorColor;
-    }
-
-    .passwordToggleIcon {
-      cursor: pointer;
-
-      &.hidden {
-        display: none;
-      }
-      &.visible {
-        display: inline-block;
-      }
-    }
-  }
 }
+
+.inputContainer label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.inputContainer .inputField {
+  display: flex;
+  height: 45px;
+  padding: 1px 0;
+  padding-left: 14px;
+  margin: 8px 0;
+  align-items: center;
+
+  border-radius: 7px;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.inputContainer .inputField.xlargeInput {
+  width: 880px;
+}
+
+.inputContainer .inputField.largeInput {
+  width: 420px;
+}
+
+.inputContainer .inputField.mediumInput {
+  width: 380px;
+}
+
+.inputContainer .inputField.smallInput {
+  width: 120px;
+}
+
+.inputContainer textarea,
+.inputContainer input {
+  border: none;
+  min-height: 38px;
+  margin-left: 11px;
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 15px;
+  box-sizing: border-box;
+
+  color: #333;
+  background-color: #fff4c3;
+  transition: border-color 0.3s ease;
+}
+
+.inputContainer textarea:focus,
+.inputContainer input:focus {
+  // border-color: #ffcc00;
+  outline: none;
+}
+
+.inputContainer input::placeholder {
+  color: #5e4a6d;
+}
+
+.inputContainer .passwordToggleIcon {
+  cursor: pointer;
+}
+
+.inputContainer .passwordToggleIcon.hidden {
+  display: none;
+}
+
+.inputContainer .passwordToggleIcon.visible {
+  display: inline-block;
+}
+
 @media (max-width: 490px) {
   .inputContainer {
     gap: 2px;
+  }
 
-    label {
-      font-size: 0.9rem;
-      margin-bottom: 6px;
-    }
+  .inputContainer label {
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+  }
 
-    .inputField {
-      height: 40px; /* Slightly reduce height for better mobile fit */
-      padding-left: 10px; /* Reduce padding for compact display */
-      margin: 6px 0;
+  .inputContainer .inputField {
+    height: 40px;
+    padding-left: 10px;
+    margin: 6px 0;
+    width: 100%;
+  }
 
-      &.xlargeInput,
-      &.largeInput,
-      &.mediumInput,
-      &.smallInput {
-        width: 100%; /* Full width for all input sizes on mobile */
-      }
+  .inputContainer .inputField.xlargeInput,
+  .inputContainer .inputField.largeInput,
+  .inputContainer .inputField.mediumInput,
+  .inputContainer .inputField.smallInput {
+    width: 100%;
+  }
 
-      input,
-      textarea {
-        min-height: 36px;
-        padding: 2px;
-        font-size: 0.9rem; /* Adjust font size for readability */
-        border-radius: 4px;
-      }
-    }
+  .inputContainer input,
+  .inputContainer textarea {
+    min-height: 36px;
+    padding: 2px;
+    font-size: 0.9rem;
+    border-radius: 4px;
   }
 }

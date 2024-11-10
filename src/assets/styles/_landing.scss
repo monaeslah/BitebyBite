@@ -4,7 +4,6 @@ body {
 #home-container {
   padding: 3rem 2rem;
   font-family: Arial, sans-serif;
-  background-color: $background-main; // Soft background color for readability
 
   .hero-section {
     display: flex;
@@ -15,9 +14,9 @@ body {
 
     .hero-text {
       max-width: 50%;
-      color: $color-text-primary; // Dark primary text color
 
       h1 {
+        color: $color-yellow-deep-cream;
         font-size: 3rem;
         font-weight: bold;
         line-height: 1.2;
@@ -30,10 +29,12 @@ body {
           border-radius: 5px;
         }
       }
-
+      p {
+        color: #d7e3f3;
+      }
       .subtitle {
         font-size: 1rem;
-        color: $color-text-secondary; // Subtle secondary text color for subtitles
+
         margin: 1rem 0;
       }
 
@@ -58,7 +59,7 @@ body {
 
         .learn-more {
           margin-left: 1rem;
-          color: $orange-button; // Matching the highlight color for link consistency
+          color: $orange-button;
           text-decoration: none;
           font-weight: bold;
           font-size: 1rem;
@@ -70,7 +71,7 @@ body {
         gap: 2rem;
         margin-top: 2rem;
         font-size: 1rem;
-        color: $color-text-secondary; // Primary text color
+        color: $color-yellow-deep-cream;
 
         div {
           font-size: 1.2rem;
@@ -81,11 +82,11 @@ body {
           strong {
             font-size: 1.4rem;
             font-weight: bold;
-            color: $color-text-primary; // Dark primary color
+            color: $color-yellow-cream-highlight;
           }
 
           span {
-            color: $gray-text-color; // Gray text color for subtlety
+            color: #d7e3f3;
           }
         }
       }
