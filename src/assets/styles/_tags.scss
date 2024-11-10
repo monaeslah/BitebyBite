@@ -89,6 +89,18 @@
   .deselected {
     font-size: 0.9rem;
     color: #5e4a6d;
-    background-color: $color-blue-light;
+    background-color: $green-light;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    color: #333;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 5px 0;
+
+    &:hover {
+      background-color: #d0f0f2 !important;
+    }
   }
 }

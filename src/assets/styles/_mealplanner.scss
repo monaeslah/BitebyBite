@@ -88,8 +88,13 @@
     .day-card {
     }
     .day {
-      background-color: #e5e1f5;
-      border-radius: 15px;
+      background-color: #e0e7f3; // رنگ پیشنهادی آبی مایل به خاکستری روشن
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); // سایه ملایم برای عمق دادن به کارت‌ها
+      color: #333; // رنگ متن تیره‌تر برای خوانایی بیشتر
+      font-weight: bold;
+
       padding: 20px;
       text-align: center;
       position: relative;
@@ -204,8 +209,15 @@
   color: $white-smoke;
 }
 .prev {
-  background-color: #e5e1f6;
-  color: #816d1a;
+  background-color: #007b83;
+  color: #fff8dc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15); // سایه ملایم
+  transition: background-color 0.3s ease, transform 0.1s ease;
+
+  &:hover {
+    background-color: #006570; // رنگ کمی تیره‌تر در حالت هاور
+    transform: translateY(-2px); // افکت جابجایی کوچک برای حالت هاور
+  }
 }
 /* Existing styles remain untouched */
 

@@ -16,11 +16,9 @@ const Navbar = () => {
       </div>
 
       <div className='menu' onClick={() => setMenuOpen(!menuOpen)}>
-        <span></span>
-        <span></span>
-        <span></span>
+        <span className='login'>Login</span>
+        <span className='signup'>Join us?</span>
       </div>
-      <ul className={menuOpen ? 'open' : ''}></ul>
     </nav>
   )
 }

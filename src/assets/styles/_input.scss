@@ -51,8 +51,21 @@
   box-sizing: border-box;
 
   color: #333;
-  background-color: #fff4c3;
+  background-color: $basic-white;
   transition: border-color 0.3s ease;
+
+  background-color: #f3faff; /* آبی بسیار روشن */
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1em;
+  color: #333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* سایه ملایم برای برجسته‌تر کردن */
+  transition: border-color 0.3s ease;
+
+  &:focus {
+    border-color: #007b83; /* رنگ برجسته‌تر هنگام فوکوس */
+  }
 }
 
 .inputContainer textarea:focus,

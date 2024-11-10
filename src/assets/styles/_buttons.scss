@@ -59,6 +59,18 @@
     background-color: $blue-button;
     color: $white-smoke;
     cursor: pointer;
+
+    background-color: $deep-teal; /* رنگ آبی مایل به فیروزه‌ای */
+    color: $color-white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+
+    &:hover {
+      background-color: $teal-hover;
+    }
   }
 }
 
