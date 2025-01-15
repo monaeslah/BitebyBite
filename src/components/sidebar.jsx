@@ -17,15 +17,9 @@ import {
   faClock
 } from '@fortawesome/free-solid-svg-icons'
 
-const Sidebar = ({ openForm, openAddRecipe, setAuth }) => {
-  const [openSidebar, setOpenSidebar] = useState(false) // State to control sidebar visibility
+const Sidebar = ({ openForm, openAddRecipe }) => {
+  const [openSidebar, setOpenSidebar] = useState(false)
 
-  useEffect(() => {
-    const publicRoutes = ['/', '/login', '/signup']
-    setAuth(!publicRoutes.includes(location.pathname))
-  }, [location.pathname, setAuth])
-
-  // Toggle sidebar visibility for mobile
   const toggleSidebar = () => setOpenSidebar(!openSidebar)
 
   return (
@@ -37,7 +31,7 @@ const Sidebar = ({ openForm, openAddRecipe, setAuth }) => {
       </div>
       <div className={`sidebar ${openSidebar ? 'open' : 'closed'}`}>
         <ul className='sidebar-list'>
-          <li className='menu-item' onClick={() => setAuth(false)}>
+          <li className='menu-item'>
             <Link to='/'>
               <span>Home</span>
               <FontAwesomeIcon icon={faHome} className='icon' />

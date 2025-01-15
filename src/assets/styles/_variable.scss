@@ -11,18 +11,19 @@ $color-orange-circle-start: #edc593;
 $deep-teal: #007b83;
 $teal-hover: #006a75;
 $green-light: #eaf7f8;
-$color-blue-circle-start: #adcdef;
-$color-blue-circle-end: #6189f0;
-$color-green-circle-end: #8b8fad;
-$color-green-circle-start: #bcccdc;
+$color-blue-circle-start: #b8efad;
+$color-blue-circle-end: #16f350;
+$color-green-circle-end: #092132;
+$color-green-circle-start: #aedeff;
+
 $background-main: #f4f7fb;
 $color-white: #fff;
 $basic-white: #f3faff;
 $basic-light-white: #f5f5f5;
 $color-orange-circle-end: #df9a62;
 $light-teal: #eaf7f8;
-$color-blue-start: #8fbdec;
-$color-blue-end: #547be6;
+$color-blue-start: #0660ba;
+$color-blue-end: #599e97;
 $color-orange-start: #f4c383;
 $color-orange-end: #eb9546;
 $color-text: #000000;
@@ -38,6 +39,7 @@ $color-green-pistachio-background: #a8e6cf;
 $color-orange-coral-button: #ff8c42;
 $color-yellow-lemon-highlight: #ffe47a;
 $yello-lemon-light: #fff4c3;
+$yello-lemon-lighter: #fbf7e5a3;
 ////
 ///
 $color-cream-beige-background: #fdf6f0;
@@ -97,3 +99,9 @@ $main-cta-box-shadow: 0px 2px 0px 1px $gray-blur-medium;
 
 // Border
 $primary-border: #396c35;
+
+$body-color: #393937;
+$accent-color: #f68b59;
+$white-color: #fff;
+$box-shadow: 0 0 5px #f68b59, 0 0 25px #f68b59, 0 0 50px #03e9f4,
+  0 0 100px #f68b59;

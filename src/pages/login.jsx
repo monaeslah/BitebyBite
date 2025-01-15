@@ -18,40 +18,7 @@ const LoginPage = ({ setAuth }) => {
     navigate('/my-recipes')
   }
 
-  return (
-    <div className='page'>
-      <div className='login-form'>
-        <form onSubmit={handleSubmit}>
-          <InputField className='inputField largeInput'>
-            <input
-              type='email'
-              name='email'
-              value={credentials.email}
-              onChange={handleChange}
-              placeholder='Enter email'
-            />
-          </InputField>
-          <InputField className='inputField largeInput'>
-            <input
-              type='password'
-              name='password'
-              value={credentials.password}
-              onChange={handleChange}
-              placeholder='Enter password'
-            />
-          </InputField>
-
-          <CookButton
-            onClick={handleSubmit}
-            label='Login'
-            enable={true}
-            size='medium'
-            className={'login-btn submit-btn'}
-          />
-        </form>
-      </div>
-    </div>
-  )
+  return <div className='page'></div>
 }
 
 export default LoginPage

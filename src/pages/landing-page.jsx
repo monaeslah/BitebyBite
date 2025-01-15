@@ -1,5 +1,5 @@
-import chefImage from '../assets/icons/chef.jpeg'
 import { Link } from 'react-router-dom'
+
 export const Home = () => {
   return (
     <div id='home-container'>
@@ -8,14 +8,20 @@ export const Home = () => {
           <h1>
             Your everyday <span className='highlight'>cooking</span> inspiration
           </h1>
-          <p>
-            From the simple to elaborate recipes, you can find them all here
-          </p>
-          <div className='hero-buttons'>
-            <button className='get-started'>
-              <Link to='/login'>Get Started</Link>
-            </button>
-            <Link to='/' className='learn-more'>
+          <div>
+            <p>
+              From the simple to elaborate recipes, you can find them all here
+            </p>
+            <div className='hero-buttons'>
+              <Link className='box__link button-animation' to='/my-recipes'>
+                Get Started
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </Link>
+            </div>
+            <Link to='/about' className=' learn-more'>
               Learn More
             </Link>
           </div>
@@ -34,9 +40,7 @@ export const Home = () => {
             </div>
           </div>
         </div>
-        <div className='hero-image'>
-          <img src={chefImage} alt='Chef holding a lobster' />
-        </div>
+        <div className='hero-image'></div>
       </div>{' '}
     </div>
   )

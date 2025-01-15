@@ -2,6 +2,17 @@ body {
   margin: 0;
 }
 #home-container {
+  display: flex;
+  background: $primary-deep-blue;
+  justify-content: left;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../images/login3.jpeg');
+  padding-left: 110px;
+  background-position: right;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
   padding: 3rem 2rem;
   font-family: Arial, sans-serif;
 
@@ -14,7 +25,10 @@ body {
 
     .hero-text {
       max-width: 50%;
-
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 40px;
       h1 {
         color: $color-yellow-deep-cream;
         font-size: 3rem;
@@ -42,30 +56,12 @@ body {
         display: flex;
         align-items: center;
         margin-top: 1rem;
-
-        .get-started {
-          padding: 0.5rem 1.5rem;
-          background-color: $orange-button;
-
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          font-weight: bold;
-          a {
-            color: $color-white;
-            text-decoration: none;
-          }
-        }
-
-        .learn-more {
-          margin-left: 1rem;
-          color: $orange-button;
-          text-decoration: none;
-          font-weight: bold;
-          font-size: 1rem;
-        }
       }
-
+      .learn-more {
+        color: white;
+        margin: 2rem;
+        font-size: 0.9rem;
+      }
       .metrics {
         display: flex;
         gap: 2rem;
@@ -100,6 +96,128 @@ body {
       }
     }
   }
+
+  :root {
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    $body-font: 'Montserrat', sans-serif;
+    $normal-font-size: 1rem;
+
+    /*========== Font weight ==========*/
+    $font-regular: 400;
+    $font-semi-bold: 600;
+
+    /*========== z index ==========*/
+    $z-tooltip: 10;
+    $z-fixed: 100;
+  }
+
+  /*=============== BASE ===============*/
+
+  a {
+    text-decoration: none;
+  }
+
+  .button-animation {
+    position: relative;
+    display: inline-block;
+    padding: 20px 30px;
+    color: $accent-color;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: 4px;
+    transition: 0.5s;
+    span {
+      position: absolute;
+      display: block;
+    }
+
+    span:nth-child(1) {
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, $accent-color);
+      animation: btn-anim1 1s linear infinite;
+    }
+    @keyframes btn-anim1 {
+      0% {
+        left: -100%;
+      }
+      50%,
+      100% {
+        left: 100%;
+      }
+    }
+
+    span:nth-child(2) {
+      top: -100%;
+      right: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(180deg, transparent, $accent-color);
+      animation: btn-anim2 1s linear infinite;
+      animation-delay: 0.25s;
+    }
+    @keyframes btn-anim2 {
+      0% {
+        top: -100%;
+      }
+      50%,
+      100% {
+        top: 100%;
+      }
+    }
+
+    span:nth-child(3) {
+      bottom: 0;
+      right: -100%;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(270deg, transparent, $accent-color);
+      animation: btn-anim3 1s linear infinite;
+      animation-delay: 0.5s;
+    }
+    @keyframes btn-anim3 {
+      0% {
+        right: -100%;
+      }
+      50%,
+      100% {
+        right: 100%;
+      }
+    }
+
+    span:nth-child(4) {
+      bottom: -100%;
+      left: 0;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(360deg, transparent, $accent-color);
+      animation: btn-anim4 1s linear infinite;
+      animation-delay: 0.75s;
+    }
+
+    @keyframes btn-anim4 {
+      0% {
+        bottom: -100%;
+      }
+      50%,
+      100% {
+        bottom: 100%;
+      }
+    }
+
+    &:hover {
+      background-color: $accent-color;
+      color: $white-color;
+      border-radius: 5px;
+      box-shadow: $box-shadow;
+    }
+  }
 }
 @media (max-width: 490px) {
   #home-container {
@@ -128,13 +246,12 @@ body {
           .get-started {
             padding: 0.5rem 1.2rem;
           }
-
-          .learn-more {
-            margin-top: 1rem;
-            font-size: 0.9rem;
-          }
         }
-
+        .learn-more {
+          color: white;
+          margin-top: 1rem;
+          font-size: 0.9rem;
+        }
         .metrics {
           display: none;
 

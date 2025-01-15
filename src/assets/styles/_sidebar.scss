@@ -1,10 +1,10 @@
 .sidebar {
   position: fixed;
-  top: 60px;
+
   left: 0;
   width: 100%;
   max-width: 250px;
-  height: calc(100vh - 60px);
+  height: 100vh;
   background-color: #06314c;
   overflow-y: auto;
   z-index: 10;
@@ -31,12 +31,12 @@
   display: flex;
   align-items: center;
   padding: 12px 10px;
-  background-color: #fffaf8; /* رنگ هلویی برای کارت‌ها */
+  background-color: #fffaf8;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
   color: #5e4a6d;
   text-decoration: none;
   border-radius: 3px;
-  margin-bottom: 5px; /* Space between items */
+  margin-bottom: 5px;
   transition: background-color 0.3s ease;
 }
 .sidebar-list li a {

@@ -1,4 +1,7 @@
 #recipes-container {
+  background: $yello-lemon-lighter;
+  height: 100vh;
+  padding-left: 270px;
   .content-countainer {
     display: flex;
     a {
@@ -32,7 +35,7 @@
           gap: 10px;
           width: 100%;
           height: 100%;
-
+          color: white;
           flex-direction: row;
 
           .card-image-wrapper {
@@ -61,18 +64,14 @@
               }
             }
             .card-title {
-              color: #5e4a6d;
               text-align: center;
               text-decoration: none;
 
               p {
-                color: #34263f;
+                color: white;
                 font-weight: bold;
                 text-decoration: none;
               }
-            }
-
-            .card-actions {
             }
           }
         }
@@ -136,12 +135,7 @@
     font-size: 2em;
     opacity: 0.5;
   }
-  .ranking-badge-blue {
-    @include card-gradient($color-blue-circle-start, $color-blue-circle-end);
-  }
-  .ranking-badge-purple {
-    @include card-gradient($color-green-circle-start, $color-green-circle-end);
-  }
+
   .ranking-badge-orange {
     @include card-gradient(
       $color-orange-circle-start,
@@ -149,9 +143,7 @@
     );
   }
 }
-/* Existing styles remain untouched */
 
-/* Mobile-specific styles for screens less than 490px */
 @media (max-width: 490px) {
   .girlChef {
     display: none;
