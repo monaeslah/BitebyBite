@@ -27,7 +27,6 @@
 }
 .mainBtn {
   position: relative;
-
   display: flex;
   padding: 6px 16px;
   justify-content: center;
@@ -37,7 +36,6 @@
   max-height: 32px;
   display: flex;
   justify-content: center;
-  color: $primary-green;
 
   img {
     margin-left: auto;
@@ -51,16 +49,13 @@
   }
 
   &.primary-btn {
+    background-color: $primary-deep-blue;
     color: $white-smoke;
     cursor: pointer;
-
-    background-color: $primary-deep-blue;
-
-    color: $color-white;
     padding: 8px 12px;
     border-radius: 5px;
     font-weight: bold;
-    cursor: pointer;
+
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 
     &:hover {

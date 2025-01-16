@@ -71,36 +71,33 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 14px;
-      &.active {
-        background-color: #4caf50;
-        color: white;
-      }
 
       &:hover {
-        background-color: $red-blur-medium;
+        background-color: $primary-deep-blue-hover;
         color: white;
       }
     }
   }
   .selected {
-    background-color: $blue-button;
+    background: $color-navy-tag;
     color: $color-white;
+    border: 2px solid $color-yellow-lemon-highlight;
   }
   .deselected {
-    font-size: 0.9rem;
-    color: $color-text-dark-purple;
-    background-color: $green-light;
+    background-color: $color-yellow-lemon-highlight;
     padding: 8px 10px;
     border-radius: 8px;
     font-weight: bold;
-    color: #333;
+    color: $color-navy-tag;
     display: inline-flex;
     align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     gap: 10px;
     margin: 5px 0;
 
     &:hover {
-      background-color: #d0f0f2 !important;
+      background: $color-yellow-deep-creamy !important;
+      color: $color-navy-tag !important;
     }
   }
 }
