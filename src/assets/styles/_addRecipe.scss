@@ -95,23 +95,25 @@
   }
 
   .submit-btn {
-    background-color: #0056b3; /* آبی تیره */
+    background-color: $color-navy-tag;
     color: $color-white;
     padding: 12px 20px;
     border-radius: 8px;
     font-size: 1em;
     font-weight: bold;
     cursor: pointer;
-    width: 100%; // پر کردن عرض
-    max-width: 200px; // محدود کردن عرض برای زیبایی
-    margin: 20px auto 0; // فاصله‌گذاری مناسب از بالا و مرکز قرار دادن
+    width: 100%;
+
+    max-width: 200px;
+
+    margin: 20px auto 0;
 
     &:hover {
-      background-color: #004494;
+      background-color: $primary-deep-blue-hover;
     }
   }
   .customButtonStyle {
-    background-color: $blue-button;
+    background-color: $color-navy-tag;
     color: white;
     padding: 10px 20px;
     border-radius: 5px;
@@ -120,9 +122,15 @@
     font-size: 16px;
     transition: background-color 0.3s ease;
     &:hover {
-      background-color: $progress-color-shagi;
+      background-color: $primary-deep-blue-hover;
     }
   }
+}
+.rating-area {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
 }
 .dragging {
   opacity: 0.5; /* Makes the item semi-transparent while dragging */
@@ -132,7 +140,7 @@
   border-top: 2px dashed #000; /* Adds a dashed border to show drop target */
 }
 .mouse-image {
-  margin: 0 auto;
+  margin: 30px auto;
   width: 400px;
   img {
     width: 100%;
@@ -189,4 +197,8 @@
     padding: 8px 10px;
     font-size: 0.9rem;
   }
+}
+.country {
+  margin-left: 20px;
+  width: 420px;
 }

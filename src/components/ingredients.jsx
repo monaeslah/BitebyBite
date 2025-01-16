@@ -48,7 +48,7 @@ const IngredientsSection = ({
   return (
     <div className='main-section'>
       <div className='input'>
-        <InputField className='inputField largeInput' label='Ingredients:'>
+        <InputField className='inputField largeInput' label='Ingredients'>
           <input
             value={ingredient}
             onChange={e => setIngredient(e.target.value)}

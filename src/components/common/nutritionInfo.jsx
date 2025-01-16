@@ -7,26 +7,15 @@ const NutritionalInfo = ({ data, onChange }) => (
     <legend>Nutritional Information</legend>
     {['calories', 'protein', 'fat', 'carbohydrates'].map(field => (
       <div className='button-section' key={field}>
-        <InputField
-          className='inputField smallInput'
-          // label={field.charAt(0).toUpperCase() + field.slice(1)}
-        >
+        <InputField className='inputField smallInput'>
           <input
             name={field}
             value={data[field] || ''}
             onChange={e => onChange(e)}
             placeholder={field.charAt(0).toUpperCase() + field.slice(1)}
+            type='number'
           />
         </InputField>
-
-        {/* <CookButton
-          onClick={() => console.log(`${field} added`)}
-          label={'Select Unit'}
-          enable={true}
-          size='small'
-          className={'primary-btn'}
-          options={['kcl', 'kj']}
-        /> */}
       </div>
     ))}
   </fieldset>

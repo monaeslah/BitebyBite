@@ -1,7 +1,8 @@
 // Modal.js
 import { useEffect } from 'react'
 import ReactDOM from 'react-dom'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
 function Modal ({ className = '', classNo = '', isOpen, onClose, children }) {
   const handleClickOutside = e => {
     if (e.target.id === 'modal-overlay') {
@@ -27,9 +28,11 @@ function Modal ({ className = '', classNo = '', isOpen, onClose, children }) {
       onClick={handleClickOutside}
     >
       <div className={` ${classNo}`}>
-        <button className='close-button' onClick={onClose}>
-          X
-        </button>
+        <FontAwesomeIcon
+          className='close-button'
+          icon={faWindowClose}
+          onClick={onClose}
+        />
         {children}
       </div>
     </div>,

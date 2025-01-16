@@ -9,6 +9,9 @@ import InstructionsSection from '../components/common/instructions'
 import { useNavigate } from 'react-router-dom'
 import { CookButton } from '../components/common/buttons'
 import mouse from '../assets/icons/recipead.jpeg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faStar } from '@fortawesome/free-solid-svg-icons'
+import CountrySelect from './countriesselect'
 const AddRecipe = ({ onClose }) => {
   const [recipe, setRecipe] = useState({
     name: '',
@@ -18,6 +21,7 @@ const AddRecipe = ({ onClose }) => {
     photos: [],
     rate: '',
     time: '',
+    country: null,
     nutritionalInformation: {
       calories: '',
       protein: '',
@@ -31,8 +35,14 @@ const AddRecipe = ({ onClose }) => {
 
   const [ingredient, setIngredient] = useState('')
   const [instruction, setInstruction] = useState('')
+  const [rating, setRating] = useState(recipe.rate || 0)
   const navigate = useNavigate()
-
+  const handleCountryChange = selectedOption => {
+    setRecipe(prev => ({
+      ...prev,
+      country: selectedOption
+    }))
+  }
   const handleChange = (e, field = null) => {
     const { name, value } = e.target
     setRecipe(prev =>
@@ -139,6 +149,12 @@ const AddRecipe = ({ onClose }) => {
     e.preventDefault()
     document.getElementById('hiddenFileInput').click()
   }
+
+  const handleStarClick = value => {
+    setRating(value)
+    handleChange({ target: { name: 'rate', value } })
+  }
+
   return (
     <div id='recipe-form'>
       <h2>Create a new Recipe</h2>
@@ -157,18 +173,6 @@ const AddRecipe = ({ onClose }) => {
 
             <InputField
               className='inputField textareaContainer largeInput'
-              label='Description'
-            >
-              <textarea
-                name='description'
-                value={recipe.description}
-                onChange={handleChange}
-                placeholder='Recipe Description'
-              />
-            </InputField>
-
-            <InputField
-              className='inputField textareaContainer largeInput'
               label='Recipe Note'
             >
               <textarea
@@ -178,7 +182,10 @@ const AddRecipe = ({ onClose }) => {
                 placeholder='Recipe Note'
               />
             </InputField>
-
+            <CountrySelect
+              selectedCountry={recipe.country}
+              onCountryChange={handleCountryChange}
+            />
             <TagsSection
               selectedTags={recipe.tags}
               onTagClick={handleTagClick}
@@ -191,13 +198,14 @@ const AddRecipe = ({ onClose }) => {
                 id='hiddenFileInput'
                 style={{ display: 'none' }}
               />
-              <button
-                onClick={triggerFileInput}
+
+              <CookButton
+                size='xlarge'
                 className='customButtonStyle'
-                disabled={waitingForImageUrl}
-              >
-                {waitingForImageUrl ? 'Uploading...' : 'Upload Image'}
-              </button>
+                enable={!waitingForImageUrl}
+                onClick={triggerFileInput}
+                label={waitingForImageUrl ? 'Uploading...' : 'Upload Image'}
+              />
             </InputField>
             {recipe.photos.length > 0 && (
               <div>
@@ -212,25 +220,39 @@ const AddRecipe = ({ onClose }) => {
                 ))}
               </div>
             )}
+            <div className='rating-area'>
+              <div className='rating-area'>
+                <label>Rating</label>
+                <div className='starRating'>
+                  {[1, 2, 3, 4, 5].map(star => (
+                    <FontAwesomeIcon
+                      key={star}
+                      icon={faStar}
+                      onClick={() => handleStarClick(star)}
+                      style={{
+                        cursor: 'pointer',
+                        color: star <= recipe.rate ? '#f5c518' : '#dcdcdc',
+                        fontSize: '24px',
+                        marginRight: '5px'
+                      }}
+                    />
+                  ))}
+                </div>
+              </div>
 
-            <InputField className='inputField smallInput' label='Rating'>
-              <input
-                name='rate'
-                value={recipe.rate}
-                onChange={handleChange}
-                placeholder='Recipe Rating'
-                type='number'
-              />
-            </InputField>
-
-            <InputField className='inputField smallInput' label='Time'>
-              <input
-                name='time'
-                value={recipe.time}
-                onChange={handleChange}
-                placeholder='Cooking Time'
-              />
-            </InputField>
+              <InputField
+                className='inputField mediumInput'
+                label='Cooking Time'
+              >
+                <input
+                  name='time'
+                  value={recipe.time}
+                  onChange={handleChange}
+                  placeholder='Cooking Time'
+                  type='number'
+                />
+              </InputField>
+            </div>
 
             <NutritionalInfo
               data={recipe.nutritionalInformation}
@@ -256,6 +278,7 @@ const AddRecipe = ({ onClose }) => {
               setInstruction={setInstruction}
               setInstructions={setInstructions}
             />
+
             <div className='mouse-image'>
               <img src={mouse} alt='' />
             </div>

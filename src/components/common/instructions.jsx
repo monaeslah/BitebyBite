@@ -44,7 +44,7 @@ const InstructionsSection = ({
   return (
     <div className='main-section'>
       <div className='input'>
-        <InputField className='inputField largeInput' label={'Instructions:'}>
+        <InputField className='inputField largeInput' label={'Instructions'}>
           <input
             name='instruction'
             value={instruction}
