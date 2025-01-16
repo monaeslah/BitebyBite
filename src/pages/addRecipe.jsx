@@ -141,7 +141,7 @@ const AddRecipe = ({ onClose }) => {
   }
   return (
     <div id='recipe-form'>
-      <h2>Create Recipe</h2>
+      <h2>Create a new Recipe</h2>
       <form onSubmit={handleSubmit}>
         <div className='form-container'>
           <div className='left-side'>
