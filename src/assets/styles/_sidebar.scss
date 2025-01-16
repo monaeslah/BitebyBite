@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 250px;
   height: 100vh;
-  background-color: #06314c;
+  background-color: $primary-deep-blue-bg;
   overflow-y: auto;
   z-index: 10;
   padding: 8px 5px;
@@ -17,7 +17,7 @@
 .sidebar-list {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 120px 0;
 }
 
 .sidebar-list h3 {
@@ -31,16 +31,16 @@
   display: flex;
   align-items: center;
   padding: 12px 10px;
-  background-color: #fffaf8;
+  background-color: $white-color;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  color: #5e4a6d;
+  color: $color-text-dark-purple;
   text-decoration: none;
   border-radius: 3px;
   margin-bottom: 5px;
   transition: background-color 0.3s ease;
 }
 .sidebar-list li a {
-  color: #5e4a6d;
+  color: $color-text-dark-purple;
   text-decoration: none;
   flex-grow: 1;
   display: flex;
@@ -53,16 +53,20 @@
 }
 
 .sidebar-list li:hover {
-  background-color: #f9a87d;
+  background-color: $yello-lemon-light;
   box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  transform: scale(1.05);
 }
 /* Icon styles */
 .icon {
-  color: $primary-vibrant-red-trans;
+  color: $primary-deep-blue-bg;
 }
+
 .re-nav {
-  display: none;
+  width: 110px;
+  height: 30px;
+  img {
+    width: 100%;
+  }
 }
 @media (max-width: 490px) {
   .sidebar {
@@ -95,15 +99,6 @@
     background: none;
     border: none;
     cursor: pointer;
-  }
-
-  .re-nav {
-    width: 100%;
-    height: 60px;
-    background-color: #8faadf;
-    display: flex;
-    align-items: center;
-    z-index: 11;
   }
 
   .logo-image {

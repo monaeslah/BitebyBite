@@ -1,14 +1,12 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import wlogo from '../assets/icons/mlogo1.jpeg'
+import wlogo from '../assets/images/logomain.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faHome,
   faPlus,
   faBook,
-  faSearch,
-  faTrashAlt,
   faLightbulb,
   faTags,
   faHeart,
@@ -24,12 +22,10 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
 
   return (
     <>
-      <div className='re-nav'>
-        <button onClick={toggleSidebar} className='sidebar-toggle-btn'>
-          <img src={wlogo} className='logo-image' alt='Logo' />
-        </button>
-      </div>
       <div className={`sidebar ${openSidebar ? 'open' : 'closed'}`}>
+        <div className='re-nav'>
+          <img src={wlogo} className='logo-image' alt='Logo' />
+        </div>
         <ul className='sidebar-list'>
           <li className='menu-item'>
             <Link to='/'>

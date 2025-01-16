@@ -13,8 +13,8 @@ $teal-hover: #006a75;
 $green-light: #eaf7f8;
 $color-blue-circle-start: #b8efad;
 $color-blue-circle-end: #16f350;
-$color-green-circle-end: #092132;
-$color-green-circle-start: #eaf7f8;
+$color-green-circle-end: rgb(7 49 76);
+$color-green-circle-start: #e5fafb;
 
 $background-main: #f4f7fb;
 $color-white: #fff;
@@ -31,7 +31,8 @@ $color-text: #000000;
 // Primary Palette Colors
 
 $primary-deep-gray: #3d3336;
-$primary-deep-blue: rgb(7 49 76);
+$primary-deep-blue: #07314c;
+$primary-deep-blue-bg: #06314c;
 $primary-deep-navi: #3c3a58;
 $primary-vibrant-red-trans: #f7e7e6d4;
 // Secondary Palette Colors
@@ -58,6 +59,7 @@ $white-smoke: #f2ffff;
 $primary-green: #1c6030d6;
 $color-blue-light: #c8e2fb;
 $color-blue-ice: #e4f1fe;
+
 $pastel-blue: rgba(151, 191, 250, 0.928);
 $progress-color-shagi: #f4d3c3;
 $orange-button: #f68b59;
@@ -85,6 +87,7 @@ $live-blue-hover: #0056b3;
 // Text Colors
 $color-text-black: #333333;
 $color-text-primary: #3d3336;
+$color-text-dark-purple: #5e4a6d;
 $color-text-secondary: #6a6f76;
 $color-text-light: #888888;
 $color-text-help: #a8a8a8;
