@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { getRecipes } from '../../config/utilCurd'
 import { Link } from 'react-router-dom'
+import staticPhoto from '../../assets/images/healthy.jpeg'
 
 const TagPage = () => {
   const { tag } = useParams()
@@ -35,7 +36,7 @@ const TagPage = () => {
               className='recipe-card'
             >
               <img
-                src={recipe.photos[0]}
+                src={recipe.photos ? recipe.photos[0] : staticPhoto}
                 alt={recipe.name}
                 className='recipe-card__image'
               />

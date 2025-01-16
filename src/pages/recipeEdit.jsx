@@ -5,6 +5,8 @@ import TagsSection from '../components/common/tagSection'
 import NutritionalInfo from '../components/common/nutritionInfo'
 import IngredientsSection from '../components/ingredients'
 import InstructionsSection from '../components/common/instructions'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 import { useNavigate, useParams } from 'react-router-dom'
 
@@ -181,6 +183,14 @@ const RecipeEdit = () => {
   return (
     <div id='recipe-form'>
       <h2>Edit Recipe</h2>
+      <div
+        className='back-button'
+        onClick={() => navigate(-1)}
+        style={{ marginLeft: 'auto', marginRight: '60px' }}
+      >
+        <FontAwesomeIcon icon={faTimes} style={{ marginRight: '8px' }} />
+        Cancel
+      </div>
       <form onSubmit={handleSubmit}>
         <div className='form-container'>
           <div className='left-side'>

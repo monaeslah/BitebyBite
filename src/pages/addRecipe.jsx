@@ -15,7 +15,7 @@ import CountrySelect from './countriesselect'
 const AddRecipe = ({ onClose }) => {
   const [recipe, setRecipe] = useState({
     name: '',
-    description: '',
+
     recipeNote: '',
     tags: [],
     photos: [],

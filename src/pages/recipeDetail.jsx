@@ -6,6 +6,10 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import NutritionalInfo from './nut'
 import Fav from '../assets/icons/heart.png'
 import unFav from '../assets/icons/emptyheart.png'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
+import staticPhoto from '../assets/images/healthy.jpeg'
 const RecipeDetail = () => {
   const [recipe, setRecipe] = useState(null)
   const { recipeId } = useParams()
@@ -27,7 +31,9 @@ const RecipeDetail = () => {
         console.log('The get api has error', e)
       })
   }
-
+  const editRecipe = id => {
+    navigate(`/recipe/edit/${id}`)
+  }
   const deleteRecipe = () => {
     axios
       .delete(`${import.meta.env.VITE_COOK_LAND_API}/recipes/${recipeId}.json`)
@@ -59,13 +65,25 @@ const RecipeDetail = () => {
 
   return (
     <div id='recipe-detail'>
+      <div className='back-button' onClick={() => navigate(-1)}>
+        <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '8px' }} />
+        Back
+      </div>
       <div className='action-buttons'>
-        <Link to={`/recipe/edit/${recipeId}`} className='edit'>
-          <button>Edit</button>
-        </Link>
-        <button className='delete' onClick={deleteRecipe}>
-          Delete
-        </button>
+        {' '}
+        <FontAwesomeIcon
+          icon={faEdit}
+          className='edit'
+          title='Edit'
+          onClick={() => editRecipe(recipeId)}
+        />
+        <FontAwesomeIcon
+          icon={faTrash}
+          className='delete'
+          onClick={deleteRecipe}
+          style={{ cursor: 'pointer' }}
+          title='Delete'
+        />
       </div>
 
       <p className='rate'>
@@ -75,7 +93,9 @@ const RecipeDetail = () => {
         <div className='summery'>
           <div className='image-border'>
             <img
-              src={recipe.photos && recipe.photos[0]}
+              src={
+                recipe.photos ? recipe.photos && recipe.photos[0] : staticPhoto
+              }
               alt={`Image of ${recipe.name}`}
               className='recipe-image'
             />
@@ -101,16 +121,12 @@ const RecipeDetail = () => {
               {recipe.tags &&
                 recipe.tags.map((tag, index) => <li key={index}>{tag}</li>)}
             </ul>
-            <p>
-              <strong>Description:</strong> {recipe.description}
-            </p>
           </div>
         </div>
 
         <div className='detail'>
           <IngredientsList ingredients={recipe.ingredients} />
 
-          {/* پاس دادن لیست دستور پخت به InstructionsList */}
           <InstructionsList instructions={recipe.instructions} />
         </div>
         <p>

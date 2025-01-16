@@ -2,7 +2,7 @@
   padding: 20px;
   font-family: Arial, sans-serif;
   max-width: 1240px;
-  margin: 0 40px; // قرار دادن محتوا در مرکز صفحه
+  margin: 0 40px;
 
   button {
     background: none;
@@ -15,11 +15,12 @@
   }
   .action-buttons {
     display: flex;
-    gap: 10px; // فاصله بین دکمه‌ها
+    gap: 10px;
     align-items: center;
+    justify-content: end;
     .edit {
       border: none;
-      background-color: #1a3a52; // رنگ آبی نفتی تیره
+      background-color: #1a3a52;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -29,12 +30,12 @@
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #163549; // رنگ کمی تیره‌تر برای هاور
+        background-color: #163549;
       }
     }
 
     .delete {
-      background-color: #4b3a47; // رنگ بنفش دودی
+      background-color: #ff6b6b;
       color: #fff;
       border: none;
       padding: 10px 20px;
@@ -44,7 +45,7 @@
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #3c2f3c; // رنگ کمی تیره‌تر برای هاور
+        background-color: #d64545;
       }
     }
   }
@@ -53,7 +54,7 @@
     font-weight: bold;
     font-size: 1.2em;
     margin-bottom: 10px;
-    color: $golden-yellow; // رنگ زرد برای جلب توجه به امتیاز
+    color: $golden-yellow;
   }
 
   .recipe-container {
@@ -92,7 +93,7 @@
       }
 
       .words {
-        flex: 1; // پر کردن فضای موجود برای کادر توضیحات
+        flex: 1;
 
         h1 {
           font-size: 2em;
@@ -107,7 +108,7 @@
           margin-bottom: 10px;
           font-weight: bold;
           display: inline-block;
-          color: $deep-teal; // رنگ مشابه برای هماهنگی
+          color: $deep-teal;
         }
 
         .tags-list {
@@ -137,20 +138,20 @@
       gap: 30px;
       .ingredient-list {
         display: flex;
-        flex-direction: column; // نمایش تک‌ستونه برای صرفه‌جویی در فضا
+        flex-direction: column;
         gap: 5px;
         width: 30%;
         .ingredient-item {
           display: flex;
           align-items: center;
           background-color: $basic-light-white;
-          padding: 4px 8px; // کاهش پدینگ برای کوچک‌تر شدن خانه‌ها
-          border-radius: 3px; // گوشه‌ها کمی گردتر
+          padding: 4px 8px;
+          border-radius: 3px;
           line-height: 1.2;
 
           input[type='checkbox'] {
             margin-right: 8px;
-            transform: scale(0.8); // کوچک‌تر کردن چک‌باکس
+            transform: scale(0.8);
             accent-color: #007b83;
           }
 
