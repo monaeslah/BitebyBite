@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import InputField from './inputField'
 import { CookButton } from './buttons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faWindowClose } from '@fortawesome/free-solid-svg-icons'
+
 const InstructionsSection = ({
   instructions,
   onAdd,
@@ -58,31 +61,29 @@ const InstructionsSection = ({
             className={'primary-btn'}
           />
         </InputField>
-      </div>
-      <ul className='list'>
-        {instructions &&
-          instructions.map((item, index) => (
-            <li
-              key={index}
-              draggable
-              onDragStart={e => onDragStart(e, index)}
-              onDragOver={onDragOver}
-              onDrop={e => onDrop(e, index)}
-              onDragEnd={onDragEnd}
-              className='item'
-            >
-              {item}
 
-              <CookButton
-                onClick={() => onDelete(index)}
-                label='Remove'
-                enable={true}
-                size='small remove'
-                className={'removeBtn remove'}
-              />
-            </li>
-          ))}
-      </ul>
+        <ul className='list'>
+          {instructions &&
+            instructions.map((item, index) => (
+              <li
+                key={index}
+                draggable
+                onDragStart={e => onDragStart(e, index)}
+                onDragOver={onDragOver}
+                onDrop={e => onDrop(e, index)}
+                onDragEnd={onDragEnd}
+                className='item'
+              >
+                {item}
+
+                <FontAwesomeIcon
+                  icon={faWindowClose}
+                  onClick={() => onDelete(index)}
+                />
+              </li>
+            ))}
+        </ul>
+      </div>
     </div>
   )
 }
