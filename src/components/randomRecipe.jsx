@@ -7,7 +7,7 @@ const SurpriseCard = ({ surprise, reselect, onClose }) => {
 
   useEffect(() => {
     setRandomRecipe(surprise)
-    console.log(surprise)
+    console.log('surprise', randomRecipe)
   }, [surprise])
 
   const handleLinkClick = () => {
@@ -19,14 +19,13 @@ const SurpriseCard = ({ surprise, reselect, onClose }) => {
 
   return (
     <div className='surprise-modal'>
-      {randomRecipe &&
+      {randomRecipe && randomRecipe.photos ? (
         randomRecipe.photos.map((item, index) => (
-          <img
-            src={item ? item : staticPhoto}
-            alt={randomRecipe.name}
-            key={index}
-          />
-        ))}
+          <img src={item} alt={randomRecipe.name} key={index} />
+        ))
+      ) : (
+        <img src={staticPhoto} alt='random' />
+      )}
       <div onClick={handleLinkClick} style={{ cursor: 'pointer' }}>
         <p>{randomRecipe && randomRecipe.name}</p>
       </div>
