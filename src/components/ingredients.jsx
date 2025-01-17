@@ -64,7 +64,7 @@ const IngredientsSection = ({
           />
         </InputField>
 
-        <ul className='list'>
+        <ol className='list'>
           {ingredients &&
             (ingredients || []).map((item, index) => (
               <li
@@ -84,7 +84,7 @@ const IngredientsSection = ({
                 />
               </li>
             ))}
-        </ul>
+        </ol>
       </div>
     </div>
   )

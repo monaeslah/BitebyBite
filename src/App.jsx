@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import { getRecipes } from './config/utilCurd'
 
 import AllRecipes from './pages/allRecipes'
-
+import Sidebar from './components/sidebar'
 import AddRecipe from './pages/addRecipe'
 import RecipeDetail from './pages/recipeDetail'
 import MealPlanner from './pages/mealPlanner'
@@ -22,7 +22,7 @@ function App () {
   const [isAddRecipeOpen, setIsAddRecipeOpen] = useState(false)
   const [cards, setCards] = useState([])
   const [rcards, setRcards] = useState([])
-
+  const location = useLocation()
   const openModal = () => {
     selectRandom()
     setIsFormOpen(true)
@@ -66,7 +66,11 @@ function App () {
       >
         <AddRecipe onClose={closeAddRecipeModal} />
       </Modal>
-      <div className='main-content'>
+      <div className={location.pathname !== '/' ? 'main-content' : ''}>
+        {location.pathname !== '/' && (
+          <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
+        )}
+
         <Routes>
           <Route path='/' element={<Landing />} />
 

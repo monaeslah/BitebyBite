@@ -62,7 +62,7 @@ const InstructionsSection = ({
           />
         </InputField>
 
-        <ul className='list'>
+        <ol className='list'>
           {instructions &&
             instructions.map((item, index) => (
               <li
@@ -82,7 +82,7 @@ const InstructionsSection = ({
                 />
               </li>
             ))}
-        </ul>
+        </ol>
       </div>
     </div>
   )

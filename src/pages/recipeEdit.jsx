@@ -7,7 +7,9 @@ import IngredientsSection from '../components/ingredients'
 import InstructionsSection from '../components/common/instructions'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import CountrySelect from './countriesselect'
 
+import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate, useParams } from 'react-router-dom'
 
 const RecipeEdit = () => {
@@ -170,7 +172,16 @@ const RecipeEdit = () => {
   if (!recipe) {
     return <p>Loading recipe data...</p>
   }
-
+  const handleCountryChange = selectedOption => {
+    setRecipe(prev => ({
+      ...prev,
+      country: selectedOption
+    }))
+  }
+  const handleStarClick = value => {
+    setRating(value)
+    handleChange({ target: { name: 'rate', value } })
+  }
   const handleRemoveImage = index => {
     setRecipe(prev => {
       const updatedPhotos = [...prev.photos]
@@ -220,7 +231,10 @@ const RecipeEdit = () => {
                 placeholder='Recipe Note'
               />
             </InputField>
-
+            <CountrySelect
+              selectedCountry={recipe.country}
+              onCountryChange={handleCountryChange}
+            />
             <TagsSection
               selectedTags={recipe.tags}
               onTagClick={handleTagClick}
@@ -277,15 +291,24 @@ const RecipeEdit = () => {
               </div>
             )}
 
-            <InputField className='inputField largeInput' label='Rating'>
-              <input
-                name='rate'
-                value={recipe.rate}
-                onChange={handleChange}
-                placeholder='Recipe Rating'
-                type='number'
-              />
-            </InputField>
+            <div className='rating-area'>
+              <label>Rating</label>
+              <div className='starRating'>
+                {[1, 2, 3, 4, 5].map(star => (
+                  <FontAwesomeIcon
+                    key={star}
+                    icon={faStar}
+                    onClick={() => handleStarClick(star)}
+                    style={{
+                      cursor: 'pointer',
+                      color: star <= recipe.rate ? '#f5c518' : '#dcdcdc',
+                      fontSize: '24px',
+                      marginRight: '5px'
+                    }}
+                  />
+                ))}
+              </div>
+            </div>
 
             <InputField className='inputField largeInput' label='Time'>
               <input
@@ -293,6 +316,7 @@ const RecipeEdit = () => {
                 value={recipe.time}
                 onChange={handleChange}
                 placeholder='Cooking Time'
+                type='number'
               />
             </InputField>
 

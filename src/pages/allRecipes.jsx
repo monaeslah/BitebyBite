@@ -3,8 +3,8 @@ import Card from './card'
 import { getRecipes } from '../config/utilCurd'
 
 import SearchBar from '../components/searchBar'
-import Sidebar from '../components/sidebar'
-const AllRecipes = ({ openForm, openAddRecipe }) => {
+
+const AllRecipes = () => {
   const [cards, setCards] = useState([])
 
   const [query, setQuery] = useState('')
@@ -24,7 +24,6 @@ const AllRecipes = ({ openForm, openAddRecipe }) => {
 
   return (
     <div id='recipes-container'>
-      <Sidebar openForm={openForm} openAddRecipe={openAddRecipe} />
       <SearchBar query={query} setQuery={setQuery} />
       <div className='content-countainer'>
         <div className='recipe-area'>

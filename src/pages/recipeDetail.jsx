@@ -65,10 +65,10 @@ const RecipeDetail = () => {
 
   return (
     <div id='recipe-detail'>
-      <div className='back-button' onClick={() => navigate(-1)}>
+      <Link className='back-button' to='/my-recipes'>
         <FontAwesomeIcon icon={faArrowLeft} style={{ marginRight: '8px' }} />
         Back
-      </div>
+      </Link>
       <div className='action-buttons'>
         {' '}
         <FontAwesomeIcon

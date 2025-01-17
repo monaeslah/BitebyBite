@@ -31,7 +31,7 @@ const SurpriseCard = ({ surprise, reselect, onClose }) => {
       </div>
 
       <CookButton
-        size='medium'
+        size='xlarge'
         className='lucky-btn'
         enable={true}
         onClick={reselect}
