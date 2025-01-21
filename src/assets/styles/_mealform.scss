@@ -1,6 +1,6 @@
 .meal-plan-form {
   padding: 20px;
-  width: 300px;
+  width: 550px;
   text-align: center;
   background: white;
   border-radius: 8px;
@@ -9,7 +9,12 @@
     margin-bottom: 15px;
     font-size: 1.5em;
   }
-
+  .meal-type-dropdown {
+    padding: 8px;
+    font-size: 16px;
+    margin: 0 8px;
+    width: 50%;
+  }
   .form-row {
     display: flex;
     justify-content: space-between;

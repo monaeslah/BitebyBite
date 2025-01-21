@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getRecipes } from '../config/utilCurd'
+import { getRecipes } from '../../config/utilCurd'
 import {
   format,
   startOfWeek,
@@ -7,15 +7,15 @@ import {
   eachDayOfInterval,
   getDate
 } from 'date-fns'
-import InputField from '../components/common/inputField'
+import InputField from '../../components/common/inputField'
 import HeaderNavigation from './headerNavigation'
 import DayCard from './dayCard'
-import NotesSection from './notSection'
+import NotesSection from '../notSection'
 import MealPlanModal from './mealPlanModal'
 import RecipeModal from './recipeModal'
 import axios from 'axios'
-import chefM from '../assets/icons/chef.png'
-import { CookButton } from '../components/common/buttons'
+import chefM from '../../assets/icons/chef.png'
+import { CookButton } from '../../components/common/buttons'
 function MealPlanner () {
   const [selectedDate, setSelectedDate] = useState(new Date())
   const [selectedDay, setSelectedDay] = useState(null)
@@ -38,7 +38,6 @@ function MealPlanner () {
     setSelectedDay(day)
     setIsModalOpen(true)
   }
-  console.log(isRecipeModalOpen)
 
   const saveMealPlan = mealData => {
     if (!selectedDay) return
@@ -97,7 +96,6 @@ function MealPlanner () {
         setSelectedDate={setSelectedDate}
         goToToday={() => setSelectedDate(new Date())}
       />
-
       <div className='header-fields'>
         <InputField label='Month'>
           <input type='text' value={format(selectedDate, 'MMMM')} readOnly />
@@ -113,7 +111,6 @@ function MealPlanner () {
           />
         </InputField>
       </div>
-
       <div className='calendar'>
         {daysInWeek.map(day => (
           <DayCard
@@ -129,17 +126,14 @@ function MealPlanner () {
         </div>
       </div>
       <NotesSection />
-
       <MealPlanModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onSave={saveMealPlan}
         onRemove={removeMealPlan}
         selectedRecipe={selectedRecipe}
-        mealPlans={mealPlans[getDate(selectedDay)] || []}
         setIsRecipeModalOpen={setIsRecipeModalOpen}
       />
-
       <RecipeModal
         isOpen={isRecipeModalOpen}
         onClose={() => setIsRecipeModalOpen(false)}

@@ -1,6 +1,6 @@
 import React from 'react'
-import Modal from '../components/modal'
-import MealPlanForm from '../components/mealPlanForm'
+import Modal from '../../components/modal'
+import MealPlanForm from './mealPlanForm'
 
 const MealPlanModal = ({
   isOpen,
@@ -15,7 +15,7 @@ const MealPlanModal = ({
       <MealPlanForm
         onSave={onSave}
         onRemove={onRemove}
-        recipe={selectedRecipe?.name || ''}
+        existingData={selectedRecipe || ''}
         onSearch={() => setIsRecipeModalOpen(true)}
       />
     </Modal>

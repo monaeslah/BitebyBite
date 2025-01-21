@@ -1,5 +1,5 @@
 import React from 'react'
-import { CookButton } from '../components/common/buttons'
+import { CookButton } from '../../components/common/buttons'
 import { subWeeks, addWeeks } from 'date-fns'
 const HeaderNavigation = ({ selectedDate, setSelectedDate, goToToday }) => {
   return (

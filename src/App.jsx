@@ -6,7 +6,7 @@ import AllRecipes from './pages/allRecipes'
 import Sidebar from './components/sidebar'
 import AddRecipe from './pages/addRecipe'
 import RecipeDetail from './pages/recipeDetail'
-import MealPlanner from './pages/mealPlanner'
+import MealPlanner from './pages/mealplanner/mealPlanner'
 import RecipeEdit from './pages/recipeEdit'
 import CategoryPage from './pages/filter/recipeTags'
 import FilteredRecipes from './pages/filter/filteredRecipes'
@@ -15,6 +15,7 @@ import SurpriseCard from './components/randomRecipe'
 
 import Landing from './pages/landing-page'
 import NotFound from './pages/notFound'
+import Timer from './pages/timer'
 
 function App () {
   const [isFormOpen, setIsFormOpen] = useState(false)
@@ -98,6 +99,7 @@ function App () {
           <Route path='/tags' element={<CategoryPage />} />
 
           <Route path='/tag/:tag' element={<FilteredRecipes />} />
+          <Route path='/timers' element={<Timer />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
       </div>

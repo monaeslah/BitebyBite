@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
-import Modal from '../components/modal'
+import Modal from '../../components/modal'
 
-const RecipeModal = ({ isOpen, onClose, recipes, onSelectRecipe }) => {
+const RecipeModal = ({
+  isOpen,
+  onClose,
+  recipes,
+  onSelectRecipe,
+  selectedDay
+}) => {
   const [selectedRecipe, setSelectedRecipe] = useState(null)
+  const [selectedddetial, setSelecteddetial] = useState(null)
 
   const handleSelect = recipe => {
+    setSelecteddetial(selectedDay)
     setSelectedRecipe(recipe)
     onSelectRecipe(recipe)
     onClose()
-    console.log(recipe)
   }
 
   return (
