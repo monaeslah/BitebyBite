@@ -22,7 +22,7 @@
 
 ## Demo
 
-Check out the live demo here: **[Smart Meal Planner Demo](https://your-demo-link.com)**
+Check out the live demo here: **[Smart Meal Planner Demo](https://bitebybite.netlify.app/)**
 
 ## Lessons Learned
 
@@ -79,7 +79,3 @@ VITE_API_URL=<Backend API Base URL>
 VITE_CLOUDINARY_NAME=<Cloudinary Upload URL>
 VITE_UNSIGNED_UPLOAD_PRESET=<Your Cloudinary Upload Preset>
 ````
-
-## Demo
-
-backend repository can be found [here](https://bitebybite.netlify.app/)
