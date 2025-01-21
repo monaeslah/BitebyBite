@@ -1,7 +1,10 @@
 #recipes-container {
   background: $yello-lemon-lighter;
   height: 100vh;
+  display: flex;
+  margin: 0 auto;
 
+  flex-direction: column;
   .content-countainer {
     display: flex;
     a {
@@ -149,4 +152,8 @@
   .girlChef {
     display: none;
   }
+}
+#searchbar {
+  display: flex;
+  margin: 0 auto;
 }
