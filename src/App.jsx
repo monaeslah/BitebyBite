@@ -68,7 +68,7 @@ function App () {
         <AddRecipe onClose={closeAddRecipeModal} />
       </Modal>
       <div className={location.pathname !== '/' ? 'main-content' : ''}>
-        {location.pathname !== '/' && (
+        {location.pathname !== '/' && location.pathname !== '/about' && (
           <Sidebar openForm={openModal} openAddRecipe={openAddRecipeModal} />
         )}
 
