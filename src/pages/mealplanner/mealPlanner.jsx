@@ -10,7 +10,7 @@ import {
 import InputField from '../../components/common/inputField'
 import HeaderNavigation from './headerNavigation'
 import DayCard from './dayCard'
-import NotesSection from '../notSection'
+import NotesSection from './notSection'
 import MealPlanModal from './mealPlanModal'
 import RecipeModal from './recipeModal'
 import axios from 'axios'

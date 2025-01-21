@@ -1,17 +1,17 @@
 import { useState } from 'react'
 import axios from 'axios'
 
-import InputField from '../components/common/inputField'
-import TagsSection from '../components/common/tagSection'
-import NutritionalInfo from '../components/common/nutritionInfo'
-import IngredientsSection from '../components/ingredients'
-import InstructionsSection from '../components/common/instructions'
+import InputField from '../../components/common/inputField'
+import TagsSection from '../../components/common/tagSection'
+import NutritionalInfo from '../../components/common/nutritionInfo'
+import IngredientsSection from '../../components/ingredients'
+import InstructionsSection from '../../components/common/instructions'
 import { useNavigate } from 'react-router-dom'
-import { CookButton } from '../components/common/buttons'
-import mouse from '../assets/icons/recipead.jpeg'
+import { CookButton } from '../../components/common/buttons'
+import mouse from '../../assets/icons/recipead.jpeg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import CountrySelect from './countriesselect'
+import CountrySelect from '../countriesselect'
 const AddRecipe = ({ onClose }) => {
   const [recipe, setRecipe] = useState({
     name: '',

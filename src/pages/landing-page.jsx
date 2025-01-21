@@ -22,7 +22,7 @@ export const Home = () => {
               </Link>
             </div>
             <Link to='/about' className=' learn-more'>
-              Learn More
+              About me
             </Link>
           </div>
           <div className='metrics'>

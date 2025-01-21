@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import Card from './card'
-import { getRecipes } from '../config/utilCurd'
+import { getRecipes } from '../../config/utilCurd'
 
-import SearchBar from '../components/searchBar'
+import SearchBar from '../../components/searchBar'
 
 const AllRecipes = () => {
   const [cards, setCards] = useState([])

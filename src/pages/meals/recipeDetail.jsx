@@ -3,13 +3,13 @@ import { useEffect, useState } from 'react'
 import IngredientsList from './ingredientsList'
 import InstructionsList from './instructions'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import NutritionalInfo from './nut'
-import Fav from '../assets/icons/heart.png'
-import unFav from '../assets/icons/emptyheart.png'
+import NutritionalInfo from '../nut'
+import Fav from '../../assets/icons/heart.png'
+import unFav from '../../assets/icons/emptyheart.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
-import staticPhoto from '../assets/images/healthy.jpeg'
+import staticPhoto from '../../assets/images/healthy.jpeg'
 const RecipeDetail = () => {
   const [recipe, setRecipe] = useState(null)
   const { recipeId } = useParams()

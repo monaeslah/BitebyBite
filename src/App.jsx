@@ -2,17 +2,17 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import { getRecipes } from './config/utilCurd'
 
-import AllRecipes from './pages/allRecipes'
+import AllRecipes from './pages/meals/allRecipes'
 import Sidebar from './components/sidebar'
-import AddRecipe from './pages/addRecipe'
-import RecipeDetail from './pages/recipeDetail'
+import AddRecipe from './pages/meals/addRecipe'
+import RecipeDetail from './pages/meals/recipeDetail'
 import MealPlanner from './pages/mealplanner/mealPlanner'
-import RecipeEdit from './pages/recipeEdit'
+import RecipeEdit from './pages/meals/recipeEdit'
 import CategoryPage from './pages/filter/recipeTags'
 import FilteredRecipes from './pages/filter/filteredRecipes'
 import Modal from './components/modal'
 import SurpriseCard from './components/randomRecipe'
-
+import AboutProject from './pages/about'
 import Landing from './pages/landing-page'
 import NotFound from './pages/notFound'
 import Timer from './pages/timer'
@@ -100,6 +100,7 @@ function App () {
 
           <Route path='/tag/:tag' element={<FilteredRecipes />} />
           <Route path='/timers' element={<Timer />} />
+          <Route path='/about' element={<AboutProject />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
       </div>
