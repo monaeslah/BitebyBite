@@ -20,10 +20,10 @@ export const Home = () => {
                 <span></span>
                 <span></span>
               </Link>
+              <Link to='/about' className=' learn-more'>
+                About me
+              </Link>
             </div>
-            <Link to='/about' className=' learn-more'>
-              About me
-            </Link>
           </div>
           <div className='metrics'>
             <div>

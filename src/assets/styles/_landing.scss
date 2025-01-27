@@ -54,7 +54,8 @@ body {
 
       .hero-buttons {
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        align-items: start;
         margin-top: 1rem;
       }
       .learn-more {
@@ -223,6 +224,8 @@ body {
   #home-container {
     padding: 1rem;
 
+    background-image: none;
+
     .hero-section {
       flex-direction: column;
       align-items: center;
@@ -231,6 +234,9 @@ body {
       .hero-text {
         max-width: 90%;
         text-align: center;
+        margin-top: 0px;
+        gap: 50px;
+
         h1 {
           font-size: 2rem;
         }
@@ -242,7 +248,7 @@ body {
         .hero-buttons {
           flex-direction: column;
           align-items: center;
-
+          gap: 30px;
           .get-started {
             padding: 0.5rem 1.2rem;
           }
