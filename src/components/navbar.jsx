@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import wlogo from '../assets/icons/mlogo1.jpeg'
-import fixlogo from '../assets/icons/welcomelogo.jpeg'
-import { Link, NavLink } from 'react-router-dom'
+
+import { NavLink } from 'react-router-dom'
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false)

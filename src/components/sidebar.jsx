@@ -13,15 +13,18 @@ import {
   faCalendarAlt,
   faList,
   faClock,
-  faBars, // Icon for the toggle button
-  faTimes // Icon for closing the menu
+  faBars,
+  faTimes
 } from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = ({ openForm, openAddRecipe }) => {
   const [openSidebar, setOpenSidebar] = useState(false)
 
   const toggleSidebar = () => setOpenSidebar(!openSidebar)
-
+  const luckForm = () => {
+    openForm()
+    setOpenSidebar(false)
+  }
   return (
     <>
       {/* Toggle button */}
@@ -52,7 +55,7 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
               <FontAwesomeIcon icon={faBook} className='icon' />
             </Link>
           </li>
-          <li className='menu-item' onClick={openForm}>
+          <li className='menu-item' onClick={luckForm}>
             <span>Lucky Choice!</span>
             <FontAwesomeIcon icon={faLightbulb} className='icon' />
           </li>

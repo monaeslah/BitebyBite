@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+
 import { CookButton } from '../components/common/buttons'
 import staticPhoto from '../assets/images/healthy.jpeg'
 const SurpriseCard = ({ surprise, reselect, onClose }) => {
@@ -7,7 +8,6 @@ const SurpriseCard = ({ surprise, reselect, onClose }) => {
 
   useEffect(() => {
     setRandomRecipe(surprise)
-    console.log('surprise', randomRecipe)
   }, [surprise])
 
   const handleLinkClick = () => {
@@ -18,14 +18,17 @@ const SurpriseCard = ({ surprise, reselect, onClose }) => {
   }
 
   return (
-    <div className='surprise-modal'>
-      {randomRecipe && randomRecipe.photos ? (
-        randomRecipe.photos.map((item, index) => (
-          <img src={item} alt={randomRecipe.name} key={index} />
-        ))
-      ) : (
-        <img src={staticPhoto} alt='random' />
-      )}
+    <div className='lucky-card'>
+      <div className='surprise-modal' onClick={handleLinkClick}>
+        {randomRecipe && randomRecipe.photos ? (
+          randomRecipe.photos.map((item, index) => (
+            <img src={item} alt={randomRecipe.name} key={index} />
+          ))
+        ) : (
+          <img src={staticPhoto} alt='random' />
+        )}
+      </div>
+
       <div onClick={handleLinkClick} style={{ cursor: 'pointer' }}>
         <p>{randomRecipe && randomRecipe.name}</p>
       </div>
