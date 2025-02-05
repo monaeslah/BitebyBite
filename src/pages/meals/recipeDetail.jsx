@@ -90,7 +90,7 @@ const RecipeDetail = () => {
         <strong>Rating:</strong> {recipe.rate} ⭐
       </p>
       <div className='recipe-container'>
-        <div className='summery'>
+        <div className='summary'>
           <div className='image-border'>
             <img
               src={

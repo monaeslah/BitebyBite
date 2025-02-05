@@ -62,7 +62,7 @@
     flex-direction: column;
     gap: 20px;
 
-    .summery {
+    .summary {
       display: flex;
       gap: 20px;
 
@@ -128,7 +128,7 @@
         .description {
           font-size: 1em;
           margin-top: 15px;
-          color: #666; // رنگ کمی ملایم‌تر برای توضیحات
+          color: #666;
         }
       }
     }
@@ -200,17 +200,17 @@
     }
   }
 }
-@media (max-width: 490px) {
+@media (max-width: 768px) {
   #recipe-detail {
     padding: 10px;
-
+    margin: 45px auto;
     .recipe-container {
       gap: 15px;
 
-      .summery {
+      .summary {
         flex-direction: column;
         .image-border {
-          width: 100%;
+          width: 95%;
           padding: 5px;
 
           .fav-icon {
@@ -219,10 +219,17 @@
           }
         }
 
-        h1 {
-          font-size: 1.5em;
-        }
+        .words {
+          flex: 1;
 
+          h1 {
+            font-size: 1.5em;
+          }
+          .nut-info {
+            width: 90%;
+            padding: 6px;
+          }
+        }
         .tags-list {
           gap: 5px;
           li {
@@ -234,6 +241,9 @@
 
       .detail {
         flex-direction: column;
+        .ingredient-list {
+          width: 100%;
+        }
       }
 
       button {

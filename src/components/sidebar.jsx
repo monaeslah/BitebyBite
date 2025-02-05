@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import wlogo from '../assets/images/logomain.png'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -12,7 +12,9 @@ import {
   faHeart,
   faCalendarAlt,
   faList,
-  faClock
+  faClock,
+  faBars, // Icon for the toggle button
+  faTimes // Icon for closing the menu
 } from '@fortawesome/free-solid-svg-icons'
 
 const Sidebar = ({ openForm, openAddRecipe }) => {
@@ -22,6 +24,11 @@ const Sidebar = ({ openForm, openAddRecipe }) => {
 
   return (
     <>
+      {/* Toggle button */}
+      <button className='sidebar-toggle-btn' onClick={toggleSidebar}>
+        <FontAwesomeIcon icon={openSidebar ? faTimes : faBars} />
+      </button>
+
       <div className={`sidebar ${openSidebar ? 'open' : 'closed'}`}>
         <div className='re-nav'>
           <img src={wlogo} className='logo-image' alt='Logo' />
